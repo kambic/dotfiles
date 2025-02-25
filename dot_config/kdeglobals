@@ -1,0 +1,14 @@
+[Colors:View]
+BackgroundNormal=#FFFFFF
+
+[General]
+TerminalApplication=
+
+[Icons]
+Theme=Tela-circle-dracula
+
+[KDE]
+widgetStyle=kvantum
+
+[UiSettings]
+ColorScheme=colors
