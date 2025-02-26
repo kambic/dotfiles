@@ -1,0 +1,56 @@
+{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $hostname := .chezmoi.hostname -}}
+
+
+{{/* boolean feature tags */}}
+{{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
+{{- "" -}}
+
+{{- $osID := .chezmoi.os -}}
+{{- if .chezmoi.osRelease }}
+{{-     if hasKey .chezmoi.osRelease "id" -}}
+{{-         $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{-     end -}}
+{{- end -}}
+
+{{- if not $headless -}}
+{{-   if stdinIsATTY -}}
+{{-     $headless = promptBoolOnce . "headless" "Is the machine typically not x-serving? (e.g. remote machine)?" -}}
+{{-   else -}}
+{{-     $headless = true -}}
+{{-   end -}}
+{{- end -}}
+
+[edit-off]
+    command = "code"
+    args = ["--wait"]
+
+
+[data]
+    email = {{ $email | quote }}
+    hostname = {{ $hostname | quote }}
+    headless = {{ $headless }}
+
+[git]
+    autoCommit = true
+    autoAdd = true
+    autoPush = true
+
+[diff]
+    command = "kitten"
+    args = ["diff"]
+
+[merge]
+   command = "nvim"
+
+   args = [
+    "-d",
+    "{{ "{{" }} .Destination {{ "}}" }}",
+    "{{ "{{" }} .Source {{ "}}" }}",
+    "{{ "{{" }} .Target {{ "}}" }}",
+  ]
+
+[keepassxc]
+    database = "/home/kamba/Passwords.kdbx"
+
+

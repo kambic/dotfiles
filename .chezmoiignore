@@ -1,0 +1,19 @@
+README.md
+.oh-my-zsh/cache/completions/
+.oh-my-zsh/cache
+.oh-my-zsh/plugins
+.oh-my-zsh/
+.config/rofi/.current_wallpaper
+.config/rofi/wallust/colors-rofi.rasi
+.config/wallust/templates/colors-*
+.config/waybar/wallust/colors-*
+.config/waybar/config
+.config/waybar/style.css
+.config/hypr/wallust/wallust-hyprland.conf
+.config/rofi/wallust/*
+.config/hypr/wallpaper_effects/.*
+.config/kitty/kitty-colors.conf
+{{- if ne .chezmoi.hostname "work-laptop" }}
+.work # only manage .work on work-laptop
+{{- end }}
+.config/hypr/.initial_startup_done
