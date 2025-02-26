@@ -1,0 +1,5 @@
+Host z440
+  HostName z440
+
+Host vps.oracle
+  HostName 89.168.91.214
