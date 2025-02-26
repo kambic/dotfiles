@@ -153,7 +153,11 @@
         "rotate": 0,
         "separate-outputs": true,
         "rewrite": {
+{{- if eq .chezmoi.hostname "z440" }}
             "kamba@z440:(.*)": "$1 ",
+{{- else }}
+            "kamba@w550s:(.*)": "$1 ",
+{{- end }}
             "(.*) — Mozilla Firefox": "$1 󰈹",
             "(.*)Mozilla Firefox": "Firefox 󰈹",
             "(.*) - Visual Studio Code": "$1 󰨞",
