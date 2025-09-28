@@ -1,5 +1,3 @@
-# .bashrc for Arch Linux
-
 # shellcheck disable=SC1090
 
 # If not running interactively, don't do anything
@@ -183,10 +181,6 @@ export ROCR_VISIBLE_DEVICES=0
 # fzf Config Exports
 export FZF_DEFAULT_OPTS="--bind 'delete:execute(mkdir -p ~/.trash && mv {} ~/.trash/)+reload(find .)'"
 
-# Terminal settings
-# export TERMINAL=kitty
-# export TERM=kitty
-
 # Less pager settings
 export LESS='-R --quit-if-one-screen --ignore-case --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
 
@@ -197,3 +191,4 @@ export LESS='-R --quit-if-one-screen --ignore-case --LONG-PROMPT --RAW-CONTROL-C
 # export XDG_CURRENT_DESKTOP=Hyprland
 
 # [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/.ffmpeg.bash ] && source ~/.ffmpeg.bash
