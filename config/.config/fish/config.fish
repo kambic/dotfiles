@@ -12,7 +12,7 @@ neofetch
 eval (starship init fish)
 
 # Start atuin
-atuin init fish | source
+# atuin init fish | source
 
 # List Directory
 alias l='eza -lh  --icons=auto' # long list
