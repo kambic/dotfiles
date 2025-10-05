@@ -199,3 +199,4 @@ if [ -d "$HOME/.config/bashrc.d" ]; then
     echo "Sourced $file"
   done
 fi
+export PATH="$HOME/.local/bin:$PATH"
