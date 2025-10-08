@@ -199,4 +199,5 @@ if [ -d "$HOME/.config/bashrc.d" ]; then
     echo "Sourced $file"
   done
 fi
+alias kde_plasma_wayland="/usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland"
 export PATH="$HOME/.local/bin:$PATH"
