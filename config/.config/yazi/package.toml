@@ -1,32 +1,32 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "de53d90"
-hash = "f10a14e823382d90fab5b3ee54cb38fe"
+rev = "9a52857"
+hash = "4fccaaf10c36dc2466e2438a386ff017"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "de53d90"
-hash = "1adc12c2b2b025411ab61eb8f0879574"
+rev = "9a52857"
+hash = "8ad3e90b079190b4905f24a44f4ca06b"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "de53d90"
-hash = "d6f60c24d8c0cf57a855bf46115b2502"
+rev = "9a52857"
+hash = "8a7c58225816a163a6e8730c0adafbc8"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:types"
-rev = "de53d90"
+rev = "9a52857"
 hash = "1e047e1b13b5e3fc6ab1f5d0d04a14e2"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
-rev = "d3fd3a5"
-hash = "e6c5beeb1da3199355734273ee452a7f"
+rev = "2d73b79"
+hash = "86f1eb7e792533c80b34cdff4e191f41"
 
 [[flavor.deps]]
 use = "kmlupreti/ayu-dark"
-rev = "5f600aa"
-hash = "a05f94b9a20b64d814c7631074d65c4a"
+rev = "648a178"
+hash = "1a8af82f6246942bd700316a16c4e14a"
 
 [[flavor.deps]]
 use = "gosxrgxx/flexoki-dark"
@@ -35,10 +35,10 @@ hash = "9dbbb64ea20f9f1271c31951dea55c7b"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:dracula"
-rev = "d3fd3a5"
-hash = "7b9ff01a0070cc9176e0c683329aeb26"
+rev = "2d73b79"
+hash = "fc6944561718351d70cffde75839211f"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-latte"
-rev = "d3fd3a5"
-hash = "a4d508772dc7b20d739a2f9a1d2d396f"
+rev = "2d73b79"
+hash = "9e789c612c34f941a2afd42e7ded39f"
