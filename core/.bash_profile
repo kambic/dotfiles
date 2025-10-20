@@ -1,6 +1,8 @@
-# 10/06/2025
-# ~/.bash_profile
-#
+# Prevents KDE-Plasma from starting if not commented out
+# if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+#     exec Hyprland
+# fi
 
-[[ -f ~/.bashrc ]] && . ~/.bashrc
-
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi

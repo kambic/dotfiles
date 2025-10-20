@@ -1,4 +1,5 @@
-# vim: set ft=gitconfig
+# -*-mode:gitconfig-*- vim:ft=gitconfig
+
 # ~/.gitconfig
 # =============================================================================
 # User-specific Git configuration file.
@@ -18,7 +19,7 @@
 
 [user]
     # Specify the email address of the author/committer.
-    email = "rok.kambic@gmail.com"
+    email = "rok.kambic@z4g4.com"
 
     # Specify the username of the author/committer.
   name = "kamba"
@@ -46,6 +47,7 @@
     # Speed up commands involving untracked files such as `git status`.
     # See https://git-scm.com/docs/git-update-index#_untracked_cache
     untrackedCache = true
+	autocrlf = input
 
 [diff]
     # List submodules commits in the range.

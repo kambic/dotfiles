@@ -1,3 +1,5 @@
+# .bashrc for Arch Linux
+
 # shellcheck disable=SC1090
 
 # If not running interactively, don't do anything
@@ -45,7 +47,7 @@ git_prompt() {
   git branch 2>/dev/null | grep '^\*' | sed 's/^\* / (/;s/$/)/'
 }
 
-v() {
+vim() {
   if [ -w "$1" ] || [ ! -e "$1" ]; then
     nvim "$@"
   else
@@ -164,6 +166,10 @@ export VISUAL=nvim
 # fzf Config Exports
 export FZF_DEFAULT_OPTS="--bind 'delete:execute(mkdir -p ~/.trash && mv {} ~/.trash/)+reload(find .)'"
 
+# Terminal settings
+# export TERMINAL=kitty
+# export TERM=kitty
+
 # Less pager settings
 export LESS='-R --quit-if-one-screen --ignore-case --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
 
@@ -174,13 +180,3 @@ export LESS='-R --quit-if-one-screen --ignore-case --LONG-PROMPT --RAW-CONTROL-C
 # export XDG_CURRENT_DESKTOP=Hyprland
 
 # [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-# [ -f ~/.ffmpeg.bash ] && source ~/.ffmpeg.bash
-# Source all bash config snippets from ~/.config/bashrc.d/
-if [ -d "$HOME/.config/bashrc.d" ]; then
-  for file in "$HOME/.config/bashrc.d/"*.bash; do
-    [ -r "$file" ] && [ -f "$file" ] && . "$file"
-    echo "Sourced $file"
-  done
-fi
-alias kde_plasma_wayland="/usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland"
-export PATH="$HOME/.local/bin:$PATH"
