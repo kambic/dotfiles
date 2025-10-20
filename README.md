@@ -4,7 +4,7 @@ stow zsh
 stow config
 s-tui
 termscp
-
+https://terminaltrove.com/explore/
 ## 🚀 Stow Tips & Tricks
 
 
