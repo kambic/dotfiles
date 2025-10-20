@@ -1,5 +1,6 @@
 " Basic Configurations
 " FernuDev Github - https://github.com/Fernu292
+https://github.com/FernuDev/nvim-config
 
 set number
 set mouse=a

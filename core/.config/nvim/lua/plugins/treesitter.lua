@@ -2,8 +2,6 @@ return {
   "nvim-treesitter/nvim-treesitter",
   cmd = { "TSUpdate", "TSInstall", "TSLog", "TSUninstall" },
   opts_extend = { "ensure_installed" },
-  ---@alias lazyvim.TSFeat { enable?: boolean, disable?: string[] }
-  ---@class lazyvim.TSConfig: TSConfig
   opts = {
     -- LazyVim config for treesitter
     indent = { enable = true }, ---@type lazyvim.TSFeat
@@ -27,13 +25,13 @@ return {
       "python",
       "query",
       "regex",
-      "toml",
+      -- "toml",
       "tsx",
       "typescript",
       "vim",
       "vimdoc",
-      "xml",
-      "yaml",
+      -- "xml",
+      -- "yaml",
     },
   },
 }

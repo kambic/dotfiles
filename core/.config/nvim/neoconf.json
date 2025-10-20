@@ -27,7 +27,7 @@
   "editor.rulers": [
     88
   ],
-  "editor.wordWrap": "off",
+  "editor.wordWrap": "on",
   "editor.renderWhitespace": "none",
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
