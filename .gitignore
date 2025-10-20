@@ -14,8 +14,6 @@ wheels/
 *.webm
 media
 *.db*
-core/.config/yazi/flavors/ayu-dark.yazi
-core/.config/yazi/flavors/catppuccin-latte.yazi
-core/.config/yazi/flavors/catppuccin-macchiato.yazi
-core/.config/yazi/flavors/dracula.yazi
-core/.config/yazi/flavors/flexoki-dark.yazi
+core/.config/yazi/plugins
+core/.config/yazi/flavors
+core/.bash_history
