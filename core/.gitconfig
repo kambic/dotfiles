@@ -1,6 +1,3 @@
-# -*-mode:gitconfig-*- vim:ft=gitconfig
-
-# ~/.gitconfig
 # =============================================================================
 # User-specific Git configuration file.
 #
@@ -19,10 +16,10 @@
 
 [user]
     # Specify the email address of the author/committer.
-    email = "rok.kambic@z4g4.com"
+    email = "rok.kambic@mx.si"
 
     # Specify the username of the author/committer.
-  name = "kamba"
+  name = "rok"
   signingKey = ~/.ssh/id_ed25519
 
 [init]
