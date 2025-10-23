@@ -5,8 +5,6 @@
 
 # Load bash completion if available
 [[ -r /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
-# fzf Config Exports
-export FZF_DEFAULT_OPTS="--bind 'delete:execute(mkdir -p ~/.trash && mv {} ~/.trash/)+reload(find .)'"
 # Less pager settings
 export LESS='-R --quit-if-one-screen --ignore-case --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
 
@@ -76,10 +74,7 @@ alias ..='cd ..'
 # alias cd='z'
 alias ls='lsd -lah --group-directories-first --color=auto'
 alias top='btop'
-alias cat='bat'
-alias vi="nvim"
-alias vim='nvim'
-alias fzf='fzf --bind "enter:execute(nvim {})" -m --preview="bat --color=always --style=numbers --line-range=:500 {}"'
+# alias cat='bat'
 alias fd='fd -H --max-depth 4'
 alias zj='zellij'
 
@@ -87,8 +82,6 @@ alias zj='zellij'
 alias sysstat='systemctl status'
 alias sysen='systemctl enable'
 alias sysdis='systemctl disable'
-
-:compinstall filename '/home/archie/.zshrc'
 
 HISTFILE=~/.histfile
 HISTSIZE=5000
