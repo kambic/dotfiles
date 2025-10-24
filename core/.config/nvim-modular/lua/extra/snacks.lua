@@ -1,3 +1,13 @@
+local excluded = {
+  'node_modules/',
+  '.local/',
+  '.cache/',
+
+  'package-lock.json',
+  'pnpm-lock.yaml',
+  'yarn.lock',
+}
+
 return {
   {
     'folke/snacks.nvim',
@@ -8,13 +18,45 @@ return {
       bigfile = { enabled = true },
       dashboard = { enabled = true },
       explorer = { enabled = false },
-      indent = { enabled = true },
       input = { enabled = true },
       notifier = {
         enabled = true,
         timeout = 3000,
       },
-      picker = { enabled = false },
+
+      indent = {
+        animate = {
+          enabled = vim.fn.has 'nvim-0.10' == 1,
+          style = 'out',
+          easing = 'linear',
+          duration = {
+            step = 20, -- ms per step
+            total = 500, -- maximum duration
+          },
+        },
+      },
+
+      picker = {
+        sources = {
+          explorer = {
+            auto_close = false,
+            hidden = true,
+            ignored = true,
+
+            layout = {
+              layout = { position = 'left' },
+            },
+          },
+          files = {
+            hidden = true,
+            ignored = true,
+            exclude = excluded,
+          },
+        },
+        hidden = true,
+        ignored = true,
+      },
+
       quickfile = { enabled = true },
       scope = { enabled = true },
       scroll = { enabled = true },
