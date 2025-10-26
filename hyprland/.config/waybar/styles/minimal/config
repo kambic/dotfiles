@@ -6,7 +6,7 @@
   "margin-left": 0,
   "margin-bottom": 0,
   "margin-right": 0,
-  "height": 20,
+  "height": 28,
   "gtk-layer-shell": true,
   "reload_style_on_change": false,
   "include": ["~/.config/waybar/modules"],
@@ -16,7 +16,6 @@
   ],
   "modules-center": ["custom/mediaplayer"],
   "modules-right": [
-    "custom/updates",
     "pulseaudio",
     "backlight",
     "battery",

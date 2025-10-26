@@ -24,6 +24,7 @@ require('lazy').setup({
 
   { import = 'plugins' },
   require 'extra.lualine',
+  require 'extra.bufferline',
 
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
