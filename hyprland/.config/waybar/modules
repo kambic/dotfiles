@@ -1,5 +1,5 @@
 // Waybar Modules
-// By: Saifullah Balghari
+// vim: ft=json
 
 {
   // Application menu
@@ -68,7 +68,7 @@
 
   // Weather
   "custom/weather": {
-    "exec": "~/.config/waybar/scripts/weather.py",
+    "exec": "wttrbar",
     "interval": 1800,
     "return-type": "json"
   },
