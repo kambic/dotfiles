@@ -15,8 +15,9 @@ vim.g.have_nerd_font = true
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.mouse = 'a'
--- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
+
+-- vim.cmd.colorscheme 'onedark'
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.

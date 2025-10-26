@@ -21,11 +21,7 @@ rofi_cmd() {
 
 # Load clipboard history and pass to rofi
 run_rofi() {
-    if [[ -f "$history_file" ]]; then
-        tac "$history_file" | rofi_cmd
-    else
-        echo "No clipboard history found." | rofi_cmd
-    fi
+    cliphist list | rofi_cmd
 }
 
 # Copy the selected entry back to the clipboard

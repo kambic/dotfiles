@@ -1,19 +1,20 @@
 return {
-  { 'ellisonleao/gruvbox.nvim' },
+  -- { 'ellisonleao/gruvbox.nvim' },
   {
     'navarasu/onedark.nvim',
     opts = {
-      style = 'darker',
+      style = 'warm',
       -- toggle theme style ---
       toggle_style_key = '<leader>Ts', -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
       -- toggle_style_list = { 'light', 'darker' }, -- List of styles to toggle between
       transparent = true, -- Show/hide background
+      -- Lualine options --
+      lualine = {
+        transparent = true, -- lualine center bar transparency
+      },
     },
   },
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is.
-    --
+  { --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'folke/tokyonight.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
