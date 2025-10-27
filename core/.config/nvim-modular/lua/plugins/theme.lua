@@ -1,5 +1,4 @@
 return {
-  -- { 'ellisonleao/gruvbox.nvim' },
   {
     'navarasu/onedark.nvim',
     opts = {
@@ -8,7 +7,6 @@ return {
       toggle_style_key = '<leader>Ts', -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
       -- toggle_style_list = { 'light', 'darker' }, -- List of styles to toggle between
       transparent = true, -- Show/hide background
-      -- Lualine options --
       lualine = {
         transparent = true, -- lualine center bar transparency
       },

@@ -1,16 +1,20 @@
 # Symlink everything
+
+https://tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
+
 stow bash
 stow zsh
 stow config
 s-tui
 termscp
 https://terminaltrove.com/explore/
-## 🚀 Stow Tips & Tricks
 
+## 🚀 Stow Tips & Tricks
 
 ```bash
 stow bash zsh config local
 ```
+
 ### ✅ 2. **Dry Run First**
 
 Before committing changes:
@@ -21,14 +25,15 @@ stow -nv bash
 
 Flags:
 
-* `-n`: don’t actually make changes (dry run)
-* `-v`: verbose output
+- `-n`: don’t actually make changes (dry run)
+- `-v`: verbose output
 
 Good for verifying what will happen **before** it does.
 
 ---
 
 ### ✅ 3. **Unstow to Remove**
+
 To remove the links created by `stow`:
 
 ```bash
@@ -64,5 +69,3 @@ stow --override='*' --restow bash
 This replaces existing conflicting files with symlinks.
 
 ---
-
-

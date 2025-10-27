@@ -30,26 +30,6 @@ require('lazy').setup({
       override_editorconfig = true,
     },
   },
-
-  -----------------------------------------------------
-  -- 🔔 Notification system
-  -----------------------------------------------------
-  {
-    'rcarriga/nvim-notify',
-    lazy = false,
-    config = function()
-      local notify = require 'notify'
-      notify.setup {
-        stages = 'fade_in_slide_out',
-        timeout = 3000,
-        background_colour = '#1a1b26',
-        render = 'default',
-        top_down = false,
-      }
-      vim.notify = notify
-    end,
-  },
-
   -----------------------------------------------------
   -- 🧩 Your other plugin imports
   -----------------------------------------------------
@@ -61,10 +41,10 @@ require('lazy').setup({
   -----------------------------------------------------
   -- ⚙️ Lazy.nvim behavior
   -----------------------------------------------------
-  defaults = {
-    lazy = true,
-    version = false,
-  },
+  -- defaults = {
+  --   lazy = true,
+  --   version = false,
+  -- },
   install = {
     -- Automatically install missing plugins
     missing = true,
