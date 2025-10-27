@@ -12,7 +12,8 @@
   "include": ["~/.config/waybar/modules"],
   "modules-left": [
     "hyprland/workspaces",
-    "custom/weather"
+    "custom/hypridle",
+    "custom/weather",
   ],
   "modules-center": ["custom/mediaplayer"],
   "modules-right": [
