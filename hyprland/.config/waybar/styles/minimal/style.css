@@ -59,6 +59,7 @@ tooltip label {
 }
 
 /* Hypridle */
+#idle_inhibitor,
 #custom-hypridle {
   margin: 2px 4px;
   padding: 0px 6px 0px 6px;

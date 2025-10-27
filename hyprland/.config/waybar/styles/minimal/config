@@ -12,7 +12,7 @@
   "include": ["~/.config/waybar/modules"],
   "modules-left": [
     "hyprland/workspaces",
-    "custom/hypridle",
+    "idle_inhibitor",
     "custom/weather",
   ],
   "modules-center": ["custom/mediaplayer"],

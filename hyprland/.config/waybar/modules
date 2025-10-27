@@ -1,6 +1,5 @@
 // Waybar Modules
-// vim: ft=json
-
+// vim: ft=jsonc
 {
   // Application menu
   "custom/menu": {
@@ -9,7 +8,6 @@
     "tooltip-format": "Application menu\nLeft-click: Application Launcher\nRight-click: Display Keybinds",
     "on-click-right": "~/.config/rofi/applets/keybindings.sh"
   },
-
   // Taskbar
   "wlr/taskbar": {
     "format": "{icon}",
@@ -19,7 +17,6 @@
     "on-click": "activate",
     "on-click-middle": "close"
   },
-
   // System info
   "custom/sysinfo": {
     "format": "󰞘",
@@ -41,7 +38,6 @@
     "format-critical": " {temperatureC}°C",
     "format": " {temperatureC}°C"
   },
-
   // Active window name
   "hyprland/window": {
     "format": "{title}",
@@ -50,7 +46,6 @@
     "icon-size": 14,
     "separate-outputs": false
   },
-
   // Active media
   "custom/mediaplayer": {
     "exec": "~/.config/waybar/scripts/mediaplayer.py",
@@ -65,14 +60,12 @@
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous"
   },
-
   // Weather
   "custom/weather": {
     "exec": "wttrbar",
     "interval": 1800,
     "return-type": "json"
   },
-
   // Workspaces
   "hyprland/workspaces": {
     "all-outputs": true,
@@ -85,7 +78,6 @@
       "*": 3
     }
   },
-
   // Blue-light filter toggle
   "custom/hyprshade": {
     "format": "󰌁",
@@ -97,7 +89,13 @@
     "on-click": "sleep 0.2; ~/.config/rofi/applets/hyprshade.sh",
     "on-click-right": "sleep 0.2; ~/.config/rofi/applets/hyprshade.sh rofi"
   },
-
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
   // Locking system (hypridle)
   "custom/hypridle": {
     "format": "󱫔",
@@ -108,16 +106,24 @@
     "exec": "bash ~/.config/hypr/services/hypridle.sh status",
     "on-click": "bash ~/.config/hypr/services/hypridle.sh toggle"
   },
-
   // Brightness
   "backlight": {
     "format": "{icon} {percent}%",
     "format-alt": "{icon}",
-    "format-icons": ["󰃞", "󰃞", "󰃞", "󰃟", "󰃟", "󰃟", "󰃠", "󰃠", "󰃠"],
+    "format-icons": [
+      "󰃞",
+      "󰃞",
+      "󰃞",
+      "󰃟",
+      "󰃟",
+      "󰃟",
+      "󰃠",
+      "󰃠",
+      "󰃠"
+    ],
     "scroll-step": 5,
     "tooltip-format": "{percent}%"
   },
-
   // Battery
   "battery": {
     "bat": "BAT0",
@@ -131,10 +137,21 @@
       "warning": 50,
       "critical": 30
     },
-    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
     "on-click-right": "~/.config/rofi/applets/battery.sh"
   },
-
   // Bluetooth
   "bluetooth": {
     "format": "󰂯",
@@ -145,7 +162,6 @@
     "on-click-right": "sleep 0.1 && kill -9 $pgrep blueman-applet",
     "format-no-controller": ""
   },
-
   // Audio
   "pulseaudio": {
     "scroll-step": 5,
@@ -163,12 +179,15 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", ""]
+      "default": [
+        "",
+        "",
+        ""
+      ]
     },
     "on-click-right": "sleep 0.1 && pavucontrol",
     "tooltip-format": "{volume}% {format_source}"
   },
-
   // Network settings
   "network": {
     "format": "{ifname}",
@@ -184,14 +203,12 @@
     "on-scroll-down": "sleep 0.1 && kill -9 $pgrep nm-applet",
     "on-click-right": "~/.config/waybar/scripts/nmtui.sh"
   },
-
   // System Tray
   "tray": {
     "icon-size": 15,
     "spacing": 6,
     "show-passive-items": true
   },
-
   // Power Profiles Daemon
   "power-profiles-daemon": {
     "format": "{icon}",
@@ -204,7 +221,6 @@
       "power-saver": ""
     }
   },
-
   // Clock
   "clock": {
     "format": "<b>{:%H:%M | %a.%d-%b}</b>",
@@ -212,7 +228,6 @@
     "tooltip-format": "<tt><small>{calendar}</small></tt>"
     // "on-click": "sleep 0.1 && swaync-client -t"
   },
-
   // Notifications
   "custom/notifications": {
     "tooltip-format": "Notifications Center",
@@ -232,14 +247,12 @@
     "on-click": "swaync-client -t -sw",
     "escape": true
   },
-
   // Power-menu
   "custom/power": {
     "format": "",
     "on-click": "wlogout",
     "tooltip-format": "Power Menu"
   },
-
   // Others
   "user": {
     "format": "{user}",
@@ -270,7 +283,6 @@
     "format": " ",
     "tooltip": false
   },
-
   // System info drawer
   "group/sysinfo": {
     "orientation": "horizontal",
