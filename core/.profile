@@ -1,3 +1,3 @@
+export MANPAGER="nvim +Man!"
+export NVIM_APPNAME='nvim-modular'
 # export BROWSER=zen-browser
-# export TERM=kitty
-# export QT_QPA_PLATFORMTHEME="qt6ct"
