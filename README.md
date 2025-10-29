@@ -1,13 +1,14 @@
 # Symlink everything
 
-https://tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
+<https://github.com/egnrse/configs>
+<https://tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html>
 
 stow bash
 stow zsh
 stow config
 s-tui
 termscp
-https://terminaltrove.com/explore/
+<https://terminaltrove.com/explore/>
 
 ## 🚀 Stow Tips & Tricks
 
