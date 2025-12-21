@@ -17,7 +17,27 @@
       path: config/*
 
 - shell:
-  - [mkdir -p ~/.local/bin, Creating local bin directory]
-  # - [git submodule update --init --recursive, Updating submodules]  # Move your existing one here if preferred
+  - [git submodule update --init --recursive, Updating submodules]  # Move your existing one here if preferred
+  - description: Install Oh My Zsh
+    command: >
+      if [ ! -d ~/.oh-my-zsh ]; then
+        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended;
+      fi
+    stdout: true
+    stderr: true
 
+  - description: Install zsh-autosuggestions plugin
+    command: >
+      if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions ]; then
+        git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions;
+      fi
+    stdout: true
+    stderr: true
 
+  - description: Install zsh-syntax-highlighting plugin
+    command: >
+      if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]; then
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting;
+      fi
+    stdout: true
+    stderr: true
