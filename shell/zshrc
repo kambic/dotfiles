@@ -102,3 +102,70 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+
+# Development
+alias pyclean='find . -type f -name "*.py[co]" -delete -o -type d -name "__pycache__" -delete'
+alias ipy='ipython'
+
+# Network
+alias myip='curl ifconfig.me'
+
+alias mkdir='mkdir -p'
+alias ip='ip --color=always'
+alias lsusb='cyme'
+# SSH shortcuts
+alias v='$EDITOR'
+
+alias s='kitten ssh'
+alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias sf='sudo fish'
+
+alias c='clear'                                                                    # clear terminal
+alias l='eza -lh --icons=auto '                                         # long list
+alias ls='eza -1 --icons=auto '                                         # short list
+alias ll='eza -lha --icons=auto --sort=name --group-directories-first ' # long list all
+alias ld='eza -lhD --icons=auto '                                       # long list dirs
+alias lt='eza --icons=auto --tree '                                     # list folder as tree
+alias pql='yay -Ql'
+alias pqo='yay -Qo'
+
+# Directory navigation shortcuts
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+alias wcolor="watch -ctn 1"
+
+function vv() {
+  # Assumes all configs exist in directories named ~/.config/nvim-*
+  local config
+  config=$(fd --max-depth 1 --glob 'nvim-*' ~/.config | fzf --prompt="Neovim Configs > " --height=~50% --layout=reverse --border --exit-0)
+
+  # If I exit fzf without selecting a config, don't open Neovim
+  [[ -z $config ]] && echo "No config selected" && return
+
+  # Open Neovim with the selected config
+  NVIM_APPNAME=$(basename "$config") nvim "$@"
+}
+
+function fzf-pi() {
+  pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S
+
+}
+function fzf-pr() {
+  pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns
+}
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd <"$tmp"
+  [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+  rm -f -- "$tmp"
+}
+
+
+colorscript -r
