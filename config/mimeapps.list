@@ -1,46 +1,24 @@
 [Default Applications]
-
-x-scheme-handler/http=firefox.desktop
-x-scheme-handler/https=firefox.desktop
-x-scheme-handler/chrome=firefox.desktop
-text/html=firefox.desktop
-application/x-extension-htm=firefox.desktop
-application/x-extension-html=firefox.desktop
-application/x-extension-shtml=firefox.desktop
-application/xhtml+xml=firefox.desktop
-application/x-extension-xhtml=firefox.desktop
-application/x-extension-xht=firefox.desktop
+x-scheme-handler/http=zen.desktop
+x-scheme-handler/https=zen.desktop
+x-scheme-handler/chrome=zen.desktop
+text/html=zen.desktop
+application/x-extension-htm=zen.desktop
+application/x-extension-html=zen.desktop
+application/x-extension-shtml=zen.desktop
+application/xhtml+xml=zen.desktop
+application/x-extension-xhtml=zen.desktop
+application/x-extension-xht=zen.desktop
 x-scheme-handler/gitkraken=GitKraken.desktop
 
-
-# xdg-open will use these settings to determine how to open filetypes.
-# These .desktop entries can also be seen and changed in ~/.local/share/applications/
-
-# text/x-shellscript=text.desktop;
-# x-scheme-handler/magnet=torrent.desktop;
-# application/x-bittorrent=torrent.desktop;
-# x-scheme-handler/mailto=mail.desktop;
-# text/plain=text.desktop;
-# application/postscript=pdf.desktop;
-# application/pdf=pdf.desktop;
-# image/png=img.desktop;
-# image/jpeg=img.desktop;
-# image/gif=img.desktop;
-# application/rss+xml=rss.desktop
-# video/x-matroska=video.desktop
-# x-scheme-handler/lbry=lbry.desktop
-# inode/directory=file.desktop
-
-
-
 [Added Associations]
-x-scheme-handler/http=firefox.desktop;
-x-scheme-handler/https=firefox.desktop;
-x-scheme-handler/chrome=firefox.desktop;
-text/html=firefox.desktop;
-application/x-extension-htm=firefox.desktop;
-application/x-extension-html=firefox.desktop;
-application/x-extension-shtml=firefox.desktop;
-application/xhtml+xml=firefox.desktop;
-application/x-extension-xhtml=firefox.desktop;
-application/x-extension-xht=firefox.desktop;
+x-scheme-handler/http=zen.desktop;firefox.desktop;
+x-scheme-handler/https=zen.desktop;firefox.desktop;
+x-scheme-handler/chrome=zen.desktop;firefox.desktop;
+text/html=firefox.desktop;zen.desktop;
+application/x-extension-htm=firefox.desktop;zen.desktop;
+application/x-extension-html=firefox.desktop;zen.desktop;
+application/x-extension-shtml=firefox.desktop;zen.desktop;
+application/xhtml+xml=firefox.desktop;zen.desktop;
+application/x-extension-xhtml=firefox.desktop;zen.desktop;
+application/x-extension-xht=firefox.desktop;zen.desktop;

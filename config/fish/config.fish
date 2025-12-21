@@ -8,7 +8,7 @@ if status is-interactive
         rm -f -- "$tmp"
     end
 		set POSH agnoster
-		oh-my-posh init fish | source
+		oh-my-posh init -c ~/.config/ohmyposh/zen.toml fish | source
 
 function vv
     set -l cache_file ~/.cache/vv_last_nvim
