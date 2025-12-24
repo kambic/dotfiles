@@ -1,20 +1,19 @@
 {
     // Workspaces
-    "hyprland/workspaces" : {
+    "hyprland/workspaces": {
         "on-click": "activate",
         "active-only": false,
         "all-outputs": true,
         "format": "{}",
         "format-icons": {
-			"urgent": "",
-			"active": "",
-			"default": ""
+            "urgent": "",
+            "active": "",
+            "default": ""
         },
         "persistent-workspaces": {
-             "*": 5
-        }       
+            "*": 5
+        }
     },
-
     // Hyprland Window
     "hyprland/window": {
         "rewrite": {
@@ -26,7 +25,6 @@
         },
         "separate-outputs": true
     },
-
     // Rofi Application Launcher
     "custom/appmenu": {
         "format": "Apps",
@@ -35,7 +33,6 @@
         "on-click-right": "~/.config/ml4w/scripts/keybindings.sh",
         "tooltip": false
     },
-    
     // Power Menu
     "custom/exit": {
         "format": "",
@@ -43,7 +40,6 @@
         "on-click": "wlogout -b 4",
         "tooltip": false
     },
-
     // Keyboard State
     "keyboard-state": {
         "numlock": true,
@@ -54,50 +50,42 @@
             "unlocked": ""
         }
     },
-
     // System tray
     "tray": {
-        "icon-size": 21,
-        "spacing": 10
+        "icon-size": 28,
+        "spacing": 6
     },
-
     // Clock
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },
-
     // System
     "custom/system": {
         "format": "",
         "tooltip": false
     },
-
     // CPU
     "cpu": {
         "format": "/ C {usage}% ",
         "on-click": "alacritty -e htop"
     },
-
     // Memory
     "memory": {
         "format": "/ M {}% ",
         "on-click": "alacritty -e htop"
     },
-
     // Harddisc space used
     "disk": {
         "interval": 30,
         "format": "D {percentage_used}% ",
         "path": "/",
         "on-click": "alacritty -e htop"
-    }, 
-
+    },
     "hyprland/language": {
         "format": "/ K {short}"
     },
-
     // Group Hardware
     "group/hardware": {
         "orientation": "inherit",
@@ -105,7 +93,7 @@
             "transition-duration": 300,
             "children-class": "not-memory",
             "transition-left-to-right": false
-        },        
+        },
         "modules": [
             "custom/system",
             "disk",
@@ -114,22 +102,20 @@
             "hyprland/language"
         ]
     },
-    
-  // Network
-  "network": {
-    "format": "{ifname}",
-    "format-wifi": " {essid} ({signalStrength}%)",
-    "format-ethernet": "  {ifname}",
-    "format-disconnected": "Disconnected ⚠",
-    "tooltip-format": " {ifname} via {gwaddri}",
-    "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
-    "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
-    "tooltip-format-disconnected": "Disconnected",
-    "max-length": 50,
-    "on-click": "~/.config/ml4w/settings/networkmanager.sh",
-    "on-click-right": "~/.config/ml4w/scripts/nm-applet.sh toggle",
-  },
-
+    // Network
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": " {essid} ({signalStrength}%)",
+        "format-ethernet": "  {ifname}",
+        "format-disconnected": "Disconnected ⚠",
+        "tooltip-format": " {ifname} via {gwaddri}",
+        "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+        "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50,
+        "on-click": "kitty --class waybar-kitten -e nmtui",
+        "on-click-right": "kitty --class aybar-kitten -e iptraf-ng",
+    },
     // Battery
     "battery": {
         "states": {
@@ -143,9 +129,14 @@
         "format-alt": "{icon}  {time}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": [" ", " ", " ", " ", " "]
+        "format-icons": [
+            " ",
+            " ",
+            " ",
+            " ",
+            " "
+        ]
     },
-
     // Pulseaudio
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -162,11 +153,14 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", " ", " "]
+            "default": [
+                "",
+                " ",
+                " "
+            ]
         },
         "on-click": "pavucontrol"
     },
-
     // Bluetooth
     "bluetooth": {
         "format-disabled": "",
@@ -175,22 +169,20 @@
         "on-click": "blueman-manager",
         "format-no-controller": ""
     },
-
     // Other
     "user": {
         "format": "{user}",
         "interval": 60,
         "icon": false,
     },
-
     // Idle Inhibator
     "idle_inhibitor": {
         "format": "{icon}",
         "tooltip": true,
-        "format-icons":{
+        "format-icons": {
             "activated": "",
             "deactivated": ""
         },
-        "on-click-right": "hyprlock"        
+        "on-click-right": "hyprlock"
     }
 }
