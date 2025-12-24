@@ -5,6 +5,7 @@ export MANPAGER="nvim +Man!"
 # Development
 alias pyclean='find . -type f -name "*.py[co]" -delete -o -type d -name "__pycache__" -delete'
 alias ipy='ipython'
+alias jctl="journalctl -p 3 -xb"
 
 # Network
 alias myip='curl ifconfig.me'
@@ -19,12 +20,26 @@ alias s='kitten ssh'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias sf='sudo fish'
 
-alias c='clear'                                                                    # clear terminal
-alias l='eza -lh --icons=auto '                                         # long list
-alias ls='eza -1 --icons=auto '                                         # short list
-alias ll='eza -lha --icons=auto --sort=name --group-directories-first ' # long list all
-alias ld='eza -lhD --icons=auto '                                       # long list dirs
-alias lt='eza --icons=auto --tree '                                     # list folder as tree
+alias c='clear' # clear terminal
+
+# Changing "ls" to "eza"
+alias ls='eza -al --color=always --group-directories-first' # my preferred listing
+alias la='eza -a --color=always --group-directories-first'  # all files and dirs
+alias ll='eza -l --color=always --group-directories-first'  # long format
+alias lt='eza -aT --color=always --group-directories-first' # tree listing
+alias l.='eza -a | egrep "^\."'
+alias l.='eza -al --color=always --group-directories-first ../' # ls on the PARENT directory
+alias l..='eza -al --color=always --group-directories-first ../../' # ls on directory 2 levels up
+alias l...='eza -al --color=always --group-directories-first ../../../' # ls on directory 3 levels up
+
+
+
+# alias l='eza -lh --icons=auto '                                         # long list
+# alias ls='eza -1 --icons=auto '                                         # short list
+# alias ll='eza -lha --icons=auto --sort=name --group-directories-first ' # long list all
+# alias ld='eza -lhD --icons=auto '                                       # long list dirs
+# alias lt='eza --icons=auto --tree '                                     # list folder as tree
+
 alias pql='yay -Ql'
 alias pqo='yay -Qo'
 

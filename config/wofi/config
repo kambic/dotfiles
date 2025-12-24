@@ -1,0 +1,7 @@
+width=450
+height=300
+show=drun
+prompt=Search
+insensitive=true
+allow_images=false
+gtk_dark=true

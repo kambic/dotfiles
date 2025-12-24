@@ -7,9 +7,18 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "editor": {
+    "color_decorators": true,
+  },
+
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "auto_update": false,
   "buffer_font_weight": 500.0,
   "icon_theme": "Material Icon Theme",
-  "base_keymap": "JetBrains",
+  "base_keymap": "VSCode",
   "ui_font_size": 16,
   "buffer_font_size": 16.0,
   "theme": {

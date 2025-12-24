@@ -169,3 +169,6 @@ function y() {
 
 
 colorscript -r
+
+alias tb="nc termbin.com 9999"
+

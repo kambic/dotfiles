@@ -82,3 +82,5 @@ source <(fzf --bash)
 POSH=agnoster
 eval "$(oh-my-posh init bash)"
 # -----------------------------------------------------
+
+alias tb="nc termbin.com 9999"

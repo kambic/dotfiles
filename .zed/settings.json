@@ -8,5 +8,6 @@
       "**/hypr/**",
       // "hyprland.conf",
     ],
+    "JSONC": ["**/waybar/config*"],
   },
 }

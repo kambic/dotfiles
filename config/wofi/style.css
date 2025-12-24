@@ -1,0 +1,65 @@
+/* Catppuccin Mocha for wofi */
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 14px;
+}
+
+/* Main window */
+window {
+  background-color: rgba(30, 30, 46, 0.85); /* Mocha with transparency */
+  /* background-color: #1e1e2e; */
+  border: 2px solid #cba6f7;
+  border-radius: 12px;
+}
+
+/* Input box */
+#input {
+  margin: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: rgba(49, 50, 68, 0.90);
+  /* background-color: #313244; */
+  color: #cdd6f4;
+}
+
+/* Inner box */
+#inner-box {
+  margin: 10px;
+  background-color: transparent;
+}
+
+/* Scroll */
+#scroll {
+  margin-top: 5px;
+}
+
+/* Entries */
+#entry {
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #cdd6f4;
+}
+
+/* Selected entry */
+#entry:selected {
+  background-color: rgba(88, 91, 112, 0.80);
+  /* background-color: #585b70; */
+  color: #f5e0dc;
+}
+
+/* Text */
+#text {
+  color: inherit;
+}
+
+/* Prompt */
+#prompt {
+  color: #f38ba8;
+}
+
+/* Placeholder text */
+#input::placeholder {
+  color: #6c7086;
+}
