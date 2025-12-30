@@ -14,8 +14,6 @@
     all: initial;
 }
 
-
-
 @import "current-theme.css";
 @import "styles/fonts.css";
 @import "styles/global.css";
