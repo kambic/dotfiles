@@ -1,109 +1,132 @@
 {
-  "include": [
-    "~/.config/waybar/modules/*.jsonc",
-    "~/.config/waybar/modules/user.jsonc",
-    "~/.config/waybar/modules/battery.jsonc",
-    "~/.config/waybar/modules/bluetooth.jsonc",
-    "~/.config/waybar/modules/backlight.jsonc",
-    "~/.config/waybar/modules/clock.jsonc",
-    "~/.config/waybar/modules/cpu.jsonc",
-    "~/.config/waybar/modules/memory.jsonc",
-    "~/.config/waybar/modules/mpris.jsonc",
-    "~/.config/waybar/modules/network.jsonc",
-    "~/.config/waybar/modules/pulseaudio.jsonc",
-    "~/.config/waybar/modules/temperature.jsonc",
-    "~/.config/waybar/modules/div.jsonc",
-    "~/.config/waybar/modules/idle_inhibitor.jsonc",
-    "~/.config/waybar/modules/custom/system_update.jsonc",
-    "~/.config/waybar/modules/custom/power_menu.jsonc",
-    "~/.config/waybar/modules/custom/distro.jsonc",
-    "~/.config/waybar/modules/hyprland/*.jsonc",
-    "~/.config/waybar/modules/hyprland/workspaces.jsonc",
-    "~/.config/waybar/modules/hyprland/window.jsonc",
-    "~/.config/waybar/modules/hyprland/windowcount.jsonc",
-
-    // modules that are not included by default:
-    // "~/.config/waybar/modules/extras/*.jsonc",
-    "~/.config/waybar/modules/extras/taskbar.jsonc",
-    "~/.config/waybar/modules/extras/tray.jsonc",
-    "~/.config/waybar/modules/extras/wireplumber.jsonc",
-  ],
-
-  /*------------
-	    layout
-	------------*/
-
-  "modules-left": [
-    "group/user",
-    "custom/left_div#1",
-    "hyprland/workspaces",
-    "custom/right_div#1",
-    "hyprland/window",
-  ],
-  "modules-center": [
-    "hyprland/windowcount",
-    "custom/left_div#2",
-    "temperature",
-    "custom/left_div#3",
-    "memory",
-    "custom/left_div#4",
-    "cpu",
-    "custom/left_inv#1",
-    "custom/left_div#5",
-    "custom/distro",
-    "custom/right_div#2",
-    "custom/right_inv#1",
-    "idle_inhibitor",
-    "clock#time",
-    "custom/right_div#3",
-    "clock#date",
-    "custom/right_div#4",
-    "network",
-    "bluetooth",
-    "custom/system_update",
-    "custom/right_div#5",
-  ],
+  "position": "top",
+  "exlusive": "true",
+  "passthrough": "true",
+  "gtk-layer-shell": "true",
+  "margin-top": 10,
+  "margin-left": 10,
+  "margin-right": 10,
+  "height": 41,
+  "modules-left": ["custom/weather", "cpu", "memory", "disk"],
+  "modules-center": ["hyprland/workspaces"],
   "modules-right": [
-    "mpris",
-    "custom/left_div#6",
-    "group/pulseaudio",
-    "custom/left_div#7",
-    "backlight",
-    "custom/left_div#8",
-    "battery",
-    "custom/left_inv#2",
-    "custom/power_menu",
+    "hyprland/language",
+    "pulseaudio",
+    "pulseaudio#microphone",
+    "clock",
+    "separator",
+    "tray",
   ],
 
-  /*-------------
-	    options
-	-------------*/
+  "tray": {
+    "icon-size": 16,
+    "icon-theme": "Papirus",
+    "spacing": 2,
+  },
+  "custom/spacer": {
+    "format": " ", // Empty space
+    "tooltip": false,
+  },
+  "separator": {
+    "format": " | ",
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 35,
+    "rewrite": {
+      "": "Harsh",
+    },
+    "separate-outputs": true,
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "",
+      "9": "",
+      "active": "",
+      "urgent": "",
+      "persistent": "",
+      "focused": "",
+      "default": "",
+    },
+    "sort-by-number": true,
+    "persistent-workspaces": {
+      "*": 9,
+      "DP-1": 9,
+    },
+  },
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "<span color='#89b4fa'>󰥔 </span><span color='#cdd6f4'>{:%H:%M | %a %d %b}</span>",
+    "format-alt": "{:%Y-%m-%d}",
+  },
 
-  // "expand-center":
-  // "expand-left":
-  // "expand-right":
-  "layer": "top",
-  // "output":
-  // "position":
-  "height": 0,
-  "width": 0,
-  "margin": 0,
-  // "margin-top":
-  // "margin-left":
-  // "margin-bottom":
-  // "margin-right":
-  // "no-center":
-  "spacing": 0,
-  // "name":
-  "mode": "dock",
-  // "start_hidden":
-  // "modifier-reset":
-  // "exclusive":
-  // "fixed-center":
-  // "passthrough":
-  // "ipc":
-  // "id":
-  "reload_style_on_change": true,
-  // "on-sigusr1":
-  // "on-sigusr2":
+  "cpu": {
+    "format": "<span color='#89b4fa'>󰍛</span> <span color='#cdd6f4'>{usage}%</span>",
+    "interval": 1,
+    "format-alt-click": "click",
+    "format-alt": "<span color='#00FF00'>{icon0}{icon1}{icon2}{icon3}</span> <span color='#FFFFFF'>{usage:>2}%</span> <span color='#00FF00'>󰍛</span>",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "on-click": "gnome-system-monitor",
+  },
+  "memory": {
+    "interval": 3,
+    "format": "<span color='#f38ba8'> </span> <span color='#cdd6f4'>{used:0.1f}G</span>",
+  },
+
+  "custom/weather": {
+    "exec": "~/.config/hypr/scripts/weather.sh",
+    "return-type": "json",
+    "interval": 600,
+    "format": "{text}",
+  },
+
+  "pulseaudio": {
+    "format": "<span color='#a6e3a1'>{icon} </span><span color='#cdd6f4'>{volume}%</span>",
+    "format-bluetooth": "<span color='#a6e3a1'>{icon}</span>  <span color='#cdd6f4'>{volume}%</span>",
+    "tooltip": false,
+    "format-muted": "<span color='#f38ba8'>󰝟</span>",
+    "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 10%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 10%-",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""],
+    },
+  },
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": "<span color='#f38ba8'> </span><span color='#cdd6f4'>{volume}%</span>",
+    "format-source-muted": "",
+    "on-click": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_SOURCE@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_SOURCE@ 5%-",
+  },
+
+  "hyprland/language": {
+    "format": "<span color='#f9e2af'>󰌌</span> <span color='#cdd6f4'>{}</span>",
+
+    "format-ar": "ara",
+
+    "format-en": "eng",
+  },
+  "disk": {
+    "interval": 3,
+    "path": "/home",
+    "format": "<span color='#a6e3a1'> </span><span color='#cdd6f4'>{free}</span>",
+    "unit": "GB",
+  },
 }
