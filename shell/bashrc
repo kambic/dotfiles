@@ -84,3 +84,5 @@ eval "$(oh-my-posh init bash)"
 # -----------------------------------------------------
 
 alias tb="nc termbin.com 9999"
+
+colorscript -e suckless

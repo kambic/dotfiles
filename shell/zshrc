@@ -168,7 +168,6 @@ function y() {
 }
 
 
-colorscript -r
+colorscript -e suckless
 
 alias tb="nc termbin.com 9999"
-

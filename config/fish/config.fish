@@ -35,7 +35,7 @@ alias l..='eza -al --color=always --group-directories-first ../../' # ls on dire
 # Or install it from the Arch User Repository: shell-color-scripts
 # The 'if' statement prevents colorscript from showing in 'fzf' previews.
 if status is-interactive
-    colorscript random
+    colorscript exec suckless
 end
 
 ### SETTING THE STARSHIP PROMPT ###
