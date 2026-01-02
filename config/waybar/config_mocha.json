@@ -31,6 +31,8 @@
   ],
   "modules-center": [
     // "hyprland/windowcount",
+    "custom/systemd-failed",
+    "systemd-failed-units",
     "custom/left_div#2",
     "temperature",
     "custom/left_div#3",
@@ -63,6 +65,17 @@
     "custom/left_inv#2",
     "custom/power_menu",
   ],
+
+  "custom/systemd-failed": {
+    "format": "{}",
+    "tooltip": true,
+    "exec": "~/.config/waybar-modules/systemd-failed.py",  // Optional: add -e 'unit1,unit2' to exclude units
+    "return-type": "json",
+    "interval": 30,  // Update every 30 seconds
+    "on-click": "systemctl --failed",  // Opens a terminal/list of failed units (adjust to your terminal, e.g., "kitty -e systemctl --failed")
+    "on-click-right": "systemctl status --failed"  // Or more detailed view
+},
+// Add "custom/systemd-failed" to your modules-left/center/right array
   /*-------------
 	    options
 	-------------*/

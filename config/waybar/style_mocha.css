@@ -14,7 +14,9 @@
     all: initial;
 }
 
-@import "current-theme.css";
+/*@import "current-theme.css";*/
+/*@import "themes/catppuccin-mocha.css";*/
+@import "themes/catppuccin-latte.css";
 @import "styles/fonts.css";
 @import "styles/global.css";
 @import "styles/modules-center.css";
