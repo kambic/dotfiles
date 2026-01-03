@@ -36,7 +36,7 @@
 
 [commit]
     verbose = false
-    gpgsign = true
+    gpgsign = false
 
 ; [gpg]
     ; format = ssh
