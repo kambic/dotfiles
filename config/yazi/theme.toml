@@ -1,35 +1,51 @@
+# A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
+# If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
+"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
+
+# vim:fileencoding=utf-8:foldmethod=marker
+
+# : Flavor {{{
+
+[flavor]
+use = ""
+
+# : }}}
+
 # : Manager {{{
 
 [mgr]
-cwd = { fg = "#7aa2f7" }  # Blue
+cwd = { fg = "cyan" }
 
 # Hovered
 hovered         = { reversed = true }
 preview_hovered = { underline = true }
 
 # Find
-find_keyword  = { fg = "#f7768e", bold = true, italic = true, underline = true }  # Red
-find_position = { fg = "#bb9af7", bg = "reset", bold = true, italic = true }  # Magenta
+find_keyword  = { fg = "yellow", bold = true, italic = true, underline = true }
+find_position = { fg = "magenta", bg = "reset", bold = true, italic = true }
 
 # Marker
-marker_copied   = { fg = "#9ece6a", bg = "#9ece6a" }  # Green
-marker_cut      = { fg = "#e0af68", bg = "#f7768e" }  # Red
-marker_marked   = { fg = "#7aa2f7", bg = "#7dcfff" }  # Cyan
-marker_selected = { fg = "#e0af68", bg = "#e0af68" }  # Yellow
+marker_copied   = { fg = "lightgreen",  bg = "lightgreen" }
+marker_cut      = { fg = "lightred",    bg = "lightred" }
+marker_marked   = { fg = "lightcyan",   bg = "lightcyan" }
+marker_selected = { fg = "lightyellow", bg = "lightyellow" }
 
 # Tab
-tab_active = { bg = "#282C34", fg = "#7aa2f7" }  # Darkened background, Blue text
+tab_active   = { reversed = true }
 tab_inactive = {}
 tab_width    = 1
 
 # Count
-count_copied   = { fg = "#414868", bg = "#9ece6a" }  # Darkened black on Green
-count_cut      = { fg = "#414868", bg = "#e0af68" }  # Darkened black on Yellow
-count_selected = { fg = "#414868", bg = "#7aa2f7" }  # Darkened black on Blue
+count_copied   = { fg = "white", bg = "green" }
+count_cut      = { fg = "white", bg = "red" }
+count_selected = { fg = "white", bg = "yellow" }
 
 # Border
 border_symbol = "│"
-border_style  = { fg = "#414868" }  # Darkened black
+border_style  = { fg = "gray" }
+
+# Highlighting
+syntect_theme = ""
 
 # : }}}
 
@@ -37,26 +53,26 @@ border_style  = { fg = "#414868" }  # Darkened black
 # : Status {{{
 
 [status]
-separator_open  = ""
-separator_close = ""
-separator_style = { fg = "#7aa2f7", bg = "#414868" }  # Blue on Darkened black
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "gray", bg = "gray" }
 
 # Mode
-mode_normal = { fg = "#414868", bg = "#7aa2f7", bold = true }  # Darkened black on Blue
-mode_select = { fg = "#414868", bg = "#9ece6a", bold = true }  # Darkened black on Green
-mode_unset  = { fg = "#414868", bg = "#bb9af7", bold = true }  # Darkened black on Magenta
+mode_normal = { bg = "blue", bold = true }
+mode_select = { bg = "red", bold = true }
+mode_unset  = { bg = "red", bold = true }
 
 # Progress
-progress_label  = { fg = "#a9b1d6", bold = true }  # White
-progress_normal = { fg = "#7aa2f7", bg = "#414868" }  # Blue on Darkened black
-progress_error  = { fg = "#f7768e", bg = "#414868" }  # Red on Darkened black
+progress_label  = { bold = true }
+progress_normal = { fg = "blue", bg = "black" }
+progress_error  = { fg = "red", bg = "black" }
 
 # Permissions
-permissions_t = { fg = "#7aa2f7" }  # Blue
-permissions_r = { fg = "#9ece6a" }  # Green
-permissions_w = { fg = "#e0af68" }  # Yellow
-permissions_x = { fg = "#f7768e" }  # Red
-permissions_s = { fg = "#bb9af7" }  # Magenta
+permissions_t = { fg = "green" }
+permissions_r = { fg = "yellow" }
+permissions_w = { fg = "red" }
+permissions_x = { fg = "cyan" }
+permissions_s = { fg = "darkgray" }
 
 # : }}}
 
@@ -64,8 +80,8 @@ permissions_s = { fg = "#bb9af7" }  # Magenta
 # : Select {{{
 
 [select]
-border   = { fg = "#7aa2f7" }  # Blue
-active   = { fg = "#bb9af7", bold = true }  # Magenta
+border   = { fg = "blue" }
+active   = { fg = "magenta", bold = true }
 inactive = {}
 
 # : }}}
@@ -74,7 +90,7 @@ inactive = {}
 # : Input {{{
 
 [input]
-border   = { fg = "#7aa2f7" }  # Blue
+border   = { fg = "blue" }
 title    = {}
 value    = {}
 selected = { reversed = true }
@@ -85,7 +101,14 @@ selected = { reversed = true }
 # : Completion {{{
 
 [completion]
-border = { fg = "#7aa2f7" }  # Blue
+border   = { fg = "blue" }
+active   = { reversed = true }
+inactive = {}
+
+# Icons
+icon_file    = ""
+icon_folder  = ""
+icon_command = ""
 
 # : }}}
 
@@ -93,20 +116,23 @@ border = { fg = "#7aa2f7" }  # Blue
 # : Tasks {{{
 
 [tasks]
-border  = { fg = "#7aa2f7" }  # Blue
+border  = { fg = "blue" }
 title   = {}
-hovered = { fg = "#bb9af7", underline = true }  # Magenta
+hovered = { fg = "magenta", underline = true }
 
 # : }}}
+
+
 # : Which {{{
 
 [which]
-mask            = { bg = "#414868" }  # Darkened black
-cand            = { fg = "#9ece6a" }  # Green
-rest            = { fg = "#a9b1d6" }  # White
-desc            = { fg = "#bb9af7" }  # Magenta
+cols            = 3
+mask            = { bg = "black" }
+cand            = { fg = "lightcyan" }
+rest            = { fg = "darkgray" }
+desc            = { fg = "lightmagenta" }
 separator       = "  "
-separator_style = { fg = "#626880" }  # Darkened gray
+separator_style = { fg = "darkgray" }
 
 # : }}}
 
@@ -114,10 +140,11 @@ separator_style = { fg = "#626880" }  # Darkened gray
 # : Help {{{
 
 [help]
-on      = { fg = "#9ece6a" }  # Green
-run     = { fg = "#bb9af7" }  # Magenta
+on      = { fg = "cyan" }
+run     = { fg = "magenta" }
+desc    = {}
 hovered = { reversed = true, bold = true }
-footer  = { fg = "#a9b1d6", bg = "#c6d0f5" }  # White on Light gray
+footer  = { fg = "black", bg = "white" }
 
 # : }}}
 
@@ -125,9 +152,14 @@ footer  = { fg = "#a9b1d6", bg = "#c6d0f5" }  # White on Light gray
 # : Notify {{{
 
 [notify]
-title_info  = { fg = "#9ece6a" }  # Green
-title_warn  = { fg = "#f7768e" }  # Red
-title_error = { fg = "#e0af68" }  # Yellow
+title_info  = { fg = "green" }
+title_warn  = { fg = "yellow" }
+title_error = { fg = "red" }
+
+# Icons
+icon_info  = ""
+icon_warn  = ""
+icon_error = ""
 
 # : }}}
 
@@ -138,30 +170,174 @@ title_error = { fg = "#e0af68" }  # Yellow
 
 rules = [
 	# Images
-	{ mime = "image/*", fg = "#e0af68" },  # Yellow
+	{ mime = "image/*", fg = "cyan" },
 
 	# Media
-	{ mime = "video/*", fg = "#f7768e" },  # Red
-	{ mime = "audio/*", fg = "#f7768e" },  # Red
+	{ mime = "{audio,video}/*", fg = "yellow" },
 
 	# Archives
-	{ mime = "application/zip",             fg = "#bb9af7" },  # Magenta
-	{ mime = "application/x-tar",           fg = "#bb9af7" },  # Magenta
-	{ mime = "application/x-bzip*",         fg = "#bb9af7" },  # Magenta
-	{ mime = "application/x-bzip2",         fg = "#bb9af7" },  # Magenta
-	{ mime = "application/x-7z-compressed", fg = "#bb9af7" },  # Magenta
-	{ mime = "application/x-rar",           fg = "#bb9af7" },  # Magenta
-	{ mime = "application/x-xz",            fg = "#bb9af7" },  # Magenta
+	{ mime = "application/*zip", fg = "magenta" },
+	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", fg = "magenta" },
 
 	# Documents
-	{ mime = "application/doc",   fg = "#9ece6a" },  # Green
-	{ mime = "application/pdf",   fg = "#9ece6a" },  # Green
-	{ mime = "application/rtf",   fg = "#9ece6a" },  # Green
-	{ mime = "application/vnd.*", fg = "#9ece6a" },  # Green
+	{ mime = "application/{pdf,doc,rtf,vnd.*}", fg = "green" },
 
 	# Fallback
-	{ name = "*", fg = "#c6d0f5" },  # Light gray
-	{ name = "*/", fg = "#7aa2f7" }  # Blue
+	# { name = "*", fg = "white" },
+	{ name = "*/", fg = "blue" }
+]
+
+[icon]
+
+rules = [
+	# Programming
+	{ name = "*.c"    , text = "", fg = "#599eff" },
+	{ name = "*.cpp"  , text = "", fg = "#519aba" },
+	{ name = "*.class", text = "", fg = "#cc3e44" },
+	{ name = "*.cs"   , text = "󰌛", fg = "#596706" },
+	{ name = "*.css"  , text = "", fg = "#42a5f5" },
+	{ name = "*.elm"  , text = "", fg = "#4391d2" },
+	{ name = "*.fish" , text = "", fg = "#4d5a5e" },
+	{ name = "*.go"   , text = "", fg = "#519aba" },
+	{ name = "*.h"    , text = "", fg = "#a074c4" },
+	{ name = "*.hpp"  , text = "", fg = "#a074c4" },
+	{ name = "*.html" , text = "", fg = "#e44d26" },
+	{ name = "*.jar"  , text = "", fg = "#cc3e44" },
+	{ name = "*.java" , text = "", fg = "#cc3e44" },
+	{ name = "*.js"   , text = "", fg = "#F1F134" },
+	{ name = "*.jsx"  , text = "", fg = "#20c2e3" },
+	{ name = "*.lua"  , text = "", fg = "#51a0cf" },
+	{ name = "*.nix"  , text = "", fg = "#7ebae4" },
+	{ name = "*.nu"   , text = ">", fg = "#3aa675" },
+	{ name = "*.php"  , text = "", fg = "#a074c4" },
+	{ name = "*.py"   , text = "", fg = "#ffbc03" },
+	{ name = "*.rb"   , text = "", fg = "#701516" },
+	{ name = "*.rs"   , text = "", fg = "#dea584" },
+	{ name = "*.sbt"  , text = "", fg = "#4d5a5e" },
+	{ name = "*.scala", text = "", fg = "#cc463e" },
+	{ name = "*.scss" , text = "", fg = "#f55385" },
+	{ name = "*.sh"   , text = "", fg = "#4d5a5e" },
+	{ name = "*.swift", text = "", fg = "#e37933" },
+	{ name = "*.ts"   , text = "", fg = "#519aba" },
+	{ name = "*.tsx"  , text = "", fg = "#1354bf" },
+	{ name = "*.vim"  , text = "", fg = "#019833" },
+	{ name = "*.vue"  , text = "󰡄", fg = "#8dc149" },
+
+	# Text
+	{ name = "*.conf", text = "", fg = "#6d8086" },
+	{ name = "*.ini" , text = "", fg = "#6d8086" },
+	{ name = "*.json", text = "", fg = "#cbcb41" },
+	{ name = "*.kdl" , text = "", fg = "#6d8086" },
+	{ name = "*.md"  , text = "", fg = "#ffffff" },
+	{ name = "*.toml", text = "", fg = "#ffffff" },
+	{ name = "*.txt" , text = "", fg = "#89e051" },
+	{ name = "*.yaml", text = "", fg = "#6d8086" },
+	{ name = "*.yml" , text = "", fg = "#6d8086" },
+
+	# Archives
+	{ name = "*.7z" , text = "" },
+	{ name = "*.bz2", text = "" },
+	{ name = "*.gz" , text = "" },
+	{ name = "*.rar", text = "" },
+	{ name = "*.tar", text = "" },
+	{ name = "*.xz" , text = "" },
+	{ name = "*.zip", text = "" },
+
+	# Images
+	{ name = "*.HEIC", text = "", fg = "#a074c4" },
+	{ name = "*.avif", text = "", fg = "#a074c4" },
+	{ name = "*.bmp" , text = "", fg = "#a074c4" },
+	{ name = "*.gif" , text = "", fg = "#a074c4" },
+	{ name = "*.ico" , text = "", fg = "#cbcb41" },
+	{ name = "*.jpeg", text = "", fg = "#a074c4" },
+	{ name = "*.jpg" , text = "", fg = "#a074c4" },
+	{ name = "*.png" , text = "", fg = "#a074c4" },
+	{ name = "*.svg" , text = "", fg = "#FFB13B" },
+	{ name = "*.webp", text = "", fg = "#a074c4" },
+
+	# Movies
+	{ name = "*.avi" , text = "", fg = "#FD971F" },
+	{ name = "*.mkv" , text = "", fg = "#FD971F" },
+	{ name = "*.mov" , text = "", fg = "#FD971F" },
+	{ name = "*.mp4" , text = "", fg = "#FD971F" },
+	{ name = "*.webm", text = "", fg = "#FD971F" },
+
+	# Audio
+	{ name = "*.aac" , text = "", fg = "#66D8EF" },
+	{ name = "*.flac", text = "", fg = "#66D8EF" },
+	{ name = "*.m4a" , text = "", fg = "#66D8EF" },
+	{ name = "*.mp3" , text = "", fg = "#66D8EF" },
+	{ name = "*.ogg" , text = "", fg = "#66D8EF" },
+	{ name = "*.wav" , text = "", fg = "#66D8EF" },
+
+	# Documents
+	{ name = "*.csv" , text = "", fg = "#89e051" },
+	{ name = "*.doc" , text = "", fg = "#185abd" },
+	{ name = "*.doct", text = "", fg = "#185abd" },
+	{ name = "*.docx", text = "", fg = "#185abd" },
+	{ name = "*.dot" , text = "", fg = "#185abd" },
+	{ name = "*.ods" , text = "", fg = "#207245" },
+	{ name = "*.ots" , text = "", fg = "#207245" },
+	{ name = "*.pdf" , text = "", fg = "#b30b00" },
+	{ name = "*.pom" , text = "", fg = "#cc3e44" },
+	{ name = "*.pot" , text = "", fg = "#cb4a32" },
+	{ name = "*.potx", text = "", fg = "#cb4a32" },
+	{ name = "*.ppm" , text = "", fg = "#a074c4" },
+	{ name = "*.ppmx", text = "", fg = "#cb4a32" },
+	{ name = "*.pps" , text = "", fg = "#cb4a32" },
+	{ name = "*.ppsx", text = "", fg = "#cb4a32" },
+	{ name = "*.ppt" , text = "", fg = "#cb4a32" },
+	{ name = "*.pptx", text = "", fg = "#cb4a32" },
+	{ name = "*.xlc" , text = "", fg = "#207245" },
+	{ name = "*.xlm" , text = "", fg = "#207245" },
+	{ name = "*.xls" , text = "", fg = "#207245" },
+	{ name = "*.xlsm", text = "", fg = "#207245" },
+	{ name = "*.xlsx", text = "", fg = "#207245" },
+	{ name = "*.xlt" , text = "", fg = "#207245" },
+
+	# Lockfiles
+	{ name = "*.lock", text = "", fg = "#bbbbbb" },
+
+	# Misc
+	{ name = "*.bin", text = "", fg = "#9F0500" },
+	{ name = "*.exe", text = "", fg = "#9F0500" },
+	{ name = "*.pkg", text = "", fg = "#9F0500" },
+
+	# Dotfiles
+	{ name = ".DS_Store"     , text = "", fg = "#41535b" },
+	{ name = ".bashprofile"  , text = "", fg = "#89e051" },
+	{ name = ".bashrc"       , text = "", fg = "#89e051" },
+	{ name = ".gitattributes", text = "", fg = "#41535b" },
+	{ name = ".gitignore"    , text = "", fg = "#41535b" },
+	{ name = ".gitmodules"   , text = "", fg = "#41535b" },
+	{ name = ".vimrc"        , text = "", fg = "#019833" },
+	{ name = ".zprofile"     , text = "", fg = "#89e051" },
+	{ name = ".zshenv"       , text = "", fg = "#89e051" },
+	{ name = ".zshrc"        , text = "", fg = "#89e051" },
+
+	# Named files
+	{ name = "COPYING"      , text = "󰿃", fg = "#cbcb41" },
+	{ name = "Containerfile", text = "󰡨", fg = "#458ee6" },
+	{ name = "Dockerfile"   , text = "󰡨", fg = "#458ee6" },
+	{ name = "LICENSE"      , text = "󰿃", fg = "#d0bf41" },
+
+	# Directories
+	{ name = ".config/"    , text = "" },
+	{ name = ".git/"       , text = "" },
+	{ name = "Desktop/"    , text = "" },
+	{ name = "Development/", text = "" },
+	{ name = "Documents/"  , text = "" },
+	{ name = "Downloads/"  , text = "" },
+	{ name = "Library/"    , text = "" },
+	{ name = "Movies/"     , text = "" },
+	{ name = "Music/"      , text = "" },
+	{ name = "Pictures/"   , text = "" },
+	{ name = "Public/"     , text = "" },
+	{ name = "Videos/"     , text = "" },
+
+	# Default
+	{ name = "*" , text = "" },
+	{ name = "*/", text = "" },
 ]
 
 # : }}}

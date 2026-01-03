@@ -11,6 +11,7 @@ application/x-extension-xhtml=zen.desktop
 application/x-extension-xht=zen.desktop
 x-scheme-handler/gitkraken=GitKraken.desktop
 x-scheme-handler/chatbox=xyz.chatboxapp.app.desktop
+inode/directory=pcmanfm.desktop
 
 [Added Associations]
 x-scheme-handler/http=zen.desktop;firefox.desktop;
