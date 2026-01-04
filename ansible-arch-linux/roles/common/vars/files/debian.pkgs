@@ -1,0 +1,10 @@
+# Mostly used for WSL and stuff
+bat
+gum
+neovim 
+stow 
+software-properties-common 
+zoxide
+fzf
+zip
+unzip

@@ -1,0 +1,30 @@
+---
+- name: Install packages
+  community.general.pacman:
+    name: "{{ packages }}"
+    state: present
+  become: true
+
+- name: Install Sunshine
+  community.general.pacman:
+    name: "lizardbyte/sunshine"
+    state: present
+  become: true
+  when:
+    - sunshine | default(false) | bool
+
+- name: Install font packages
+  ansible.builtin.import_tasks: fonts.yml
+
+- name: Install aur packages
+  ansible.builtin.import_tasks: aur.yml
+
+- name: Install flatpaks
+  ansible.builtin.import_tasks: flatpak.yml
+
+- name: Start systemd service - systemd-modules-load.service
+  ansible.builtin.systemd:
+    name: systemd-modules-load.service
+    state: started
+    enabled: yes
+  become: true

@@ -1,0 +1,11 @@
+---
+# SPDX-License-Identifier: MIT-0
+# defaults file for etc_files
+etc_owner: root
+etc_group: root
+etc_mode: "0644"
+sshd_port: 22
+sshd_permit_root_login: "no"
+sysctl_settings:
+  net.ipv4.ip_forward: 0
+  vm.swappiness: 10

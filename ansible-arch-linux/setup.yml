@@ -1,0 +1,4 @@
+- name: Set up Arch Linux with tagged package groups
+  hosts: localhost
+  roles:
+    - arch_packages

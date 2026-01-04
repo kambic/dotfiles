@@ -1,0 +1,90 @@
+---
+- name: Create user
+  ansible.builtin.user:
+    name: "{{ user.name }}"
+    comment: "{{ user.full_name }}"
+    groups: "{{ user.additional_groups }}"
+    append: yes
+    shell: "{{ user.shell }}"
+    state: present
+  become: true
+
+- name: Git config user.name
+  community.general.git_config:
+    name: user.name
+    scope: global
+    value: "{{ git.name }}"
+
+- name: Git config user.email
+  community.general.git_config:
+    name: user.email
+    scope: global
+    value: "{{ git.email_b64 | b64decode }}"
+
+- name: Git config credential.helper
+  community.general.git_config:
+    name: credential.helper
+    scope: global
+    value: "{{ git.helper }}"
+
+- name: Git config pull.rebase
+  community.general.git_config:
+    name: pull.rebase
+    scope: global
+    value: "{{ git.rebase }}"
+
+- name: Git config diff.colorMoved
+  community.general.git_config:
+    name: diff.colorMoved
+    scope: global
+    value: "{{ git.colorMoved }}"
+
+- name: Install VS Code extensions
+  ansible.builtin.shell: code --install-extension {{ item }}  # noqa command-instead-of-shell
+  with_items: "{{ vscode_extension_list }}"
+  changed_when: no
+
+- name: Get dotfiles
+  ansible.builtin.get_url:
+    url: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    mode: 0644
+    owner: "{{ user.name }}"
+    group: "{{ user.primary_group }}"
+  with_items:
+    - { src: 'https://raw.githubusercontent.com/loganmarchione/dotfiles/main/.aliases', dest: '/home/logan/.aliases' }
+    - { src: 'https://raw.githubusercontent.com/loganmarchione/dotfiles/main/.vimrc', dest: '/home/logan/.vimrc' }
+    - { src: 'https://raw.githubusercontent.com/loganmarchione/dotfiles/main/.bashrc', dest: '/home/logan/.bashrc' }
+    - { src: 'https://raw.githubusercontent.com/loganmarchione/dotfiles/main/.zshrc', dest: '/home/logan/.zshrc' }
+    - { src: 'https://raw.githubusercontent.com/loganmarchione/dotfiles/main/.p10k.zsh', dest: '/home/logan/.p10k.zsh' }
+
+- name: Update makepkg configuration file
+  ansible.builtin.template:
+    src: makepkg.conf
+    dest: "/home/{{ user.name }}/.makepkg.conf"
+    backup: no
+    owner: "{{ user.name }}"
+    group: "{{ user.primary_group }}"
+    mode: 0644
+
+- name: Mask systemd services - lvm
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    masked: yes
+  become: true
+  with_items:
+    - lvm2-lvmetad.service
+    - lvm2-lvmetad.socket
+    - lvm2-monitor.service
+  when: disable_lvm
+
+- name: Mask systemd services - systemd homed
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    masked: yes
+  become: true
+  with_items:
+    - systemd-homed.service
+    - systemd-userdbd.service
+    - systemd-userdbd.socket
+  when: disable_systemd_homed

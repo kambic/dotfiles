@@ -1,65 +1,63 @@
-/* Catppuccin Mocha for wofi */
+/* import the global color definitions */
+@import url("../theming/colors.css");
 
 * {
-  font-family: "JetBrainsMono Nerd Font", monospace;
-  font-size: 14px;
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: bold;
+  font-size: 13px;
 }
 
-/* Main window */
 window {
-  background-color: rgba(30, 30, 46, 0.85); /* Mocha with transparency */
-  /* background-color: #1e1e2e; */
-  border: 2px solid #cba6f7;
-  border-radius: 12px;
+  margin: 0px;
+  border: 3px solid #bd93f9;   
+  border-radius: 10px;
+  background-color: @background;
+  color: @foreground;
+  /* background-color: @background; */
 }
 
-/* Input box */
 #input {
-  margin: 12px;
-  padding: 10px;
-  border-radius: 8px;
+  margin: 5px;
   border: none;
-  background-color: rgba(49, 50, 68, 0.90);
-  /* background-color: #313244; */
-  color: #cdd6f4;
+  color: #f8f8f2;
+  background-color: #44475a;
 }
 
-/* Inner box */
 #inner-box {
-  margin: 10px;
-  background-color: transparent;
+  margin: 5px;
+  border: none;
+  background-color: #282a36;
 }
 
-/* Scroll */
+#outer-box {
+  margin: 5px;
+  border: none;
+  background-color: #282a36;
+}
+
 #scroll {
-  margin-top: 5px;
+  margin: 0px;
+  border: none;
 }
 
-/* Entries */
-#entry {
-  padding: 8px 12px;
-  border-radius: 8px;
-  color: #cdd6f4;
-}
-
-/* Selected entry */
-#entry:selected {
-  background-color: rgba(88, 91, 112, 0.80);
-  /* background-color: #585b70; */
-  color: #f5e0dc;
-}
-
-/* Text */
 #text {
-  color: inherit;
+  margin: 5px;
+  border: none;
+  color: #f8f8f2;
 }
 
-/* Prompt */
-#prompt {
-  color: #f38ba8;
+#entry.activatable #text {
+  color: #ffffff;
 }
 
-/* Placeholder text */
-#input::placeholder {
-  color: #6c7086;
+#entry > * {
+  color: #f8f8f2;
+}
+
+#entry:selected {
+  background-color: #44475a;
+}
+
+#entry:selected #text {
+  font-weight: bold;
 }
