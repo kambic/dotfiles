@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+  <match target="font">
+    <edit name="antialias" mode="assign">
+      <bool>true</bool>
+    </edit>
+
+    <!-- Grayscale AA: best for HiDPI & Wayland -->
+    <edit name="rgba" mode="assign">
+      <const>none</const>
+    </edit>
+
+    <edit name="hinting" mode="assign">
+      <bool>true</bool>
+    </edit>
+
+    <edit name="hintstyle" mode="assign">
+      <const>hintslight</const>
+    </edit>
+
+    <!-- Improve stroke balance on HiDPI -->
+    <edit name="lcdfilter" mode="assign">
+      <const>lcddefault</const>
+    </edit>
+  </match>
+</fontconfig>
+🔎 Fonts that look best on ThinkPad panels
+
+Inter
+
+Noto Sans
+
+Source Sans 3
+
+JetBrains Mono (code)
+
+IBM Plex Sans (fits ThinkPad style well)
+For the ThinkPad T14 Gen 5 AMD:
+
+Wayland
+
+125–150% scaling
+
+Grayscale antialiasing
+
+Slight hinting
+
+No forced DPI
+
+**LCD filter** (in Fontconfig / FreeType) controls **how subpixel color components are blended**
+when **subpixel antialiasing (RGB/BGR)** is used.
+It reduces **color fringing** by smoothing how much each subpixel contributes.
+
+Think of it as a **low-pass filter for RGB subpixels**.
+
+---
+
+## 🧠 When LCD filters matter (and when they don’t)
+
+* ✔ **Only applies if subpixel AA is enabled** (`rgba = rgb/bgr`)
+* ❌ **Ignored for grayscale antialiasing** (`rgba = none`)
+* ❌ **Does nothing on Wayland grayscale setups**
+
+So:
+If you’re using **grayscale AA**, LCD filter has **no effect**.
+
+---
+
+## 🎛️ LCD filter options explained
+
+### `lcdnone`
+
+* No filtering
+* Sharp but **strong color fringing**
+* Mostly obsolete
+
+---
+
+### `lcddefault` ✅ (recommended)
+
+* Balanced filtering
+* Good sharpness
+* Minimal color fringing
+
+Best general choice.
+
+---
+
+### `lcdlight`
+
+* Very light filtering
+* Slightly sharper
+* May show mild fringing
+
+---
+
+### `lcdlegacy`
+
+* Strong filtering
+* Softer text
+* Similar to old Windows ClearType
+
+---
+
+## 🔬 Visual comparison (conceptual)
+
+| Filter | Sharpness | Color fringing |
+| -------------- | --------- | -------------- |
+| lcdnone | ★★★★★ | ❌ High |
+| lcdlight | ★★★★☆ | ⚠️ Medium |
+| **lcddefault** | ★★★☆☆ | ✅ Low |
+| lcdlegacy | ★★☆☆☆ | ✅ Very low |
+
+---
+
+## 🖥️ Recommended usage
+
+### External monitor (like your Dell S2721DGFA)
+
+```xml
+<edit name="rgba" mode="assign">
+  <const>rgb</const>
+</edit>
+<edit name="lcdfilter" mode="assign">
+  <const>lcddefault</const>
+</edit>
+```
+
+### Laptop / HiDPI / Wayland
+
+```xml
+<edit name="rgba" mode="assign">
+  <const>none</const>
+</edit>
+```
+
+(LCD filter not needed)
+
+---
+
+## 🧪 How to test
+
+1. Enable `rgb`
+2. Switch between:
+
+* `lcddefault`
+* `lcdlight`
+3. Restart apps (or log out)
+
+```bash
+fc-cache -f
+```
+
+Use small text (9–11pt) on white background.
+
+---
+
+## ✅ Bottom line
+
+* **LCD filter = color fringing control**
+* Only matters with **RGB/BGR subpixel AA**
+* **lcddefault** is the safe choice
+* Ignore it for **grayscale AA**
+
+If you want, I can provide a **complete fontconfig profile** for:
+
+* External monitor
+* Laptop
+* Mixed DPI setup
+
+Just tell me which one you want.
