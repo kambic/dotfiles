@@ -80,7 +80,8 @@ source <(fzf --bash)
 # CUSTOMIZATION
 # -----------------------------------------------------
 POSH=agnoster
-eval "$(oh-my-posh init bash)"
+# eval "$(oh-my-posh init bash)"
+eval "$(starship init bash)"
 # -----------------------------------------------------
 
 alias tb="nc termbin.com 9999"
