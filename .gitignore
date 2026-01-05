@@ -21,3 +21,27 @@ config/wlogout/colors.css
 config/nvim-astro/lazy-lock.json
 
 bitSheriff
+configuration/.termux/shell
+configuration/.config/shell/secrets
+configuration/.config/hypr/monitors.conf
+configuration/.config/hypr/workspaces.conf
+**/**.log
+configuration/.config/espanso/match/email.yml
+configuration/.config/1Password
+configuration/.config/peaclock/history
+**.md5
+bin/clone-repositories.sh
+bin/datengrab_copy
+configuration/.config/gurk/gurk.toml
+configuration/.config/iamb/config.toml
+configuration/.ssh/hosts
+configuration/.ssh
+configuration/.config/qutebrowser/bookmarks/urls
+configuration/.config/qutebrowser/__pycache__
+configuration/.config/qutebrowser/quickmarks
+configuration/.config/systemd/user/default.target.wants
+configuration/.config/zed/settings_backup.json
+configuration/.config/television/cable
+configuration/.config/Typora
+configuration/.config/copyq
+configuration/.config/mpd/database
