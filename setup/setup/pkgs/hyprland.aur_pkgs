@@ -1,0 +1,27 @@
+#index-fm                    # newer KDE file manager
+adwaita-dark
+adwaita-qt5-git             # dark themes for qt5 apps
+adwaita-qt6-git             # dark themes for qt6 apps
+bemoji                      # simple emoji picker
+cava                        # Console-based Audio Visualizer for Alsa
+clipman
+hyprpicker                  # A simple and fast GTK color picker
+hyprshade                   # tool for blue-ligth-filter and stuff
+hyprshot                    # screen shots
+hyprswitch                  # gui window switcher
+jome-git                    # emoji picker
+musikcube                   # TUI music player
+nmgui-bin                   # GUI for Network Manager
+nwg-displays                # gui display manager
+pacseek                     # tui package search engine
+peaclock                    # terminal clock
+qview                       # minimal image viewer
+timer-bin                   # simple terminal timer with progressbar
+tokyonight-gtk-theme-git    # gtk theme
+unipicker                   # picker for unicode symbols
+wallust                     # generate colors from wallpaper
+wayland-logout              # logout from wayland session
+waypaper                    # wallpaper chooser
+webapp-manager              # create webapps
+wlogout                     # logout from wayland session
+zen-browser-bin             # good-looking hardend firefox

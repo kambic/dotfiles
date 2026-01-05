@@ -12,6 +12,9 @@
     ~/.local/share/applications/ :
       glob : true
       path : local/applications/*
+    ~/bin/ :
+      glob: true
+      path: shell/bin/*
     ~/.config/: 
       glob: true
       path: config/*

@@ -1,7 +1,4 @@
 {
-  // "buildDir": "/tmp/yaybuild",
-  "parallelDownloads": true,
-  "aurParallel": 4,
   "aururl": "https://aur.archlinux.org",
   "buildDir": "$HOME/.cache/yay",
   "editor": "nvim",
