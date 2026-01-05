@@ -1,0 +1,10 @@
+[Unit]
+Description=Run pacma-auto-fetch every day
+
+[Timer]
+OnBootSec=1day
+OnUnitActiveSec=1day
+Unit=git-pacman-fetch.service
+
+[Install]
+WantedBy=timers.target

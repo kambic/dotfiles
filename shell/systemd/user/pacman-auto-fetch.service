@@ -1,10 +1,10 @@
 [Unit]
-Description=Automatically fetch Git repositories
+Description=Automatically Sync Pacman
 Wants=git-auto-fetch.timer
 
 [Service]
 Type=oneshot
-ExecStart=%h/.local/bin/git-auto-fetch
+ExecStart=yay -Syy
 
 [Install]
 WantedBy=default.target
