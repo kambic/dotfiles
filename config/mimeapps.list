@@ -13,6 +13,7 @@ x-scheme-handler/gitkraken=GitKraken.desktop
 x-scheme-handler/chatbox=xyz.chatboxapp.app.desktop
 inode/directory=pcmanfm.desktop
 x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
+video/x-matroska=mpv.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox-developer-edition.desktop;zen.desktop;firefox.desktop;
@@ -26,3 +27,4 @@ application/xhtml+xml=firefox.desktop;zen.desktop;firefox-developer-edition.desk
 application/x-extension-xhtml=firefox.desktop;zen.desktop;firefox-developer-edition.desktop;
 application/x-extension-xht=firefox.desktop;zen.desktop;firefox-developer-edition.desktop;
 inode/directory=com.github.FontManager.FontViewer.desktop;
+video/x-matroska=mpv.desktop;
