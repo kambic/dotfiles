@@ -20,7 +20,7 @@ compdef _eza ls
 # Plugins (mostly installed through Arch Packages/AUR)
 include /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 include /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-include /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# include /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
  
 # Auto completion
@@ -153,7 +153,7 @@ PROMPT2="$(/usr/bin/starship prompt --continuation)"
 # fix strange ^G error
 autoload -Uz compinit
 compinit
-eval "$(atuin init zsh)"
+# eval "$(atuin init zsh)"
 # eval "$(tv init zsh)"
 # eval "$(direnv hook zsh)"
 # eval "$(tod shell completions zsh)"
