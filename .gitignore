@@ -45,3 +45,4 @@ configuration/.config/television/cable
 configuration/.config/Typora
 configuration/.config/copyq
 configuration/.config/mpd/database
+.ansible/.lock
