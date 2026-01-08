@@ -11,13 +11,13 @@ alias gn="(cd $NOTES_DIR && lazygit)"           # switch to notes directory and 
 
 ## kitty
 alias icat="kitty +kitten icat --align=left"
+alias s="kitty +kitten ssht"
 alias nvim-gui="kitty nvim"
 
 ## application shortcuts
 alias nv="nvim"
-alias benjavim="nvim"
+
 alias rmrf="rm -rf"
-alias music="musikcube"
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -33,20 +33,12 @@ alias lt3="eza -a --long --header --icons --tree --level=3"
 alias hx="helix"
 alias v="NVIM_APPNAME=nvim-kickstart nvim"
 alias lvim="NVIM_APPNAME=lnvim nvim"
-alias oil="nvim -c Oil"                                 # start nvim with oil, to edit current directory and files
-alias gw="ghostwriter"
-alias clock="peaclock --config-dir ~/.config/peaclock" # cli-clock
 alias cp="cp -r" # always copy recursive
 alias py="python3"
-alias term="kitty . &; disown" # open a new terminal at the same location
-alias hugo-server="(cd ~/code/bitSheriff.github.io && hugo server --buildDrafts)" # hugo server
-alias neofetch="fastfetch"
 alias sshs="sshs --config ~/.ssh/hosts" # use own file for the SSH Hosts
-alias open="xdg-open" # open file with standard program
 alias cat="bat" # better cat command
 alias dots="cd $DOTFILES_DIR" # change to the dotfiles directory
 alias cd!='cd $(fd  --type d --hidden --exclude .git | fzf --ignore-case --no-preview )' # change directory with fuzzy finder
-alias go2conf="cd ~/.config"
 alias go2code="cd ~/code"
 alias iqalc="qalc -i" # interactive mode of Qalculator
 alias typo="typora"
@@ -99,9 +91,6 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-# open nautilus (file explorer) in the current directory
-alias exp="nemo ."
-
 # show weather information
 weather(){ curl -s "wttr.in/$1?m1"}
 
@@ -113,8 +102,6 @@ mkdir!() { mkdir -p "$1" && cd "$1"; }
 
 # start a process and disown it
 disown!() { exec "$@" & ; disown }
-
-daily-gw() { ghostwriter "$NOTES_DIR"/Journal/Entries/Daily/$(date +"%F").md & }
 
 # add a note in the inbox note
 inbox-gw() { ghostwriter "$INBOX" & }
@@ -145,28 +132,7 @@ bk() { cp "$1" "$1.bk" }
 # print md5 hashsum for string
 md5() { echo -n $1 | md5sum }
 
-# start mpv with the wanted file and be able to kill the terminal instance
-mpv_disown()
-{
-    mpv "$1" &
-    disown
-}
 
-compress()
-{
-    zip -9 -r "$1" "$1.zip"
-}
-
-decompress()
-{
-    unzip "$1"
-}
-
-# Continous latexmk compiling
-latexmk!()
-{
-    latexmk -lualatex -pvc -interaction=nonstopmode "$1"
-}
 
 mounts() {
   MEDIA_PATH="/run/media/$USER"
@@ -209,58 +175,8 @@ mounts() {
   cd "$SELECTION" || return 1
 }
 
-# Vote for AUR package
-aur_vote()
-{
-    ssh aur@aur.archlinux.org vote "$1"
-}
-
 # View all git repositories and open it later in Lazygit
 lgall(){
     lazygit -p $(tv git-repos)
 }
 
-# copy the selected file to clipboard
-yank()
-{
-    cat $(tv files) | wl-copy
-}
-
-# open openweb-ui with python uv
-openweb-ui(){
-    DATA_DIR=~/.open-webui uvx --python 3.11 open-webui@latest serve
-}
-
-# Two-Way sync
-sync(){
-    rsync -rtu $1 $2 && rsync -rtu $2 $1 
-}
-
-fcf() {
-    # 1. Get the history list from the first command (fc -l 1) and pipe it to fzf.
-    #    --tac: Shows the most recent commands at the top.
-    #    --no-sort: Keeps the history order intact.
-    # 2. Capture the user's selected line.
-    local selected_line
-    selected_line=$(fc -l 1 | fzf --tac --no-sort)
-
-    # Check if a selection was made (user didn't press Esc or Ctrl+C)
-    if [[ -n "$selected_line" ]]; then
-        # 3. Extract the command number (the first column) using awk.
-        local selected_number
-        selected_number=$(echo "$selected_line" | awk '{print $1}')
-
-        # 4. Use 'fc' to open the selected command number in the editor.
-        #    fc 1234 is equivalent to fc -e ${EDITOR:-vi} 1234
-        echo "Opening command #$selected_number in editor..."
-        fc "$selected_number"
-    else
-        echo "No command selected. Aborting fc."
-    fi
-}
-
-# Alias only for Android
-if [[ -n "$TERMUX_VERSION" ]]; then
-    # sudo is not available on termux/android
-    alias sudo=""
-fi

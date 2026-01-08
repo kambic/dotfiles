@@ -1,11 +1,3 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
     // global AI Killswitch
     "disable_ai": false,
@@ -13,34 +5,32 @@
     "colorize_brackets": true,
     "ssh_connections": [
         {
-            "host": "ssh.tilab.tuwien.ac.at",
-            "username": "s12220853",
+            "host": "cobra.lan",
+            "username": "root",
             "args": [],
             "projects": [
                 {
-                    "paths": ["/homes/s12220853/aca"]
-                }
-            ]
-        }
+                    "paths": ["/etc/config"],
+                },
+            ],
+        },
     ],
     "features": {
-        "edit_prediction_provider": "zed"
+        "edit_prediction_provider": "zed",
     },
-
-    "icon_theme": "Catppuccin Mocha",
 
     "agent": {
         "default_profile": "write",
         "default_model": {
             "provider": "copilot_chat",
-            "model": "gpt-4.1"
-        }
+            "model": "gpt-4.1",
+        },
     },
 
     "agent_servers": {
         "gemini": {
-            "ignore_system_version": false
-        }
+            "ignore_system_version": false,
+        },
     },
 
     "show_edit_predictions": true,
@@ -50,7 +40,7 @@
     "buffer_font_family": "Comic Mono",
 
     // Vim mode settings
-    "vim_mode": true,
+    "vim_mode": false,
     "relative_line_numbers": "enabled",
 
     "soft_wrap": "editor_width",
@@ -59,29 +49,29 @@
     // color the indentation levels
     "indent_guides": {
         "enabled": true,
-        "coloring": "indent_aware"
+        "coloring": "indent_aware",
     },
 
     "tabs": {
         "file_icons": true,
-        "git_status": true
+        "git_status": true,
     },
 
     // Disable the collaboration and chat panel
     "collaboration_panel": {
-        "button": false
+        "button": false,
     },
 
     "chat_panel": {
-        "button": "never"
+        "button": "never",
     },
 
     "outline_panel": {
-        "dock": "right"
+        "dock": "right",
     },
 
     "notification_panel": {
-        "dock": "left"
+        "dock": "left",
     },
 
     // Inlay hints preconfigured by Zed
@@ -89,57 +79,57 @@
         "enabled": true,
         "show_type_hints": true,
         "show_parameter_hints": true,
-        "show_other_hints": true
+        "show_other_hints": true,
     },
     // Theming
     "theme": {
         "mode": "dark",
         "light": "One Light",
-        "dark": "Wallust"
+        "dark": "Catppuccin Mocha",
     },
 
     // Turn off telemetry
     "telemetry": {
         "diagnostics": false,
-        "metrics": false
+        "metrics": false,
     },
 
     // Language Settings
     "languages": {
         "Markdown": {
             "format_on_save": "on",
-            "tab_size": 4
+            "tab_size": 4,
         },
         "Rust": {
             "formatter": "language_server",
             "format_on_save": "on",
-            "tab_size": 4
+            "tab_size": 4,
         },
         "Python": {
             "formatter": {
                 "external": {
                     "command": "black",
-                    "arguments": ["-"]
-                }
+                    "arguments": ["-"],
+                },
             },
             "format_on_save": "on",
-            "tab_size": 2
-        }
+            "tab_size": 2,
+        },
     },
 
     "lsp": {
         "rust-analyzer": {
             "initialization_options": {
                 "checkOnSave": {
-                    "command": "clippy"
-                }
-            }
-        }
+                    "command": "clippy",
+                },
+            },
+        },
     },
 
     "file_types": {
         "latex": ["*.cfg", "*.sty"],
-        "dotnev": [".env.*"]
+        "dotnev": [".env.*"],
     },
 
     // disable the predictions for certain files
@@ -152,15 +142,15 @@
             "**/*.key",
             "**/*.cert",
             "**/*.crt",
-            "**/secrets.yml"
-        ]
+            "**/secrets.yml",
+        ],
     },
 
     // autosave file after one second of inactivity
     "autosave": {
         "after_delay": {
-            "milliseconds": 1000
-        }
+            "milliseconds": 1000,
+        },
     },
 
     "scrollbar": {
@@ -173,15 +163,15 @@
         "diagnostics": "all",
         "axes": {
             "horizontal": true,
-            "vertical": true
-        }
+            "vertical": true,
+        },
     },
 
     // The key to use for adding multiple cursors
     "multi_cursor_modifier": "alt",
 
     "sticky_scroll": {
-        "enabled": true
+        "enabled": true,
     },
 
     // Git Features
@@ -198,8 +188,8 @@
         "git_gutter": "tracked_files",
         "inline_blame": {
             "enabled": true,
-            "position": "right"
-        }
+            "position": "right",
+        },
     },
 
     // Builtin Terminal Settings
@@ -207,6 +197,6 @@
         "font_family": "JetBrainsMono Nerd Font",
         "font_size": 13,
         "default_height": 320,
-        "copy_on_select": true
-    }
+        "copy_on_select": true,
+    },
 }
