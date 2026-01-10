@@ -48,3 +48,5 @@ configuration/.config/mpd/database
 .ansible/.lock
 
 *.dat
+
+ansible-playbook
