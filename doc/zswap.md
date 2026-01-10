@@ -137,22 +137,6 @@ echo "Zram:  $(zramctl --output-all | awk 'NR==2 {print $4}')"
 
 ---
 
-# 7. **Hybrid: Zswap **+** Zram?**
-
-**Yes — but rarely useful.**
-
-```bash
-# Zram (high priority) + Zswap (low priority)
-swapon /dev/zram0 -p 100
-swapon /swapfile  -p 10
-```
-
-→ Zram fills first → Zswap as safety net.
-
-> **Not recommended** — adds complexity, little gain.
-
----
-
 # 8. **When to Choose Which**
 
 | Choose **Zswap** if:               | Choose **Zram** if:                 |
@@ -165,20 +149,11 @@ swapon /swapfile  -p 10
 
 ---
 
-# 9. **Final Recommendation for Your W550s**
+# 9. **W550s**
 
-```text
-# KEEP THIS IN KERNEL CMDLINE
+```comf
 zswap.enabled=1 zswap.compressor=zstd zswap.max_pool_percent=15 zswap.zpool=z3fold
 ```
-
-**+** 8 GB swap file on SSD.
-
-**Why not Zram?**
-
-- Your SSD is fast (likely NVMe or SATA)
-- 16 GB RAM → 2.4 GB Zswap pool → ~8 GB effective
-- **No OOM**, **no SSD wear**, **Hyprland stays snappy**
 
 ---
 
@@ -195,10 +170,3 @@ zswap.enabled=1 zswap.compressor=zstd zswap.max_pool_percent=15 zswap.zpool=z3fo
 | **Winner for W550s** | YES               | No              |
 
 ---
-
-**Bottom line:**
-
-> **Use `zswap` on your ThinkPad W550s.**  
-> It’s the **perfect balance** of speed, safety, and battery life.
-
-Want a **script to auto-switch between Zswap/Zram** based on RAM pressure? Just ask.

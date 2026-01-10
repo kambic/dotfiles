@@ -62,3 +62,26 @@
         name: gdm.service
         enabled: yes
       become: true
+
+- name: Install desktop environment
+  when: desktop == "hyprland"
+  block:
+    - name: Install Hyprland
+      community.general.pacman:
+        name:
+          - hyprlang
+          - hypridle
+          - hyprlock
+          - hyprpolkitagent
+          - hyprcursor
+          - xdg-desktop-portal-hyprland
+          - hyprland-protocols
+          - hyprpaper
+        state: present
+      become: true
+
+    - name: Start systemd service - gdm.service
+      ansible.builtin.systemd:
+        name: sddm.service
+        enabled: yes
+      become: true

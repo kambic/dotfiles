@@ -1,3 +1,3 @@
 ---
-hostname: archpc
-nvidia_gpu: true
+hostname: z4g4
+nvidia_gpu: false
