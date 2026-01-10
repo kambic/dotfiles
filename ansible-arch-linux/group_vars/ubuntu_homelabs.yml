@@ -1,3 +1,0 @@
----
-ansible_ssh_key_name: "ansible_homelabs"
-needs_ssh_setup: true

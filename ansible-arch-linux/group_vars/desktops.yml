@@ -1,6 +1,0 @@
----
-monitor_config: "DP-1,2560x1440@144,0x0,1"
-extra_packages:
-  - discord
-  - steam
-  - obs-studio

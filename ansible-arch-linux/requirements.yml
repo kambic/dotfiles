@@ -1,8 +1,11 @@
 ---
 collections:
-  - name: community.general
-    version: 12.1.0
-    source: https://galaxy.ansible.com
-  - name: kewlfft.aur
-    version: 0.13.0
-    source: https://galaxy.ansible.com
+    - name: ansible.posix
+
+    - name: community.general
+      version: 12.1.0
+      source: https://galaxy.ansible.com
+
+    - name: kewlfft.aur
+      version: 0.13.0
+      source: https://galaxy.ansible.com
