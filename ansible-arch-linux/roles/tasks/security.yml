@@ -1,0 +1,19 @@
+---
+# Security and credentials tasks from original script
+- name: Security and Credentials Setup
+  block:
+
+    - name: Setup KeePassXC integration
+      block:
+        - name: Check if secret-tool is available
+          command: which secret-tool
+          register: secret_tool_check
+          changed_when: false
+          failed_when: false
+
+        - name: Setup KeePassXC password in keyring (manual setup required)
+          debug:
+            msg: "KeePassXC password setup skipped - configure manually or use key file authentication"
+          when:
+            - secret_tool_check.rc == 0
+            - not ansible_check_mode

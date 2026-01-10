@@ -1,14 +1,14 @@
 [Default Applications]
-x-scheme-handler/http=firefox-developer-edition.desktop
-x-scheme-handler/https=firefox-developer-edition.desktop
-x-scheme-handler/chrome=firefox-developer-edition.desktop
-text/html=firefox-developer-edition.desktop
-application/x-extension-htm=firefox-developer-edition.desktop
-application/x-extension-html=firefox-developer-edition.desktop
-application/x-extension-shtml=firefox-developer-edition.desktop
-application/xhtml+xml=firefox-developer-edition.desktop
-application/x-extension-xhtml=firefox-developer-edition.desktop
-application/x-extension-xht=firefox-developer-edition.desktop
+x-scheme-handler/http=zen.desktop
+x-scheme-handler/https=zen.desktop
+x-scheme-handler/chrome=zen.desktop
+text/html=zen.desktop
+application/x-extension-htm=zen.desktop
+application/x-extension-html=zen.desktop
+application/x-extension-shtml=zen.desktop
+application/xhtml+xml=zen.desktop
+application/x-extension-xhtml=zen.desktop
+application/x-extension-xht=zen.desktop
 x-scheme-handler/gitkraken=GitKraken.desktop
 x-scheme-handler/chatbox=xyz.chatboxapp.app.desktop
 inode/directory=pcmanfm.desktop
@@ -16,9 +16,9 @@ x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
 video/x-matroska=mpv.desktop
 
 [Added Associations]
-x-scheme-handler/http=firefox-developer-edition.desktop;zen.desktop;firefox.desktop;
-x-scheme-handler/https=firefox-developer-edition.desktop;zen.desktop;firefox.desktop;
-x-scheme-handler/chrome=firefox-developer-edition.desktop;zen.desktop;firefox.desktop;
+x-scheme-handler/http=zen.desktop;firefox-developer-edition.desktop;firefox.desktop;
+x-scheme-handler/https=zen.desktop;firefox-developer-edition.desktop;firefox.desktop;
+x-scheme-handler/chrome=zen.desktop;firefox-developer-edition.desktop;firefox.desktop;
 text/html=firefox.desktop;zen.desktop;firefox-developer-edition.desktop;
 application/x-extension-htm=firefox.desktop;zen.desktop;firefox-developer-edition.desktop;
 application/x-extension-html=firefox.desktop;zen.desktop;firefox-developer-edition.desktop;

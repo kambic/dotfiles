@@ -1,0 +1,4 @@
+config_dir: "{{ ansible_facts['user_dir'] }}/.config"
+dotfiles_dir: "{{ ansible_facts['user_dir'] }}/dotfiles"
+dotfiles_repo: "https://github.com/kambic/dotfiles.git"
+ansible_user: "kamba"

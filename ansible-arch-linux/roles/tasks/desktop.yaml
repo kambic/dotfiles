@@ -1,0 +1,38 @@
+---
+- name: Install programs from pacman for desktop.
+  become: true
+  pacman:
+    name:
+      # - bemenu-wayland
+      - brightnessctl
+      - dex
+      - dunst
+      - grim
+      - kitty
+      # - nautilus
+      # - qt5-wayland
+      # - qt6-wayland
+      - slurp
+      # - swaybg
+      # - swayimg
+      # - swaylock
+      - wayland
+      - wayland-protocols
+      - wl-clipboard
+      - wtype
+      - xorg-xwayland
+  tags:
+    - install
+    - desktop
+
+- name: Install programs from aur for desktop.
+  ansible.builtin.command: paru -S --noconfirm --needed auto-cpufreq brave-bin mingetty ntfs2btrfs-git nwg-look
+  tags:
+    - install
+    - desktop
+
+- name: Install Hyprland
+  ansible.builtin.command: paru -S --noconfirm --needed hyprland-git hyprpaper-git hyprpicker-git waybar-hyprland-git xdg-desktop-portal-hyprland
+  tags:
+    - install
+    - desktop

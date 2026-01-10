@@ -1,0 +1,12 @@
+---
+# Battery management from original script (only if battery detected)
+- name: Battery and Power Management
+  when: has_battery
+  block:
+    - name: Set battery charge thresholds using TLP
+      become: true
+      shell: |
+        tlp setcharge 50 60 BAT0
+      changed_when: true
+      failed_when: false
+
