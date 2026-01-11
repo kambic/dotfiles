@@ -1,6 +1,6 @@
 [user]
-    name = kamba
-    email = root@kamba.dev
+	name = Rok Kambic
+	email = rok.kambic@gmail.com\n
 
 [core]
     editor = nvim
@@ -14,6 +14,7 @@
 [diff]
     tool = meld
     algorithm = histogram
+	colorMoved = zebra
 
 [core]
     pager = delta
@@ -106,3 +107,5 @@
 [rerere]
 	enabled = true
 	autoUpdate = true
+[credential]
+	helper = cache
