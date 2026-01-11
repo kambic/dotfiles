@@ -50,3 +50,5 @@ configuration/.config/mpd/database
 *.dat
 
 ansible-playbook
+config/mpd/database
+config/copyq/copyq.lock
