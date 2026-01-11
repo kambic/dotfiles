@@ -1,36 +1,35 @@
 ---
+- name: Ensure Stow installed
+  become: yes
+  pacman:
+    name: stow
+    state: present
 
-- name: Create local directory structure
-  file:
-    path: "{{ item }}"
-    state: directory
-    mode: '0755'
-  loop:
-    - "{{ ansible_user_dir }}/.config"
-    - "{{ ansible_user_dir }}/.local/bin"
-    - "{{ ansible_user_dir }}/.ssh"
+- name: Build directories list
+  find:
+    paths: [dotfiles/]
+    recurse: no
+    file_type: directory
+  register: files
 
-- name: Deploy dotfiles via symlink
-  file:
-    src: "{{ role_path }}/files/{{ item.src }}"
-    dest: "{{ ansible_user_dir }}/{{ item.dest }}"
-    state: link
-    force: yes
-  loop:
-    - { src: 'shell/.zshrc', dest: '.zshrc' }
-    - { src: 'shell/.bashrc', dest: '.bashrc' }
-    - { src: 'ssh/config', dest: '.ssh/config' }
-    - { src: 'configuration/', dest: '.config/' }
-    - { src: 'bin/', dest: '.local/bin/' }
-
-- name: Apply templated configurations
-  template:
-    src: makepkg.conf.j2
-    dest: "{{ ansible_user_dir }}/.makepkg.conf"
-    mode: '0644'
-
-- name: Setup User Systemd services
-  copy:
-    src: systemd/
-    dest: "{{ ansible_user_dir }}/.config/systemd/user/"
-    mode: '0644'
+- name: Deploy dotfiles!
+  become: yes
+  with_items: '{{ files.files }}'
+  shell: |
+    STOW_PATH={{ item.path | replace("dotfiles/", "") }}
+    OVERRIDE=$(cat ${STOW_PATH}/.override 2>/dev/null)
+    NOAH_HOME=$(getent passwd noah | cut -d: -f6)
+    stow -v --ignore="\.override" -t ${OVERRIDE:-$NOAH_HOME} ${STOW_PATH}
+  args:
+    chdir: ./dotfiles
+    executable: /bin/bash
+  loop_control:
+    label: |-
+      {% if output.stderr|length > 1 %}
+      {{ item.path }}
+      {{ output.stderr }}
+      {%- else %}
+      {{ item.path }}
+      {%- endif %}
+  register: output
+  changed_when: '"LINK" in output.stderr'
