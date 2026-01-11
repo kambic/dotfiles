@@ -1,5 +1,7 @@
-**/copyq/copyq*.conf
-!**/copyq/copyq.conf
+**/copyq/**.ini
+**/copyq/**.lock
+**/Typora/
+#!**/copyq/copyq.conf
 
 config/gtk-3.0/settings.ini
 config/hypr/machine.conf

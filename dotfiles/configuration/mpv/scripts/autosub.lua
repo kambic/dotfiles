@@ -4,6 +4,7 @@
 --          This script uses Subliminal to download subtitles,
 --          so make sure to specify your system's Subliminal location below:
 local subliminal = "/bin/subliminal"
+return
 --=============================================================================
 -->>    SUBTITLE LANGUAGE:
 --=============================================================================
