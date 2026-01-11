@@ -7,8 +7,8 @@
 - name: Set GPU and headless facts
   ansible.builtin.set_fact:
       gpu:
-          amd: "{{ 'amd/ati' in lspci_result.stdout | lower or 'radeon' in lspci_result.stdout | lower }}"
-          intel: "{{ 'intel' in lspci_result.stdout | lower }}"
+          amd: "{{ 'amd/ati' in lspci_result.stdout | lower or 'intel' in lspci_result.stdout | lower }}"
+          intel: "{{ 'intel-off' in lspci_result.stdout | lower }}"
           nvidia: "{{ 'nvidia' in lspci_result.stdout | lower }}"
       headless: >-
           {{
