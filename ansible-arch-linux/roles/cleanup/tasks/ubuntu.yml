@@ -1,6 +1,0 @@
----
-- name: Clean up the system (autoclean, autoremove)
-  become: true
-  ansible.builtin.apt:
-    autoclean: true
-    autoremove: true

@@ -60,18 +60,6 @@
             src: "https://raw.githubusercontent.com/loganmarchione/dotfiles/main/.vimrc",
             dest: "/home/{{user.name}}/.vimrc",
         }
-      - {
-            src: "https://raw.githubusercontent.com/loganmarchione/dotfiles/main/.bashrc",
-            dest: "/home/{{user.name}}/.bashrc",
-        }
-      - {
-            src: "https://raw.githubusercontent.com/loganmarchione/dotfiles/main/.zshrc",
-            dest: "/home/{{user.name}}/.zshrc",
-        }
-      - {
-            src: "https://raw.githubusercontent.com/loganmarchione/dotfiles/main/.p10k.zsh",
-            dest: "/home/{{user.name}}/.p10k.zsh",
-        }
 
 - name: Update makepkg configuration file
   ansible.builtin.template:

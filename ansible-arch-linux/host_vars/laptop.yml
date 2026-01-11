@@ -1,3 +1,7 @@
----
-hostname: archlaptop
+# host_vars/laptop.yml
+
+hostname: T14
+
+laptop: true
 battery_optimization: true
+enable_bluetooth: true
