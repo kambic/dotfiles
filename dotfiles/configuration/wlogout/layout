@@ -12,7 +12,7 @@
 }
 {
     "label" : "logout",
-    "action" : "wayland-logout",
+    "action" : "uwsm stop",
     "text" : "Logout",
     "keybind" : "e"
 }

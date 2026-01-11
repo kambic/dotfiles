@@ -2,6 +2,8 @@
 **/copyq/**.lock
 **/Typora/
 #!**/copyq/copyq.conf
+**/mpd/database
+**/mpd/mpdstate
 
 config/gtk-3.0/settings.ini
 config/hypr/machine.conf
