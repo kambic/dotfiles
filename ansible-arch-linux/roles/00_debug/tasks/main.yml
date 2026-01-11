@@ -1,0 +1,9 @@
+---
+- name: Dumpt facts
+  ansible.builtin.debug:
+      var: "hostvars[inventory_hostname]"
+
+- name: Complex msg
+  ansible.builtin.debug:
+      # msg: "Facts\n {{ hostvars }}!"
+      var: "hostvars"
