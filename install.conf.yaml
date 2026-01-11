@@ -1,26 +1,28 @@
 - defaults:
     link:
-        create: true
-        relink: true
+      create: true
+      relink: true
 
-- clean: ['~', '~/.config']
+- clean: [ '~', '~/.config' ]
 
 - link:
     ~/.bashrc: shell/bashrc
     ~/.zshrc: shell/zshrc
+    ~/.aliases: shell/aliases
+    ~/.p10k.zsh: shell/p10k.zsh
     ~/.gitconfig: shell/gitconfig
-    ~/.local/share/applications/ :
-      glob : true
-      path : local/applications/*
-    ~/bin/ :
+    ~/.local/share/applications/:
+      glob: true
+      path: local/applications/*
+    ~/bin/:
       glob: true
       path: shell/bin/*
-    ~/.config/: 
+    ~/.config/:
       glob: true
       path: config/*
 
 - shell:
-  - [git submodule update --init --recursive, Updating submodules]  # Move your existing one here if preferred
+  - [ git submodule update --init --recursive, Updating submodules ] # Move your existing one here if preferred
   - description: Install Oh My Zsh
     command: >
       if [ ! -d ~/.oh-my-zsh ]; then

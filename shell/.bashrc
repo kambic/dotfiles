@@ -84,3 +84,5 @@ PS1='\n\w\n\u@\h ${PS1_CMD1}\n> '
 if [ -f ~/.aliases ]; then
   . ~/.aliases
 fi
+
+umask 002
