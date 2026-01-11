@@ -47,3 +47,4 @@ starship init fish | source
 # CTRL-r = fzf history
 # ALT-c  = fzf cd
 fzf --fish | source
+umask 002
