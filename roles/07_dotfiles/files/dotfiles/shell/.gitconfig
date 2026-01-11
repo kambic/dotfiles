@@ -1,0 +1,9 @@
+[user]
+	name = Rok Kambic
+	email = rok.kambic@gmail.com\n
+[credential]
+	helper = cache
+[pull]
+	rebase = true
+[diff]
+	colorMoved = zebra

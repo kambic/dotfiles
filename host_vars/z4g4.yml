@@ -1,0 +1,14 @@
+dotfiles_repo: "/home/kamba/dotfiles"
+
+enable_zsh: true
+enable_gui_apps: true
+
+git_user_name: "Kamba"
+git_user_email: "kamba@z4g4.local"
+
+hostname: z4g4
+nvidia_gpu: false
+
+extra_bins:
+- kubectl
+- helm

@@ -1,0 +1,8 @@
+dotfiles_repo: "{{ ansible_env.HOME }}/dotfiles"
+backup_suffix: ".pre-dotfiles"
+
+dotfiles_files:
+  - bashrc
+  - zshrc
+  - aliases
+  - p10k.zsh

@@ -1,0 +1,12 @@
+---
+- name: Configure git user
+  ansible.builtin.git_config:
+    name: user.name
+    scope: global
+    value: "{{ git_user_name }}"
+
+- name: Configure git email
+  ansible.builtin.git_config:
+    name: user.email
+    scope: global
+    value: "{{ git_user_email }}"
