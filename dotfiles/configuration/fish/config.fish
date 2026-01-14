@@ -30,12 +30,66 @@ alias l..='eza -al --color=always --group-directories-first ../../' # ls on dire
 
 
 
+function vv
+    set -l cache_file ~/.cache/vv_last_nvim
+
+    # Ensure cache dir exists
+    mkdir -p ~/.cache
+
+    # Load last selection if it exists
+    set -l last ""
+    if test -f $cache_file
+        set last (cat $cache_file)
+    end
+
+    # Select config
+    set -l config (
+        fd --max-depth 1 --glob 'nvim-*' ~/.config \
+        | sort \
+        | fzf \
+            --prompt="Neovim Configs > " \
+            --height=50% \
+            --layout=reverse \
+            --border \
+            --exit-0
+    )
+
+    # If nothing selected, exit
+    if test -z "$config"
+        echo "No config selected"
+        return
+    end
+
+    # Cache selection
+    echo $config > $cache_file
+
+    # Launch Neovim with selected config
+    set -l appname (basename "$config")
+    env NVIM_APPNAME=$appname nvim $argv
+end
+function su
+   command su --shell=/usr/bin/fish $argv
+end
+function lsusb --wraps=cyme --description 'alias lsusb cyme'
+    cyme $argv
+end
+
+function y
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    yazi $argv --cwd-file="$tmp"
+    if read -z cwd < "$tmp"; and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        builtin cd -- "$cwd"
+    end
+    rm -f -- "$tmp"
+end
+
 ### RANDOM COLOR SCRIPT ###
 # Get this script from my GitLab: gitlab.com/dwt1/shell-color-scripts
 # Or install it from the Arch User Repository: shell-color-scripts
 # The 'if' statement prevents colorscript from showing in 'fzf' previews.
 if status is-interactive
     colorscript exec suckless
+
 end
 
 ### SETTING THE STARSHIP PROMPT ###
