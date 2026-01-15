@@ -7,3 +7,9 @@
   ansible.builtin.debug:
       # msg: "Facts\n {{ hostvars }}!"
       var: "hostvars"
+
+
+- name: env msg
+  ansible.builtin.debug:
+      # msg: "Facts\n {{ hostvars }}!"
+      var: "ansible_facts.env"

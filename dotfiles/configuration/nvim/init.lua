@@ -1,5 +1,0 @@
-require "user.options"
-require "user.keymaps"
-require "user.autocmds"
-require "user.ui"
-require "user.lazy-setup"

@@ -1,6 +1,25 @@
 ---
 - name: Symlink the bin directory dotfiles
-  shell: stow -d ~/dotfiles/home -t ~/ {{ item }}
-  with_items:
+  ansible.builtin.shell: stow -d {{ ansible_facts.env.HOME }}/dotfiles/home -t {{ ansible_facts.env.HOME }} {{ item }}
+  loop:
     - bin
     - shell
+
+
+- name: Symlink configuration dotfiles with stow
+  ansible.builtin.command:
+    cmd: stow --restow --target "{{ ansible_facts.env.HOME }}/.config" configuration
+    chdir: "{{ ansible_facts.env.HOME }}/dotfiles/home/"
+  # loop:
+  #   - bat
+  #   - dunst
+  #   - environment.d
+  #   - fish
+  #   - fastfetch
+  #   - hypr
+  #   - nvim
+  #   - nvim-kickstart
+  #   - theming
+  #   - waybar
+  #   - yazi
+  #   - walker
