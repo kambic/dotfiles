@@ -1,0 +1,49 @@
+# define standard programs
+# export TERMINAL=kitty
+export EDITOR=nvim
+export VISUAL=nvim
+export BROWSER=zen-browser
+export MANPAGER='nvim +Man!'
+
+# define important files & directories
+# export NOTES_DIR=$HOME/notes
+export INBOX=$NOTES_DIR/Inbox/Inbox.md                             # define the inbox file
+export INBOX_DIR=$(dirname $INBOX)
+export DOTFILES_DIR=$HOME/dotfiles                             # define the folder where the dotfiles are located
+# export CACHE_DIR=$HOME/.cache                                       # define the folder for temporary cache files
+export CODE_DIR=$HOME/code                                          # define the folder for the most coding projects
+
+export BIN_PATH=$HOME/.local/bin                                    # path for own binaries/scripts
+export LIB_PATH=$HOME/.local/lib                                    # path for own libraries
+
+export GCM_CREDENTIAL_STORE=secretservice                           # how to store the git credentials (needed for git-credential-manager)
+
+# fix Wayland problem with Rust Tauri
+# https://github.com/tauri-apps/tauri/issues/10702
+export WEBKIT_DISABLE_DMABUF_RENDERER=1
+
+
+### ---- path config -------------------------------------
+# this works only iwth zsh
+if [ -n "$ZSH_VERSION" ]; then
+    setopt extended_glob null_glob
+fi
+
+path=(
+    $path                           # Keep existing PATH entries
+    $BIN_PATH
+    $HOME/.local/bin
+    $HOME/.cargo/bin
+    /var/lib/flatpak/exports/share/applications
+    /usr/bin/
+    $HOME/.config/hypr/scripts
+)
+
+# Remove duplicate entries and non-existent directories
+if [ -n "$ZSH_VERSION" ]; then
+    typeset -U path
+    path=($^path(N-/))
+fi
+
+export PATH
+### ------------------------------------------------------

@@ -1,0 +1,134 @@
+################################################################################
+# Aliases for all distributions
+################################################################################
+
+########################################
+# Aliases that add colors
+########################################
+alias diff="diff --color=auto"
+alias grep="grep --color=auto"
+alias ls="ls --color=auto"
+alias ll="ls -laF --color=auto"
+alias dmesg="dmesg --color"
+alias ip="ip -color=auto"
+alias tree="tree -C"
+alias lsusb="cyme"
+
+########################################
+# Default editor
+########################################
+if [[ -x "$(command -v nvim)" ]]; then
+  export VISUAL=nvim
+  export EDITOR="$VISUAL"
+elif [[ -x "$(command -v vim)" ]]; then
+  export VISUAL=vim
+  export EDITOR="$VISUAL"
+else
+   printf "Please set an editor, vim and/or vi are not installed"
+fi
+
+########################################
+# Miscellaneous
+########################################
+alias cls="clear"
+alias jc="journalctl"
+alias sc="systemctl"
+
+####################
+# show disks (pretty)
+####################
+disks() {
+  lsblk -o NAME,MOUNTPOINT,FSTYPE,FSUSE%,SIZE
+}
+
+################################################################################
+# Aliases for specific distributions
+################################################################################
+release_file="/etc/os-release"
+
+########################################
+# Arch-based
+########################################
+if grep -q -i archlinux $release_file; then
+  alias yolo="sudo pacman -Syu --noconfirm && yay -Syua --devel --noconfirm && flatpak update -y && flatpak uninstall --unused -y"
+  alias lsorphans="pacman -Qtdq"
+  alias rmorphans="pacman -Qtdq | sudo pacman -Rns -"
+  alias lsexplicit="pacman -Qetq"
+  alias lsaur="pacman -Qmq"
+  alias upvote="for i in `pacman -Qqm`; do ssh aur@aur.archlinux.org vote $i; done"
+########################################
+# Debian-based
+########################################
+elif grep -q -i debian $release_file; then
+  alias yolo="sudo apt update && sudo apt dist-upgrade -y && sudo apt autoclean -y && sudo apt autoremove -y"
+########################################
+# Others
+########################################
+else
+  printf "Release file not found, could not set distro-specific aliases."
+fi
+
+
+
+
+# Development
+alias pyclean='find . -type f -name "*.py[co]" -delete -o -type d -name "__pycache__" -delete'
+alias ipy='ipython'
+
+# Network
+alias myip='curl ifconfig.me'
+
+alias mkdir='mkdir -p'
+alias ip='ip --color=always'
+alias lsusb='cyme'
+# SSH shortcuts
+alias v='$EDITOR'
+
+alias s='kitten ssh'
+alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias sf='sudo fish'
+
+alias c='clear'                                                                    # clear terminal
+alias l='eza -lh --icons=auto '                                         # long list
+alias ls='eza -1 --icons=auto '                                         # short list
+alias ll='eza -lha --icons=auto --sort=name --group-directories-first ' # long list all
+alias ld='eza -lhD --icons=auto '                                       # long list dirs
+alias lt='eza --icons=auto --tree '                                     # list folder as tree
+alias pql='yay -Ql'
+alias pqo='yay -Qo'
+
+# Directory navigation shortcuts
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+alias wcolor="watch -ctn 1"
+
+function vv() {
+  # Assumes all configs exist in directories named ~/.config/nvim-*
+  local config
+  config=$(fd --max-depth 1 --glob 'nvim-*' ~/.config | fzf --prompt="Neovim Configs > " --height=~50% --layout=reverse --border --exit-0)
+
+  # If I exit fzf without selecting a config, don't open Neovim
+  [[ -z $config ]] && echo "No config selected" && return
+
+  # Open Neovim with the selected config
+  NVIM_APPNAME=$(basename "$config") nvim "$@"
+}
+
+function fzf-pi() {
+  pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S
+
+}
+function fzf-pr() {
+  pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns
+}
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd <"$tmp"
+  [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+  rm -f -- "$tmp"
+}

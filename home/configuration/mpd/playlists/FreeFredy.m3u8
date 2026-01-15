@@ -1,0 +1,10 @@
+#EXTM3U
+
+#EXTINF:-1, RadioFreeFedi -  Main
+
+http://relay.radiofreefedi.net/listen/rff/rff.mp3
+
+
+#EXTINF:-1, RadioFreeFedi -  Comfy
+
+http://relay.radiofreefedi.net/listen/comfy/comfy.mp3
