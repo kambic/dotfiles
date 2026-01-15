@@ -1,17 +1,7 @@
 #!/bin/bash
-
 DIR_NAME=$(dirname "$0")
-# shellcheck source=/dev/null
-source "$DIR_NAME/../../lib/my_lib.sh"
-# shellcheck source=/dev/null
-source "$DIR_NAME/../../lib/logos.sh"
-# shellcheck source=/dev/null
-source "$DIR_NAME/../../lib/cache.sh"
-# shellcheck source=/dev/null
-source "$DIR_NAME/../../lib/distributions.sh"
-# shellcheck source=/dev/null
-source "$DIR_NAME/../../lib/package_manager.sh"
-
+source "$DIR_NAME/00-base.sh"
+# ========================================
 plugins=("updates","easymotion")
 
 echo -e "\n\n"

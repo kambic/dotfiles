@@ -12,15 +12,16 @@ alias ll="ls -laF --color=auto"
 alias dmesg="dmesg --color"
 alias ip="ip -color=auto"
 alias tree="tree -C"
-
+alias lsusb="cyme"
+alias minicom='minicom -con'
 ########################################
 # Default editor
 ########################################
-if [[ -x "$(command -v vim)" ]]; then
-  export VISUAL=vim
+if [[ -x "$(command -v nvim)" ]]; then
+  export VISUAL=nvim
   export EDITOR="$VISUAL"
-elif [[ -x "$(command -v vi)" ]]; then
-  export VISUAL=vi
+elif [[ -x "$(command -v vim)" ]]; then
+  export VISUAL=vim
   export EDITOR="$VISUAL"
 else
    printf "Please set an editor, vim and/or vi are not installed"
@@ -34,17 +35,6 @@ alias jc="journalctl"
 alias k="kubectl"
 alias tf="terraform"
 alias sc="systemctl"
-
-####################
-# Python HTTP server
-####################
-function pyserver() {
-    local port=${1:-8000}
-    python3 -m http.server "$port"
-}
-# pyserver           # Starts the server on port 8000
-# pyserver 9000      # Starts the server on port 9000
-alias pyserver="pyserver"
 
 ####################
 # show disks (pretty)

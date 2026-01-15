@@ -1,16 +1,6 @@
 #!/bin/bash
-
 DIR_NAME=$(dirname "$0")
-# shellcheck source=/dev/null
-source "$DIR_NAME/../../lib/my_lib.sh"
-# shellcheck source=/dev/null
-source "$DIR_NAME/../../lib/logos.sh"
-# shellcheck source=/dev/null
-source "$DIR_NAME/../../lib/cache.sh"
-# shellcheck source=/dev/null
-source "$DIR_NAME/../../lib/distributions.sh"
-# shellcheck source=/dev/null
-source "$DIR_NAME/../../lib/package_manager.sh"
+source "$DIR_NAME/00-base.sh"
 
 # ========================================
 # CONSTANTS
@@ -241,8 +231,6 @@ selection=$(
 
 IFS=$'\n' read -rd '' -a array <<<"$selection"
 
-if array_contains "${array[@]}" "$NAME_calibre"; then pacman_packages+=("calibre"); fi
-if array_contains "${array[@]}" "$NAME_chromium"; then pacman_packages+=("chromium"); fi
 if array_contains "${array[@]}" "$NAME_decoder"; then yay_packages+=("decoder"); fi
 if array_contains "${array[@]}" "$NAME_devtoys"; then yay_packages+=("devtoys-bin"); fi
 if array_contains "${array[@]}" "$NAME_doxygen"; then pacman_packages+=("doxygen"); fi
@@ -265,7 +253,6 @@ if array_contains "${array[@]}" "$NAME_iam"; then yay_packages+=("iamb"); fi
 if array_contains "${array[@]}" "$NAME_fractal"; then pacman_packages+=("fractal"); fi
 if array_contains "${array[@]}" "$NAME_espanso"; then build_espanso; fi
 if array_contains "${array[@]}" "$NAME_kdeconnect"; then setup_kdeConnect; fi
-if array_contains "${array[@]}" "$NAME_whatsapp"; then yay_packages+=("whatsapp-for-linux"); fi
 if array_contains "${array[@]}" "$NAME_matlab"; then bash ./scripts/matlab.sh; fi
 if array_contains "${array[@]}" "$NAME_maple"; then bash ./scripts/maple.sh; fi
 if array_contains "${array[@]}" "$NAME_cozy"; then yay_packages+=("cozy-audiobooks"); fi

@@ -1,12 +1,7 @@
 #!/bin/bash
-
 DIR_NAME=$(dirname "$0")
-
-source "$DIR_NAME/../../lib/my_lib.sh"
-source "$DIR_NAME/../../lib/logos.sh"
-source "$DIR_NAME/../../lib/cache.sh"
-source "$DIR_NAME/../../lib/distributions.sh"
-source "$DIR_NAME/../../lib/package_manager.sh"
+source "$DIR_NAME/00-base.sh"
+# ========================================
 
 print_h2 "Languages and langauge-specific Tooling"
 
