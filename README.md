@@ -448,3 +448,4 @@ sudo btrfs property set /mnt/data/archive ro false
 ```
 
 ---
+gpg --list-secret-keys --keyid-format=long
