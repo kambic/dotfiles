@@ -1,0 +1,40 @@
+# user.dotfiles/defaults/main.yml
+dotfiles_user: "{{ ansible_user_id }}" # usually correct, override when needed
+dotfiles_home: "{{ lookup('env','HOME') | default('/home/' + dotfiles_user, true) }}"
+# Where are your dotfiles located on the control node (relative to role/files/)
+dotfiles_src_root: "dotfiles"
+# Which shells should get their rc files linked
+dotfiles_shells:
+  - bash
+  - zsh
+  - fish
+# Map shell → list of files to link (relative to dotfiles_src_root)
+dotfiles_shell_files:
+  bash:
+    - .bashrc
+    - .bash_profile
+    - .bash_logout
+    - .inputrc
+  zsh:
+    - .zshrc
+    - .zprofile
+    - .zshenv
+  fish:
+    - .config/fish/config.fish
+    - .config/fish/conf.d/prompt.fish # example
+# Files / folders directly under ~/.config to symlink
+dotfiles_config_entries:
+  - starship.toml
+  - fish
+  - git
+  - helix
+  - nvim
+  - wezterm
+  - bat
+  - bottom
+  - fd
+  - ripgrep
+# Whether to remove existing regular files/directories before linking
+dotfiles_force_overwrite: true
+# Create ~/.config if missing
+dotfiles_ensure_config_dir: true
