@@ -1,0 +1,20 @@
+# SPDX-License-Identifier: MIT-0
+# handlers file for etc_files
+- name: Restart sshd
+  ansible.builtin.service:
+    name: sshd
+    state: restarted
+- name: Reload sysctl
+  ansible.builtin.command: sysctl --system
+- name: Reload systemd
+  ansible.builtin.command: systemctl daemon-reexec
+  become: true
+- name: Reload sysctl
+  ansible.builtin.command: sysctl --system
+  become: true
+- name: Reload udev
+  ansible.builtin.command: udevadm control --reload
+  become: true
+- name: Reload tmpfiles
+  ansible.builtin.command: systemd-tmpfiles --create
+  become: true
