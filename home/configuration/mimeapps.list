@@ -16,6 +16,8 @@ x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
 video/x-matroska=mpv.desktop
 x-scheme-handler/about=brave-browser.desktop
 x-scheme-handler/unknown=brave-browser.desktop
+video/matroska=mpv.desktop
+video/mp4=mpv.desktop
 
 [Added Associations]
 x-scheme-handler/http=zen.desktop;firefox-developer-edition.desktop;firefox.desktop;
