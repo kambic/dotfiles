@@ -62,3 +62,5 @@ config/mpd/database
 config/copyq/copyq.lock
 config/copyq/copyq_geometry.ini
 config/copyq/copyq_tabs.ini
+
+dotbot
