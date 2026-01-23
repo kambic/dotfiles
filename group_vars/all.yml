@@ -180,9 +180,9 @@ packages:
   - termshark
 
 aur_packages:
-  - waypaper
-  - wlogout
-  - pacseek
+    - waypaper
+    - wlogout
+    - pacseek
 
 flatpaks:
   - com.discordapp.Discord
@@ -229,27 +229,27 @@ base_fonts:
   - ttf-liberation
 
 vscode_extension_list:
-  - arcticicestudio.nord-visual-studio-code
-  - dracula-theme.theme-dracula
-  - eamodio.gitlens
-  - golang.go
-  - HashiCorp.HCL
-  - HashiCorp.terraform
-  - ms-azuretools.vscode-containers
-  - ms-python.python
-  - redhat.ansible
-  - redhat.vscode-xml
-  - redhat.vscode-yaml
-  - streetsidesoftware.code-spell-checker
-  - vscode-icons-team.vscode-icons
+    - arcticicestudio.nord-visual-studio-code
+    - dracula-theme.theme-dracula
+    - eamodio.gitlens
+    - golang.go
+    - HashiCorp.HCL
+    - HashiCorp.terraform
+    - ms-azuretools.vscode-containers
+    - ms-python.python
+    - redhat.ansible
+    - redhat.vscode-xml
+    - redhat.vscode-yaml
+    - streetsidesoftware.code-spell-checker
+    - vscode-icons-team.vscode-icons
 
 printing_scanning_packages:
-  - cups
-  - cups-pdf
-  - sane
-  - sane-airscan
-  - simple-scan
+    - cups
+    - cups-pdf
+    - sane
+    - sane-airscan
+    - simple-scan
 
 printing_scanning_aur_packages:
-  - brlaser-git
-  - brscan4
+    - brlaser-git
+    - brscan4
