@@ -1,3 +1,4 @@
+---
 dotfiles_repo: "/home/kamba/dotfiles"
 
 enable_zsh: true
@@ -7,9 +8,10 @@ git_user_name: "Kamba"
 git_user_email: "kamba@laptop.local"
 
 extra_bins: []
-
 hostname: T14
 
 laptop: true
 battery_optimization: true
 enable_bluetooth: true
+
+gpu: amd

@@ -1,5 +1,31 @@
+---
 # SPDX-License-Identifier: MIT-0
 # tasks file for etc_files
+#
+#
+
+- name: Mask systemd services - lvm
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    masked: true
+  become: true
+  with_items:
+    - lvm2-lvmetad.service
+    - lvm2-lvmetad.socket
+    - lvm2-monitor.service
+  when: disable_lvm
+
+- name: Mask systemd services - systemd homed
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    masked: true
+  become: true
+  with_items:
+    - systemd-homed.service
+    - systemd-userdbd.service
+    - systemd-userdbd.socket
+  when: disable_systemd_homed
+
 - name: Deploy sshd_config
   ansible.builtin.template:
     src: sshd_config.j2
@@ -41,13 +67,14 @@
 #     - { src: "sysctl.conf.j2", dest: "/etc/sysctl.conf" }
 - name: Deploy configuration files from role to /etc
   become: true
+  when: false
   ansible.builtin.copy:
     src: "{{ role_path }}/files/" # Trailing '/' copies *contents* recursively
     dest: /etc/
     owner: root
     group: root
     mode: preserve # Preserves original file modes; directories get default (0755 usually)
-    backup: yes # Backs up remote files before overwriting if changed
+    backup: true # Backs up remote files before overwriting if changed
   notify:
     - Reload systemd
     - Reload sysctl

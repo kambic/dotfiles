@@ -1,0 +1,43 @@
+---
+- name: Update pacman cache
+  become: true
+  pacman:
+    update_cache: true
+  tags:
+    - install
+    - extra
+
+- name: Installing extra packages
+  become: true
+  pacman:
+    name:
+      - emacs-wayland
+      - lazygit
+      - git-delta
+      - tealdeer
+      - matugen
+      - fastfetch
+  tags:
+    - install
+    - extra
+
+- name: Install AUR packages
+  shell: |
+    yay -S --noconfirm --needed {{ aur_packages | join(' ') }}
+
+
+- name: Set SDDM theme to urbanlifestyle
+  ansible.builtin.ini_file:
+    path: /etc/sddm.conf.d/theme.conf
+    section: Theme
+    option: Current
+    value: urbanlifestyle
+    create: true
+  become: true
+  tags:
+    - extra
+
+- name: Tldr
+  ansible.builtin.command: tldr --update
+  tags:
+    - extra

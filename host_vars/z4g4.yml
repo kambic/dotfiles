@@ -1,3 +1,4 @@
+---
 dotfiles_repo: "/home/kamba/dotfiles"
 
 enable_zsh: true
@@ -10,5 +11,5 @@ hostname: z4g4
 nvidia_gpu: false
 
 extra_bins:
-- kubectl
-- helm
+  - kubectl
+  - helm

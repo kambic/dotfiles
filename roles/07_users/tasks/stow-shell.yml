@@ -1,0 +1,8 @@
+- name: Stow shell dotfiles
+  command: >
+      stow
+      {{ stow_flags }}
+      --target={{ ansible_env.HOME }}
+      shell
+  args:
+      chdir: "{{ role_path }}/files"

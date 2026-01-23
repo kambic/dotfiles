@@ -1,0 +1,4 @@
+---
+dotfiles_repo: "{{ ansible_env.HOME }}/dotfiles"
+
+stow_flags: "-v --restow"

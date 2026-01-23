@@ -1,8 +1,0 @@
-galaxy_info:
-  author: yourname
-  description: Installs categorized Arch Linux packages using yay
-  license: MIT
-  min_ansible_version: "2.14"
-  platforms:
-    - name: Archlinux
-dependencies: []

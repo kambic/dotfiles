@@ -1,5 +1,6 @@
+---
 - name: Symlink the bin directory dotfiles
-  ansible.builtin.shell: stow -d {{ ansible_facts.env.HOME }}/dotfiles/home -t {{ ansible_facts.env.HOME }} {{ item }}
+  ansible.builtin.command: stow -d {{ ansible_facts.env.HOME }}/dotfiles/home -t {{ ansible_facts.env.HOME }} {{ item }}
   loop:
     - bin
     - shell

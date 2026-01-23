@@ -1,6 +1,6 @@
-Dotfiles Template
-=================
+# Dotfiles Template
 
+https://github.com/phelipetls/dotfiles
 This is a template repository for bootstrapping your dotfiles with [Dotbot][dotbot].
 
 To get started, you can [create a new repository from this template][template]
@@ -16,8 +16,7 @@ To keep submodules at their proper versions, you could include something like
 To upgrade your submodules to their latest versions, you could periodically run
 `git submodule update --init --remote`.
 
-Inspiration
------------
+## Inspiration
 
 How I use git worktrees
 10 Oct 2022 • 5 minute read •
@@ -109,7 +108,7 @@ Looking to see what branches you have created locally becomes more of an ordeal 
 Terminal window
 
 ▷ git --no-pager branch | wc -l
-    1520
+1520
 
 How I use worktrees to get things done
 
@@ -146,23 +145,23 @@ rsync -a --delete --inplace --numeric-ids --no-compress \
 
 **Why:**
 
-* `--whole-file`
+- `--whole-file`
   🔥 **Huge win locally** — skips delta algorithm (CPU + random reads)
-* `--no-compress`
+- `--no-compress`
   Compression is useless locally and wastes CPU
-* `--inplace`
+- `--inplace`
   Reduces temp file writes (especially big files)
-* `-a`
+- `-a`
   Metadata preserved efficiently
 
 ---
 
 ### ❌ Avoid these for HDDs
 
-* `-z` / `--compress`
-* `--checksum` (forces full file reads)
-* `--partial-dir` (extra seeks)
-* `--link-dest` unless required (metadata overhead)
+- `-z` / `--compress`
+- `--checksum` (forces full file reads)
+- `--partial-dir` (extra seeks)
+- `--link-dest` unless required (metadata overhead)
 
 ---
 
@@ -207,9 +206,9 @@ echo mq-deadline | sudo tee /sys/block/sdX/queue/scheduler
 
 **Why:**
 
-* `mq-deadline` = best balance for sequential + metadata IO
-* `bfq` = good for desktops, slower for bulk rsync
-* `none` = bad for HDD
+- `mq-deadline` = best balance for sequential + metadata IO
+- `bfq` = good for desktops, slower for bulk rsync
+- `none` = bad for HDD
 
 ---
 
@@ -311,11 +310,12 @@ iostat -dx 1
 
 You want:
 
-* `%util` near **90–100%**
-* `await` stable (not spiking wildly)
-* Minimal reads during write phase
+- `%util` near **90–100%**
+- `await` stable (not spiking wildly)
+- Minimal reads during write phase
 
 ---
+
 Below is the **clean, correct way to create an “archive” Btrfs subvolume and make it writable by a normal user**, with notes for common pitfalls.
 
 ---
@@ -383,8 +383,8 @@ sudo chmod 2775 /mnt/data/archive
 
 **Why 2775?**
 
-* `2` → setgid bit → new files inherit group
-* `775` → group writable
+- `2` → setgid bit → new files inherit group
+- `775` → group writable
 
 ---
 
@@ -448,4 +448,5 @@ sudo btrfs property set /mnt/data/archive ro false
 ```
 
 ---
+
 gpg --list-secret-keys --keyid-format=long

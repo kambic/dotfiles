@@ -40,7 +40,7 @@
     - name: Start systemd service - sddm.service
       ansible.builtin.systemd:
         name: sddm.service
-        enabled: yes
+        enabled: true
       become: true
 
 - name: Install desktop environment
@@ -60,7 +60,7 @@
     - name: Start systemd service - gdm.service
       ansible.builtin.systemd:
         name: gdm.service
-        enabled: yes
+        enabled: true
       become: true
 
 - name: Install desktop environment
@@ -80,8 +80,8 @@
         state: present
       become: true
 
-    - name: Start systemd service - gdm.service
+    - name: Start systemd service - sddm.service
       ansible.builtin.systemd:
         name: sddm.service
-        enabled: yes
+        enabled: true
       become: true

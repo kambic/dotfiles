@@ -4,26 +4,12 @@
   register: lspci_result
   changed_when: false
 
-- name: Set GPU and headless facts
-  ansible.builtin.set_fact:
-      gpu:
-          amd: "{{ 'amd/ati' in lspci_result.stdout | lower or 'intel' in lspci_result.stdout | lower }}"
-          intel: "{{ 'intel-off' in lspci_result.stdout | lower }}"
-          nvidia: "{{ 'nvidia' in lspci_result.stdout | lower }}"
-      headless: >-
-          {{
-            not (
-              'vga' in lspci_result.stdout | lower
-              or '3d controller' in lspci_result.stdout | lower
-              or 'display controller' in lspci_result.stdout | lower
-            )
-          }}
 
-# Optional debug while developing
-# - debug:
-#     var: gpu
-# - debug:
-#     var: headless
+Optional debug while developing
+- debug:
+    var: gpu
+- debug:
+    var: headless
 
 - name: Install Xorg (non-headless only)
   community.general.pacman:

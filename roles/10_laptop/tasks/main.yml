@@ -1,14 +1,23 @@
 ---
-- name: Install power management packages
+- name: Include distro specific variables
+  ansible.builtin.include_vars: "{{  ansible_facts['distribution'] | lower }}.yml"
+# - name: Install common packages
+#   become: true
+#   ansible.builtin.package:
+#     name: "{{ common_packages }}"
+#     state: present
+- name: Install pacman packages
+  become: true
   community.general.pacman:
-    name:
-      - power-profiles-daemon
+    name: "{{ pacman_packages }}"
     state: present
-  become: true
 
-- name: Start systemd service - power-profiles-daemon.service
-  ansible.builtin.systemd:
-    name: power-profiles-daemon.service
-    state: started
-    enabled: yes
-  become: true
+- name: Install AUR packages
+  kewlfft.aur.aur:
+    name: "{{ aur_packages }}"
+    state: present
+- name: "Add EasyEffect profile"
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/irs/"
+    dest: "{{ ansible_facts['user_dir'] }}/.config/easyeffects/irs/"
+    mode: "preserve"

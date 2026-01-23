@@ -1,3 +1,4 @@
+---
 # SPDX-License-Identifier: MIT-0
 # tasks file for etc_files
 - name: Deploy sshd_config
@@ -47,7 +48,7 @@
     owner: root
     group: root
     mode: preserve # Preserves original file modes; directories get default (0755 usually)
-    backup: yes # Backs up remote files before overwriting if changed
+    backup: true # Backs up remote files before overwriting if changed
   notify:
     - Reload systemd
     - Reload sysctl

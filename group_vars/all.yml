@@ -8,27 +8,27 @@ dotfiles_repo: "https://github.com/kambic/dotfiles.git"
 ansible_user: "kamba"
 
 user:
-    name: kamba
-    full_name: "Rok Kambic"
-    primary_group: users
-    additional_groups: docker,wheel,render,tty,mail,log,locate,proc,http,games,dbus,network,wireshark,realtime,qemu,libvirt,avahi,video,uucp,storage,kmem,input,disk,audio,adm
-    # /bin/bash or /bin/zsh
-    shell: /bin/bash
-    # See country list by running `reflector --list-countries`
-    country: "Slovenia"
-    timezone: "Europe/Ljubljana"
-    keyboard_layout: "us"
+  name: kamba
+  full_name: "Rok Kambic"
+  primary_group: users
+  additional_groups: docker,wheel,render,tty,mail,log,locate,proc,http,games,dbus,network,wireshark,realtime,qemu,libvirt,avahi,video,uucp,storage,kmem,input,disk,audio,adm
+  # /bin/bash or /bin/zsh
+  shell: /bin/bash
+  # See country list by running `reflector --list-countries`
+  country: "Slovenia"
+  timezone: "Europe/Ljubljana"
+  keyboard_layout: "us"
 
 git:
-    name: "{{ user['full_name'] }}"
-    # obfuscated a little so bots won't find it
-    email_b64: "cm9rLmthbWJpY0BnbWFpbC5jb20K"
-    # can be "cache", "store", "osxkeychain", or "manager"
-    helper: "cache"
-    # can be "true" or "false"
-    rebase: "true"
-    # see this https://git-scm.com/docs/git-diff#Documentation/git-diff.txt---color-movedltmodegt
-    colorMoved: "zebra"
+  name: "{{ user['full_name'] }}"
+  # obfuscated a little so bots won't find it
+  email_b64: "cm9rLmthbWJpY0BnbWFpbC5jb20K"
+  # can be "cache", "store", "osxkeychain", or "manager"
+  helper: "cache"
+  # can be "true" or "false"
+  rebase: "true"
+  # see this https://git-scm.com/docs/git-diff#Documentation/git-diff.txt---color-movedltmodegt
+  colorMoved: "zebra"
 
 #
 # Miscellaneous
@@ -64,7 +64,7 @@ sunshine: false
 
 # how many parallel downloads to run at once
 pacman:
-    parallel_downloads: 10
+  parallel_downloads: 10
 
 # set aur helper
 # supported helpers are here https://github.com/kewlfft/ansible-aur#kewlfftauraur-module
@@ -128,8 +128,6 @@ packages:
   - iputils
   - jq
   - keepassxc
-  - kubectl
-  - lame
   - libimobiledevice
   - linux-firmware
   - libvirt
@@ -155,20 +153,20 @@ packages:
   - plocate
   - qemu-desktop
   - realtime-privileges
-  - rpi-imager
+  # - rpi-imager
   - rsync
   # - screen
   # - solaar
-  - steam
+  # - steam
   - sudo
   - tree
-  - unrar-free
+  # - unrar-free
   - unzip
   - usbutils
   # - vlc
   # - vlc-plugins-all
   - wget
-  - wireguard-tools
+  # - wireguard-tools
   - wireplumber
   - wpa_supplicant
   # Needed for GTK apps that run as Flatpaks
@@ -191,8 +189,8 @@ flatpaks:
   - com.github.PintaProject.Pinta
   - com.github.tchx84.Flatseal
   # - com.slack.Slack
-  - com.spotify.Client
-  - fr.handbrake.ghb
+  # - com.spotify.Client
+  # - fr.handbrake.ghb
   - info.beyondallreason.bar
   - org.bunkus.mkvtoolnix-gui
   # - org.freedesktop.Platform.ffmpeg-full/x86_64/23.08
@@ -202,9 +200,9 @@ flatpaks:
   # - io.missioncenter.MissionCenter
   # - it.mijorus.gearlever
   # - md.obsidian.Obsidian
-  - org.gtk.Gtk3theme.Adwaita-dark
-  - org.gtk.Gtk3theme.Yaru-dark
-  - org.gtk.Gtk3theme.Yaru-light
+  # - org.gtk.Gtk3theme.Adwaita-dark
+  # - org.gtk.Gtk3theme.Yaru-dark
+  # - org.gtk.Gtk3theme.Yaru-light
   # - org.libreoffice.LibreOffice
   # - org.mozilla.Thunderbird
   # - org.remmina.Remmina
@@ -220,7 +218,7 @@ base_fonts:
   - adobe-source-serif-pro-fonts
   - gnu-free-fonts
   - noto-fonts
-  - noto-fonts-cjk
+  # - noto-fonts-cjk
   - noto-fonts-emoji
   - powerline-fonts
   - ttf-anonymous-pro
