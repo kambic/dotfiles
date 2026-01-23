@@ -1,10 +1,10 @@
 ---
 - name: Ensure stow is installed
-  package:
-      name: stow
-      state: present
+  ansible.builtin.package:
+    name: stow
+    state: present
   become: true
 
-- import_tasks: stow-bin.yml
-- import_tasks: stow-config.yml
-- import_tasks: stow-shell.yml
+- ansible.builtin.import_tasks: stow-bin.yml
+- ansible.builtin.import_tasks: stow-config.yml
+- ansible.builtin.import_tasks: stow-shell.yml

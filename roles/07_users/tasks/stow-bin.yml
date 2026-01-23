@@ -1,8 +1,9 @@
+---
 - name: Stow bin files
-  command: >
-      stow
-      {{ stow_flags }}
-      --target={{ ansible_env.HOME }}
-      bin
+  ansible.builtin.command: >
+    stow
+    {{ stow_flags }}
+    --target={{ ansible_env.HOME }}
+    bin
   args:
-      chdir: "{{ role_path }}/files"
+    chdir: "{{ role_path }}/files"

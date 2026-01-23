@@ -1,8 +1,9 @@
+---
 - name: Stow config files
-  command: >
-      stow
-      {{ stow_flags }}
-      --target={{ ansible_env.HOME }}
-      config
+  ansible.builtin.command: >
+    stow
+    {{ stow_flags }}
+    --target={{ ansible_env.HOME }}
+    config
   args:
-      chdir: "{{ role_path }}/files"
+    chdir: "{{ role_path }}/files"
