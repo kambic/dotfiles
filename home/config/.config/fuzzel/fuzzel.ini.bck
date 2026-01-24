@@ -1,0 +1,42 @@
+# =========================
+# Fuzzel configuration
+# =========================
+
+[main]
+font=JetBrainsMono Nerd Font:size=14
+dpi-aware=yes
+prompt="󰣇  "
+terminal=foot
+icon-theme=Papirus
+icons-enabled=yes
+lines=10
+width=40
+horizontal-pad=24
+vertical-pad=16
+inner-pad=12
+exit-on-keyboard-focus-loss=yes
+
+[colors]
+background=1e1e2eff
+text=cdd6f4ff
+match=89b4faff
+selection=313244ff
+selection-text=f5e0dcff
+border=89b4faff
+
+[border]
+width=2
+radius=12
+
+[dmenu]
+mode=text
+
+[key-bindings]
+cancel=Escape Control+g
+execute=Return KP_Enter
+delete-prev=BackSpace
+delete-next=Delete
+cursor-left=Left Control+b
+cursor-right=Right Control+f
+next=Down Control+n
+prev=Up Control+p
