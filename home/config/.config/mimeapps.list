@@ -7,7 +7,7 @@ x-scheme-handler/about=firefox.desktop
 x-scheme-handler/unknown=firefox.desktop
 
 # File Manager
-inode/directory=pcmanfm-qt.desktop
+inode/directory=pcmanfm.desktop
 
 # Media Player (Video & Audio)
 video/mp4=mpv.desktop
@@ -24,3 +24,4 @@ audio/flac=mpv.desktop
 text/plain=nvim-tabs.desktop
 text/markdown=nvim-tabs.desktop
 application/x-shellscript=nvim-tabs.desktop
+x-scheme-handler/gitkraken=GitKraken.desktop
