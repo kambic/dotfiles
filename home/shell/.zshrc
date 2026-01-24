@@ -23,7 +23,7 @@ zstyle ':omz:update' mode auto        # update automatically without asking
 zstyle ':omz:update' frequency 13
 
 # Plugins
-plugins=(archlinux docker fzf git git-lfs nmap python qrcode starship thefuck systemadmin systemd taskwarrior theme toolbox uv vscode sudo zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(archlinux docker fzf git git-lfs nmap python qrcode starship thefuck systemadmin systemd taskwarrior toolbox uv vscode sudo zsh-autosuggestions zsh-syntax-highlighting)
 # plugins=( git sudo command-not-found colored-man-pages dirhistory zsh-syntax-highlighting zsh-autosuggestions)
 # fzf
 export FZF_DEFAULT_OPTS='--height 30% --border'

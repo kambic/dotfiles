@@ -22,7 +22,7 @@
   branch = true
 
 [commit]
-  gpgsign = true
+  gpgsign = false
 
 [worktree]
   guessRemote = true

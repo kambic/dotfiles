@@ -1,9 +1,0 @@
-# other config files (? means optional)
-config-file = ?keybinds
-config-file = ?theming
-
-mouse-hide-while-typing = true
-desktop-notifications = true
-
-shell-integration = zsh
-shell-integration-features = cursor,sudo,title

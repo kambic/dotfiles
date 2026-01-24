@@ -8,11 +8,22 @@ sort_by        = "alphabetical"
 sort_sensitive = false
 sort_reverse   = false
 sort_dir_first = true
-linemode       = "none"
+linemode = "size_and_mtime"
 show_hidden    = true
 show_symlink   = true
-scrolloff      = 5
 
+[opener]
+play = [
+	{ run = "mpv %s", orphan = true, for = "unix" },
+]
+edit = [
+	{ run = "$EDITOR %s", block = true, for = "unix" },
+	{ run = "%EDITOR% %s", block = true, for = "windows" },
+]
+open = [
+	{ run = "xdg-open %s", desc = "Open" },
+]
+# ...
 [tasks]
 micro_workers    = 10
 macro_workers    = 25
