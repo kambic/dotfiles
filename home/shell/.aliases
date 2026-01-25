@@ -15,19 +15,6 @@ alias tree="tree -C"
 alias lsusb="cyme"
 
 ########################################
-# Default editor
-########################################
-if [[ -x "$(command -v nvim)" ]]; then
-  export VISUAL=nvim
-  export EDITOR="$VISUAL"
-elif [[ -x "$(command -v vim)" ]]; then
-  export VISUAL=vim
-  export EDITOR="$VISUAL"
-else
-   printf "Please set an editor, vim and/or vi are not installed"
-fi
-
-########################################
 # Miscellaneous
 ########################################
 alias cls="clear"
