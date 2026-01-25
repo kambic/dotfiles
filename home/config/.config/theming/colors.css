@@ -4,24 +4,25 @@
 css = { src = "colors.css", dst = "~/.config/" }
  */
 
-@define-color color0       #443A3A;
-@define-color color1       #443627;
-@define-color color2       #88421F;
-@define-color color3       #7A6B4B;
-@define-color color4       #BA744C;
-@define-color color5       #C0A98A;
-@define-color color6       #FCD4CE;
-@define-color color7       #F5E1DE;
-@define-color color8       #AC9E9B;
-@define-color color9       #443627;
-@define-color color10      #88421F;
-@define-color color11      #7A6B4B;
-@define-color color12      #BA744C;
-@define-color color13      #C0A98A;
-@define-color color14      #FCD4CE;
-@define-color color15      #F5E1DE;
-@define-color background   alpha(#1C1313,0.5);
-@define-color foreground   #FEF0EE;
+@define-color color0       #4B4A4E;
+@define-color color1       #242336;
+@define-color color2       #536083;
+@define-color color3       #937173;
+@define-color color4       #8796B5;
+@define-color color5       #D7A0D2;
+@define-color color6       #DCC9C4;
+@define-color color7       #E5DCD9;
+@define-color color8       #A09A98;
+@define-color color9       #242336;
+@define-color color10      #536083;
+@define-color color11      #937173;
+@define-color color12      #8796B5;
+@define-color color13      #D7A0D2;
+@define-color color14      #DCC9C4;
+@define-color color15      #E5DCD9;
+@define-color background   alpha(#252528,0.5);
+@define-color foreground   #F3ECEA;
+@define-color cursorcolor  #A3A6B7;
 
 @define-color background-darker rgba(30, 31, 41, 230);
 @define-color selection       #44475a;

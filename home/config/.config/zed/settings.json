@@ -15,10 +15,27 @@
             "args": [],
             "projects": [
                 {
-                    "paths": ["/etc/config"],
-                },
-            ],
+                    "paths": [
+                        "/etc/config"
+                    ]
+                }
+            ]
         },
+        {
+            "host": "z4g4.lan",
+            "args": [],
+            "projects": []
+        },
+        {
+            "host": "z4g4",
+            "args": [],
+            "projects": []
+        },
+        {
+            "host": "z4g4",
+            "args": [],
+            "projects": []
+        }
     ],
     "features": {
         "edit_prediction_provider": "zed",
@@ -86,7 +103,7 @@
     "theme": {
         "mode": "dark",
         "light": "One Light",
-        "dark": "One Dark",
+        "dark": "Wallust",
     },
 
     // Turn off telemetry
