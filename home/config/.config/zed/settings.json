@@ -37,9 +37,9 @@
     },
 
     "show_edit_predictions": true,
-    "ui_font_size": 13.0,
+    "ui_font_size": 16.0,
     "ui_font_family": "JetBrainsMono Nerd Font",
-    "buffer_font_size": 13.0,
+    "buffer_font_size": 14.0,
     "buffer_font_family": "JetBrainsMono Nerd Font",
 
     // Vim mode settings
@@ -177,7 +177,7 @@
     "terminal": {
         "font_weight": 500.0,
         "font_family": "JetBrainsMono Nerd Font",
-        "font_size": 13,
+        "font_size": 14,
         "default_height": 320,
         "copy_on_select": true,
     },
