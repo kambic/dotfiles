@@ -1,5 +1,7 @@
 {
     // global AI Killswitch
+    "agent_buffer_font_size": 14.0,
+    "agent_ui_font_size": 14.0,
     "buffer_font_weight": 500.0,
     "ui_font_weight": 600.0,
     "icon_theme": "Material Icon Theme",
