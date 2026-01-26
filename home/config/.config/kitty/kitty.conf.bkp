@@ -7,7 +7,7 @@
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-font_family      Comic Mono
+font_family      mono
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
@@ -25,7 +25,7 @@ bold_italic_font auto
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 11.0
+font_size 12.0
 
 #: Font size (in pts)
 
@@ -970,7 +970,7 @@ tab_bar_margin_color none
 
 #: Advanced {{{
 
-shell .
+# shell .
 
 #: The shell program to execute. The default value of . means to use
 #: whatever shell is set as the default shell for the current user.
@@ -1082,7 +1082,7 @@ update_check_interval 24
 #: builds do not do update checking. Changing this option by reloading
 #: the config is not supported.
 
-startup_session none
+# startup_session none
 
 #: Path to a session file to use for all kitty instances. Can be
 #: overridden by using the kitty --session command line option for
@@ -1174,7 +1174,7 @@ clone_source_strategies venv,conda,env_var,path
 #: This option must be a comma separated list of the above values.
 #: This only source the first valid one in the above order.
 
-term xterm-kitty
+# term xterm-kitty
 
 #: The value of the TERM environment variable to set. Changing this
 #: can break many terminal programs, only change it if you know what
@@ -2032,17 +2032,17 @@ map shift+cmd+/ open_url https://sw.kovidgoyal.net/kitty/
 #:: OWN KEYBOARD SHORTCUTS
 
 #: better controls to reize windows
-map ctrl+left resize_window narrower
-map ctrl+right resize_window wider
-map ctrl+up resize_window taller
-map ctrl+down resize_window shorter
+# map ctrl+left resize_window narrower
+# map ctrl+right resize_window wider
+# map ctrl+up resize_window taller
+# map ctrl+down resize_window shorter
 
 # Move the active window in the indicated direction
-map shift+up move_window up
-map shift+left move_window left
-map shift+right move_window right
-map shift+down move_window down
+# map shift+up move_window up
+# map shift+left move_window left
+# map shift+right move_window right
+# map shift+down move_window down
 
 
-# include dracula.conf
-include wallust.conf
+include dracula.conf
+# include wallust.conf
