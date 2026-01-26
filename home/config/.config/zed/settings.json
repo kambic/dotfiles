@@ -1,5 +1,8 @@
 {
     // global AI Killswitch
+    "git_panel": {
+        "tree_view": true
+    },
     "agent_buffer_font_size": 14.0,
     "agent_ui_font_size": 14.0,
     "buffer_font_weight": 500.0,
