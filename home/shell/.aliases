@@ -1,7 +1,7 @@
 ################################################################################
 # Aliases for all distributions
 ################################################################################
-
+export NVIM_APPNAME="nvim-kickstart"
 ########################################
 # Aliases that add colors
 ########################################
@@ -54,9 +54,6 @@ elif grep -q -i debian $release_file; then
 else
   printf "Release file not found, could not set distro-specific aliases."
 fi
-
-
-
 
 # Development
 alias pyclean='find . -type f -name "*.py[co]" -delete -o -type d -name "__pycache__" -delete'
