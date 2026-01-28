@@ -45,15 +45,13 @@
   changed   = cyan
   untracked = red
 
-[diff]
-  tool = icdiff
+# [diff]
+#  tool = icdiff
   # colorMoved = zebra
 
 [difftool]
   prompt = false
 
-[difftool "icdiff"]
-  cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
 
 [pretty]
   custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
@@ -104,22 +102,10 @@
   graph        = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n %cd%n %cn%C(blue) (%ce) %C(cyan)[gpg:%GK %G?]%C(reset)%n %s%n"
   clone-for-worktrees = !sh /home/kamba/bin/git-clone-bare-for-worktrees.sh
 
-# URL rewrites
-[url "git@github.com:"]
-  insteadOf     = gh:
-  insteadOf     = git://github.com
-  pushInsteadOf = github:
-  pushInsteadOf = git://github.com/
-  pushInsteadOf = https://github.com/
 
-[url "git://github.com/"]
-  insteadOf = github:
-
-[url "git@gist.github.com:"]
-  insteadOf     = gst:
-  pushInsteadOf = gist:
-  pushInsteadOf = git://gist.github.com/
-  pushInsteadOf = https://gist.github.com/
-
-[url "git://gist.github.com/"]
-  insteadOf = gist:
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
