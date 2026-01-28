@@ -1,0 +1,3 @@
+[submodule "todo/Betterfox"]
+	path = todo/Betterfox
+	url = https://github.com/yokoffing/Betterfox.git

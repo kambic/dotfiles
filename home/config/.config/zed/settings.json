@@ -1,5 +1,15 @@
 {
     // global AI Killswitch
+    "toolbar": {
+        "code_actions": true
+    },
+    "minimap": {
+        "show": "auto"
+    },
+    "session": {
+        "restore_unsaved_buffers": false,
+        "trust_all_worktrees": true
+    },
     "git_panel": {
         "tree_view": true
     },
