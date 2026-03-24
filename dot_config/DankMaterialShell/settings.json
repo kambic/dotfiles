@@ -165,7 +165,18 @@
   "appLauncherViewMode": "list",
   "spotlightModalViewMode": "list",
   "browserPickerViewMode": "grid",
-  "browserUsageHistory": {},
+  "browserUsageHistory": {
+    "firefox": {
+      "count": 2,
+      "lastUsed": 1774223055533,
+      "name": "Firefox"
+    },
+    "zen": {
+      "count": 1,
+      "lastUsed": 1774223073676,
+      "name": "Zen Browser"
+    }
+  },
   "appPickerViewMode": "grid",
   "filePickerUsageHistory": {},
   "sortAppsAlphabetically": false,
