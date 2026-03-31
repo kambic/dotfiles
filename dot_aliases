@@ -2,6 +2,7 @@
 # Aliases for all distributions
 ################################################################################
 export NVIM_APPNAME="nvim"
+umask 0002
 
 alias c='clear'                                                                    # clear terminal
 alias l='eza -lh --icons=auto '                                         # long list
