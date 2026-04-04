@@ -176,10 +176,10 @@ layer-rule {
     match namespace="^quickshell$"
     place-within-backdrop true
 }
-overview {
-    workspace-shadow {
-        off
-    }
+environment {
+  QT_QPA_PLATFORM "wayland"
+  QT_QPA_PLATFORMTHEME "gtk3"
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
