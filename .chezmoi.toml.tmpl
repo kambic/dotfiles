@@ -1,3 +1,10 @@
+umask = 0o22
+
+{{ $email := promptStringOnce . "email" "What is your email address" -}}
+
+[data]
+    email = {{ $email | quote }}
+
 [merge]
     command = "meld"
     args = [
