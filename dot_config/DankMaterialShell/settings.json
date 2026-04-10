@@ -202,7 +202,18 @@
   "appLauncherViewMode": "list",
   "spotlightModalViewMode": "list",
   "browserPickerViewMode": "grid",
-  "browserUsageHistory": {},
+  "browserUsageHistory": {
+    "brave-browser": {
+      "count": 8,
+      "lastUsed": 1775763799980,
+      "name": "Brave"
+    },
+    "firefox-developer-edition": {
+      "count": 1,
+      "lastUsed": 1775759080632,
+      "name": "Firefox Developer Edition"
+    }
+  },
   "appPickerViewMode": "grid",
   "filePickerUsageHistory": {},
   "sortAppsAlphabetically": false,
@@ -415,12 +426,10 @@
       "focusAtStartup": true,
       "hotCorners": {
         "corners": [
-          "top-left",
-          "top-right",
-          "bottom-left",
-          "bottom-right"
+          "top-left"
         ]
-      }
+      },
+      "vrrOnDemand": true
     }
   },
   "hyprlandOutputSettings": {},

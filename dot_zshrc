@@ -61,25 +61,35 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo)
+plugins=(git sudo )
+
+autoload -Uz compinit promptinit
+compinit
+promptinit
+
+zstyle ':completion:*' menu select
+
+zstyle ':completion::complete:*' gain-privileges 1
 
 
 source $ZSH/oh-my-zsh.sh
 
 source $HOME/.aliases
 # User configuration
-
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
@@ -95,3 +105,30 @@ source $HOME/.aliases
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+function command_not_found_handler {
+    local purple='\e[1;35m' bright='\e[0;1m' green='\e[1;32m' reset='\e[0m'
+    printf 'zsh: command not found: %s\n' "$1"
+    local entries=(
+        ${(f)"$(/usr/bin/pacman -F --machinereadable -- "/usr/bin/$1")"}
+    )
+    if (( ${#entries[@]} ))
+    then
+        printf "${bright}$1${reset} may be found in the following packages:\n"
+        local pkg
+        for entry in "${entries[@]}"
+        do
+            # (repo package version file)
+            local fields=(
+                ${(0)entry}
+            )
+            if [[ "$pkg" != "${fields[2]}" ]]
+            then
+                printf "${purple}%s/${bright}%s ${green}%s${reset}\n" "${fields[1]}" "${fields[2]}" "${fields[3]}"
+            fi
+            printf '    /%s\n' "${fields[4]}"
+            pkg="${fields[2]}"
+        done
+    fi
+    return 127
+}
