@@ -156,8 +156,10 @@ overview {
 
 environment {
   QT_QPA_PLATFORM "wayland"
-  QT_QPA_PLATFORMTHEME "gtk3"
-  ELECTRON_OZONE_PLATFORM_HINT "auto"  
+  QT_QPA_PLATFORMTHEME "gqt6ct"
+  QT_QPA_PLATFORMTHEME_QT6 "qt6ct"
+
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
   XDG_CURRENT_DESKTOP "niri"
 }
 hotkey-overlay {
