@@ -2,9 +2,6 @@
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
-config-notification {
-    disable-failed
-}
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 
@@ -46,7 +43,7 @@ input {
         // dwtp
         // drag false
         // drag-lock
-        natural-scroll
+        // natural-scroll
         // accel-speed 0.2
         // accel-profile "flat"
         // scroll-method "two-finger"
@@ -156,7 +153,14 @@ overview {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 // This line starts waybar, a commonly used bar for Wayland compositors.
+
+
 environment {
+  QT_QPA_PLATFORM "wayland"
+  QT_QPA_PLATFORMTHEME "gqt6ct"
+  QT_QPA_PLATFORMTHEME_QT6 "qt6ct"
+
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
   XDG_CURRENT_DESKTOP "niri"
 }
 hotkey-overlay {
@@ -274,5 +278,6 @@ include "dms/alttab.kdl"
 include "dms/binds.kdl"
 include "dms/outputs.kdl"
 include "dms/cursor.kdl"
+include "dms/wpblur.kdl"
 
 include "dms/windowrules.kdl"

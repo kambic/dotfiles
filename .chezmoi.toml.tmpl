@@ -1,3 +1,25 @@
+umask = 0o02
+
+{{ $email := promptStringOnce . "email" "What is your email address" -}}
+
+[data]
+    email = {{ $email | quote }}
+
+[edit]
+    command = "code"
+    args = ["--wait"]
+
+[diff]
+    exclude = ["externals"]
+    command = "meld"
+    args = [
+               "--diff",
+        {{ printf "%q" "{{ .Destination }}" }},
+        {{ printf "%q" "{{ .Target }}" }},
+    ]
+
+
+
 [merge]
     command = "meld"
     args = [

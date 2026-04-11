@@ -381,10 +381,10 @@
   "notificationHistorySaveCritical": true,
   "notificationRules": [],
   "osdAlwaysShowValue": true,
-  "osdPosition": 2,
+  "osdPosition": 5,
   "osdVolumeEnabled": true,
   "osdMediaVolumeEnabled": true,
-  "osdMediaPlaybackEnabled": false,
+  "osdMediaPlaybackEnabled": true,
   "osdBrightnessEnabled": true,
   "osdIdleInhibitorEnabled": true,
   "osdMicMuteEnabled": true,
@@ -421,12 +421,10 @@
       "focusAtStartup": true,
       "hotCorners": {
         "corners": [
-          "top-left",
-          "top-right",
-          "bottom-left",
-          "bottom-right"
+          "top-left"
         ]
-      }
+      },
+      "vrrOnDemand": true
     }
   },
   "hyprlandOutputSettings": {},
