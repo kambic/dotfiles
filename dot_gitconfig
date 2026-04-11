@@ -1,3 +1,5 @@
 [user]
 	email = rok.kambic@gmail.com
 	name = kmc
+[safe]
+	directory = /home/kmc/export/z4g4/code/gator/alligator/.git

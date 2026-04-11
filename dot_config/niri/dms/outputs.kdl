@@ -5,5 +5,17 @@ output "DP-1" {
     scale 1
     position x=0 y=0
     focus-at-startup
+    hot-corners {
+        top-left
+        top-right
+        bottom-left
+        bottom-right
+    }
+}
+
+output "eDP-1" {
+    mode "1920x1200@60.003"
+    scale 1.25
+    position x=0 y=0
 }
 

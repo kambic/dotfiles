@@ -217,7 +217,7 @@
   "dankLauncherV2BorderColor": "primary",
   "dankLauncherV2ShowFooter": true,
   "dankLauncherV2UnloadOnClose": false,
-  "useAutoLocation": false,
+  "useAutoLocation": true,
   "weatherEnabled": true,
   "networkPreference": "auto",
   "iconTheme": "Numix",
@@ -352,7 +352,7 @@
   "lockScreenShowMediaPlayer": true,
   "lockScreenPowerOffMonitorsOnLock": false,
   "lockAtStartup": false,
-  "enableFprint": false,
+  "enableFprint": true,
   "maxFprintTries": 15,
   "enableU2f": false,
   "u2fMode": "or",
@@ -434,11 +434,20 @@
         ],
         "createdAt": 1775248089060,
         "updatedAt": 1775248089060
+      },
+      "profile_1775376607089_zw0mh9": {
+        "id": "profile_1775376607089_zw0mh9",
+        "name": "laptop",
+        "outputSet": [
+          "eDP-1"
+        ],
+        "createdAt": 1775376607089,
+        "updatedAt": 1775376607089
       }
     }
   },
   "activeDisplayProfile": {
-    "niri": "profile_1775248089060_cbh1po"
+    "niri": "profile_1775376607089_zw0mh9"
   },
   "displayProfileAutoSelect": false,
   "displayShowDisconnected": false,
