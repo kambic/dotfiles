@@ -3,3 +3,5 @@
 	name = kmc
 [safe]
 	directory = /home/kmc/export/z4g4/code/gator/alligator/.git
+[credential]
+	helper = store
