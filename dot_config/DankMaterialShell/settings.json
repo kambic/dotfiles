@@ -1,5 +1,5 @@
 {
-  "currentThemeName": "green",
+  "currentThemeName": "red",
   "currentThemeCategory": "generic",
   "customThemeFile": "",
   "registryThemeVariants": {},
@@ -8,7 +8,7 @@
   "matugenTargetMonitor": "",
   "popupTransparency": 1,
   "dockTransparency": 1,
-  "widgetBackgroundColor": "sch",
+  "widgetBackgroundColor": "s",
   "widgetColorMode": "default",
   "controlCenterTileColorMode": "primary",
   "buttonColorMode": "primary",
@@ -204,14 +204,9 @@
   "browserPickerViewMode": "grid",
   "browserUsageHistory": {
     "brave-browser": {
-      "count": 10,
-      "lastUsed": 1776182291473,
+      "count": 1,
+      "lastUsed": 1775923483311,
       "name": "Brave"
-    },
-    "firefox-developer-edition": {
-      "count": 9,
-      "lastUsed": 1776205665031,
-      "name": "Firefox Developer Edition"
     }
   },
   "appPickerViewMode": "grid",
@@ -233,7 +228,7 @@
   "networkPreference": "auto",
   "iconTheme": "Numix",
   "cursorSettings": {
-    "theme": "capitaine-cursors",
+    "theme": "capitaine-cursors-light",
     "size": 32,
     "niri": {
       "hideWhenTyping": false,
@@ -363,7 +358,7 @@
   "lockScreenShowMediaPlayer": true,
   "lockScreenPowerOffMonitorsOnLock": false,
   "lockAtStartup": false,
-  "enableFprint": false,
+  "enableFprint": true,
   "maxFprintTries": 15,
   "enableU2f": false,
   "u2fMode": "or",
@@ -443,11 +438,20 @@
         ],
         "createdAt": 1775248089060,
         "updatedAt": 1775248089060
+      },
+      "profile_1775376607089_zw0mh9": {
+        "id": "profile_1775376607089_zw0mh9",
+        "name": "laptop",
+        "outputSet": [
+          "eDP-1"
+        ],
+        "createdAt": 1775376607089,
+        "updatedAt": 1775376607089
       }
     }
   },
   "activeDisplayProfile": {
-    "niri": "profile_1775248089060_cbh1po"
+    "niri": "profile_1775376607089_zw0mh9"
   },
   "displayProfileAutoSelect": false,
   "displayShowDisconnected": false,

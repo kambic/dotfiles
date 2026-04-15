@@ -4,6 +4,6 @@
 // ! PLACE YOUR CUSTOM CONFIGURATION ELSEWHERE !
 
 cursor {
-    xcursor-theme "capitaine-cursors"
+    xcursor-theme "capitaine-cursors-light"
     xcursor-size 32
 }

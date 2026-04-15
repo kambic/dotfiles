@@ -4,10 +4,12 @@ output "DP-1" {
     mode "2560x1440@165.080"
     scale 1
     position x=0 y=0
-    variable-refresh-rate on-demand=true
     focus-at-startup
     hot-corners {
         top-left
+        top-right
+        bottom-left
+        bottom-right
     }
 }
 
