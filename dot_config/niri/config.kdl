@@ -6,7 +6,7 @@
 
 gestures {
     hot-corners {
-        off
+         top-left
     }
 }
 
@@ -69,11 +69,13 @@ input {
     }
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
-    // warp-mouse-to-focus
+    warp-mouse-to-focus
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    // focus-follows-mouse max-scroll-amount="0%"
+    focus-follows-mouse max-scroll-amount="0%"
+        // focus-follows-mouse
+
 }
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
@@ -143,20 +145,15 @@ layer-rule {
     place-within-backdrop true
 }
 overview {
-    workspace-shadow {
-        off
-    }
+        zoom 0.25
+
 }
-// Add lines like this to spawn processes at startup.
-// Note that running niri as a session supports xdg-desktop-autostart,
-// which may be more convenient to use.
-// See the binds section below for more spawn examples.
-// This line starts waybar, a commonly used bar for Wayland compositors.
+
 
 
 environment {
   QT_QPA_PLATFORM "wayland"
-  QT_QPA_PLATFORMTHEME "gqt6ct"
+  QT_QPA_PLATFORMTHEME "gt6ct"
   QT_QPA_PLATFORMTHEME_QT6 "qt6ct"
 
   ELECTRON_OZONE_PLATFORM_HINT "auto"
@@ -222,7 +219,7 @@ window-rule {
     match app-id=r#"^pavucontrol$"#
     match app-id=r#"^nm-connection-editor$"#
     default-column-width { proportion 0.5; }
-    open-floating false
+    open-floating true
 }
 window-rule {
     match app-id=r#"^gnome-calculator$"#
@@ -256,6 +253,14 @@ window-rule {
     match app-id=r#"com.danklinux.dms$"#
     open-floating true
 }
+
+window-rule {
+    match app-id="^mpv$"
+    match app-id="^gamescope$"
+
+    variable-refresh-rate true
+}
+
 debug {
     honor-xdg-activation-with-invalid-serial
 }

@@ -86,6 +86,8 @@ binds {
 
     // === Focus Navigation ===
     Mod+Left  { focus-column-left; }
+    Mod+MouseForward  { focus-column-left; }
+    Mod+MouseBack  { focus-column-right; }
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }

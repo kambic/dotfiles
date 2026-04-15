@@ -204,13 +204,13 @@
   "browserPickerViewMode": "grid",
   "browserUsageHistory": {
     "brave-browser": {
-      "count": 8,
-      "lastUsed": 1775763799980,
+      "count": 10,
+      "lastUsed": 1776182291473,
       "name": "Brave"
     },
     "firefox-developer-edition": {
-      "count": 1,
-      "lastUsed": 1775759080632,
+      "count": 9,
+      "lastUsed": 1776205665031,
       "name": "Firefox Developer Edition"
     }
   },
@@ -228,12 +228,12 @@
   "dankLauncherV2BorderColor": "primary",
   "dankLauncherV2ShowFooter": true,
   "dankLauncherV2UnloadOnClose": false,
-  "useAutoLocation": false,
+  "useAutoLocation": true,
   "weatherEnabled": true,
   "networkPreference": "auto",
   "iconTheme": "Numix",
   "cursorSettings": {
-    "theme": "breeze_cursors",
+    "theme": "capitaine-cursors",
     "size": 32,
     "niri": {
       "hideWhenTyping": false,
