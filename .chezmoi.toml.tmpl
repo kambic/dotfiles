@@ -11,19 +11,14 @@ umask = 0o02
 
 [diff]
     exclude = ["externals"]
-    command = "meld"
-    args = [
-               "--diff",
-        {{ printf "%q" "{{ .Destination }}" }},
-        {{ printf "%q" "{{ .Target }}" }},
-    ]
+    command = "delta"
 
 
 
 [merge]
     command = "meld"
     args = [
+		      "--diff",
         {{ printf "%q" "{{ .Destination }}" }},
-        {{ printf "%q" "{{ .Source }}" }},
         {{ printf "%q" "{{ .Target }}" }},
     ]
