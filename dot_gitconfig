@@ -3,8 +3,11 @@
 	name = kmc
 [push]
 	ff = on
+	autoSetupRemote = true
 [pull]
 	ff = true
 
 [credential]
 	helper = store
+[init]
+	defaultBranch = master
