@@ -1,0 +1,35 @@
+" -- GENERAL --------------------------------------------------------------- "     
+  syntax on                                                                            
+  set nomodeline                                                                                                                                                
+  set nocompatible                                                                                                                                              
+  set backspace=indent,eol,start                                                                                                                                
+  set autoindent                                                                                                                                                
+  set nobackup                                                                                                                                                  
+  set cursorline                                                                                                                                                
+  set number                                                                                                                                                    
+  set nowrap                                                                                                                                                    
+  set history=32                                                                                                                                                
+  set ignorecase                                                                                                                                                
+  set showcmd                                                                                                                                                   
+  set incsearch
+  set hlsearch
+  set tabstop=2
+  set shiftwidth=2
+  set softtabstop=2
+  set shiftwidth=2
+  set expandtab 
+  set ruler
+  set mouse-=a
+  highlight ColorColumn ctermbg=0 guibg=blue
+  let &colorcolumn="100,".join(range(100,999),",")
+  let g:indentLine_char = '¦' 
+
+" -- DISABLE ~/.viminfo FILE ----------------------------------------------- "
+  let skip_defaults_vim=1
+  set viminfo=""
+
+" -- COMMANDS -------------------------------------------------------------- "
+  command WQ wq
+  command Wq wq
+  command W  w
+  command Q  q
