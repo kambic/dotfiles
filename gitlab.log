@@ -1,0 +1,44 @@
+* remote gitlab
+  Fetch URL: git@gitlab.com:rok.kambic/dotfiles.git
+  Push  URL: git@gitlab.com:rok.kambic/dotfiles.git
+  HEAD branch: master
+  Remote branches:
+    at-adipisci-ducimus-qui-nihil               tracked
+    atque-corrupti-laboriosam-nobis-explicabo   tracked
+    aut-deleniti-est-voluptatum-repellat        tracked
+    autem-at-dolore-molestiae-et                tracked
+    autem-vitae-sequi-commodi-velit             tracked
+    clean                                       tracked
+    cumque-occaecati-veniam-qui-sit             tracked
+    dolorem-ratione-sed-illum-minima            tracked
+    dolores-sit-quos-explicabo-ut               tracked
+    doloribus-dolorem-quos-adipisci-et          tracked
+    ea-dolor-quia-et-sint                       tracked
+    et-laudantium-voluptas-quos-pariatur        tracked
+    et-non-impedit-praesentium-ex               tracked
+    et-recusandae-deleniti-voluptas-consectetur tracked
+    fugiat-libero-sit-magnam-ad                 tracked
+    inventore-temporibus-ipsum-neque-rerum      tracked
+    ipsum-consequatur-et-in-et                  tracked
+    iste-consequatur-dolor-odio-dolorum         tracked
+    laudantium-unde-et-iste-et                  tracked
+    master                                      tracked
+    modi-et-quam-sunt-consequatur               tracked
+    natus-autem-dolores-incidunt-nostrum        tracked
+    nostrum-ut-vel-voluptates-et                tracked
+    qui-in-quod-nam-voluptatem                  tracked
+    qui-quidem-animi-inventore-in               tracked
+    quisquam-dolorum-minus-non-ipsam            tracked
+    recusandae-ex-ipsam-libero-fugit            tracked
+    sapiente-et-possimus-neque-est              tracked
+    sed-sit-tempore-expedita-possimus           tracked
+    voluptatem-quas-error-et-molestiae          tracked
+    voluptatem-quia-fugit-ut-perferendis        tracked
+  Local branches configured for 'git pull':
+    clean                       merges with remote clean
+    fugiat-libero-sit-magnam-ad merges with remote fugiat-libero-sit-magnam-ad
+    master                      merges with remote master
+  Local refs configured for 'git push':
+    clean                       pushes to clean                       (up to date)
+    fugiat-libero-sit-magnam-ad pushes to fugiat-libero-sit-magnam-ad (up to date)
+    master                      pushes to master                      (local out of date)
