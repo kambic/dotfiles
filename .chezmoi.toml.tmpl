@@ -1,24 +1,24 @@
-umask = 0o02
-
-{{ $email := promptStringOnce . "email" "What is your email address" -}}
-
-[data]
-    email = {{ $email | quote }}
-
-[edit]
-    command = "code"
-    args = ["--wait"]
-
-[diff]
-    exclude = ["externals"]
-    command = "delta"
-
-
+{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $name := promptStringOnce . "name" "What is your full name" -}}
 
 [merge]
     command = "meld"
     args = [
-		      "--diff",
-        {{ printf "%q" "{{ .Destination }}" }},
-        {{ printf "%q" "{{ .Target }}" }},
+        "{{ "{{" }} .Destination {{ "}}" }}",
+        "{{ "{{" }} .Source {{ "}}" }}",
+        "{{ "{{" }} .Target {{ "}}" }}"
     ]
+
+[data]
+    name = {{ $name | quote }}
+    email = {{ $email | quote }}
+    is_work = {{ contains "work" .chezmoi.hostname }}
+    is_linux = {{ eq .chezmoi.os "linux" }}
+    is_darwin = {{ eq .chezmoi.os "darwin" }}
+
+[diff]
+    exclude = ["scripts"]
+    pager = "delta"
+
+[status]
+    exclude = ["always"]

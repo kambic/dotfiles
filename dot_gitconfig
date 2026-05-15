@@ -1,13 +1,124 @@
 [user]
-	email = rok.kambic@gmail.com
-	name = kmc
-[push]
-	ff = on
-	autoSetupRemote = true
+  name  = Rok Kambic
+  email = rok.kambic@telekom.si
+
+[credential]
+  helper = cache
+
+[init]
+  defaultBranch = master
+
 [pull]
-	ff = true
+  rebase = true
+
+[fetch]
+  prune = true
+
+[rebase]
+  autoStash = true
+
+[status]
+  short  = true
+  branch = true
+
+[commit]
+  gpgsign = false
+
+[worktree]
+  guessRemote = true
+
+[core]
+  editor = nvim
+	autocrlf = input
+
+[color]
+  ui = always
+
+[color "branch"]
+  current = cyan reverse
+  local   = yellow
+  remote  = green
+
+[color "status"]
+  added     = yellow
+  changed   = cyan
+  untracked = red
+
+# [diff]
+#  tool = icdiff
+  # colorMoved = zebra
+
+[difftool]
+  prompt = false
+
+
+[pretty]
+  custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
+  # │        │            │            │             └─ author
+  # │        │            │            └─ message
+  # │        │            └─ date (relative)
+  # │        └─ decorations
+  # └─ abbreviated hash
+
+[alias]
+  # Tracking / staging
+  show-tracked = ls-tree --name-only -r HEAD
+  stage        = add -u
+  track        = add -N
+  unstage      = reset --
+  untrack      = rm --cached
+
+  # Shortcuts
+  a   = add
+  b   = branch -vva
+  c   = commit -am
+  cs  = commit -S -am
+  cl  = clone
+  co  = checkout
+  df  = icdiff
+  dt  = difftool
+  f   = fetch --all
+  l   = log --oneline --decorate=full -n 40
+  lg  = log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  m   = merge
+  p   = push
+  r   = remote -v
+  s   = status
+  sl  = status --long
+  st  = stage
+  t   = track
+  up  = pull
+  ust = unstage
+  ut  = untrack
+
+  # Compound / shell aliases
+  aa = !"git add -u && git add ."
+  fc = "!f() { git log --pretty=format:'* %C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%cn>%Creset' --decorate --date=relative --grep=$1; }; f"
+  fs = "!f() { git log --pretty=format:'* %C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%cn>%Creset' --decorate --date=relative -S$1; }; f"
+
+  contributors = shortlog -n -s
+  remotes      = remote -v
+  graph        = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n %cd%n %cn%C(blue) (%ce) %C(cyan)[gpg:%GK %G?]%C(reset)%n %s%n"
+  clone-for-worktrees = !sh /home/kamba/bin/git-clone-bare-for-worktrees.sh
+	wta = "!f() { git worktree add -b \"$1\" \"../$1\"; }; f"
+	wtr = "!f() { git worktree remove \"../$1\"; }; f"
+	wtl = "!f() { git worktree list; }; f"
+
+
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[safe]
+	directory = /home/e-kambicr/code/gator/work
+[push]
+	autoSetupRemote = true
+[http]
+	sslVerify = false
 
 [credential]
 	helper = store
-[init]
-	defaultBranch = master
+[core]
+	autocrlf = input

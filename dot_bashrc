@@ -62,7 +62,7 @@ export FZF_DEFAULT_OPTS='--height 30% --border'
 release_file="/etc/os-release"
 if grep -q -i archlinux $release_file; then
   # fzf 0.48.0 and newer can use this
-eval "$(fzf --bash)"
+  eval "$(fzf --bash)"
 elif grep -q -i debian $release_file; then
   source /usr/share/doc/fzf/examples/key-bindings.bash
 else
@@ -75,7 +75,7 @@ fi
 #hostname=$(uname -n)
 #username=$(/usr/bin/id -un)
 #PS1="\n\${PWD}\n\${username}@\${hostname}\n> "
-PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)';
+PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'
 PS1='\n\w\n\u@\h ${PS1_CMD1}\n> '
 
 ########################################
@@ -85,4 +85,5 @@ if [ -f ~/.aliases ]; then
   . ~/.aliases
 fi
 
-umask 002
+eval "$(direnv hook bash)"
+

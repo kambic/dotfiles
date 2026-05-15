@@ -7,6 +7,14 @@ function fish_greeting
     fastfetch
 end
 
+# if status is-interactive
+#     if not set -q SSH_AUTH_SOCK
+#         eval (ssh-agent -c) >/dev/null
+#         set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
+#         set -Ux SSH_AGENT_PID $SSH_AGENT_PID
+#     end
+# end
+
 # Format man pages
 set -x MANROFFOPT -c
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
@@ -135,3 +143,5 @@ alias jctl="journalctl -p 3 -xb"
 
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+
+direnv hook fish | source

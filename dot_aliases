@@ -6,7 +6,6 @@ if [[ -z "${SSH_CONNECTION}" ]]; then
 fi
 
 export NVIM_APPNAME="nvim"
-umask 0002
 
 alias c='clear'                                                                    # clear terminal
 alias l='eza -lh --icons=auto '                                         # long list
@@ -65,7 +64,13 @@ alias lsusb="cyme"
 alias cls="clear"
 alias jc="journalctl"
 alias sc="systemctl"
+alias s='kitten ssh'
 
+alias pyclean='find . -type f -name "*.py[co]" -delete -o -type d -name "__pycache__" -delete'
+alias ipy='ipython'
+
+# Network
+alias myip='curl ifconfig.me'
 ####################
 # show disks (pretty)
 ####################
