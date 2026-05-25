@@ -1,0 +1,47 @@
+[
+    {
+        "label": "Run current file",
+        "command": "python $ZED_FILE",
+        "allow_concurrent_runs": false,
+        "use_new_terminal": false,
+        "reveal": "always",
+        "tags": ["python"],
+    },
+    {
+        "label": "Run tests",
+        "command": "python -m pytest -v",
+        "allow_concurrent_runs": false,
+        "use_new_terminal": false,
+        "reveal": "always",
+    },
+    {
+        "label": "Run tests (file)",
+        "command": "python -m pytest $ZED_FILE -v",
+        "allow_concurrent_runs": false,
+        "reveal": "always",
+    },
+    {
+        "label": "Lint (ruff)",
+        "command": "ruff check . --fix",
+        "allow_concurrent_runs": false,
+        "reveal": "always",
+    },
+    {
+        "label": "Format (ruff)",
+        "command": "ruff format .",
+        "allow_concurrent_runs": false,
+        "reveal": "on_problem",
+    },
+    {
+        "label": "Type check (pyright)",
+        "command": "pyright",
+        "allow_concurrent_runs": false,
+        "reveal": "always",
+    },
+    {
+        "label": "Install deps (uv)",
+        "command": "uv sync",
+        "allow_concurrent_runs": false,
+        "reveal": "always",
+    },
+]

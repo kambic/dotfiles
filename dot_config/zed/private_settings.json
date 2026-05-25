@@ -8,6 +8,8 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 // https://github.com/jellydn/zed-101-setup
 {
+	"buffer_line_height": "standard",
+	"buffer_font_weight": 500.0,
 	"vim_mode": false,
 	"vim": {},
 	"which_key": {
@@ -16,7 +18,7 @@
 	},
 
 	"base_keymap": "JetBrains",
-	"buffer_font_family": "Maple Mono NF",
+	"buffer_font_family": ".ZedMono",
 
 	"ui_font_size": 18.0,
 	"theme": {
@@ -35,23 +37,17 @@
 	"project_panel": {
 		"auto_fold_dirs": false,
 		"button": true,
-		"dock": "right",
+		"dock": "left",
 		"git_status": true,
 		"git_status_indicator": true,
 		"diagnostic_badges": true,
-	},
-	"outline_panel": {
-		"dock": "right",
-	},
-	"collaboration_panel": {
-		"dock": "right",
 	},
 
 	"show_signature_help_after_edits": true,
 	"auto_signature_help": true,
 	"redact_private_values": true,
 	"cli_default_open_behavior": "existing_window",
-	"show_whitespaces": "all",
+	"show_whitespaces": "none",
 	"show_edit_predictions": true,
 	"hard_tabs": true,
 	"git_panel": {
@@ -125,8 +121,6 @@
 			"program": "/usr/bin/fish",
 		},
 		"show_count_badge": true,
-		"font_size": 17.0,
-		"font_family": "Maple Mono NF",
 		"env": {
 			"EDITOR": "zed --wait",
 		},
@@ -188,7 +182,7 @@
 		"light": "Material Icon Theme",
 		"dark": "Material Icon Theme",
 	},
-	"buffer_font_size": 17.0,
+	// "buffer_font_size": 15.0,
 
 	"telemetry": {
 		"diagnostics": false,
@@ -196,79 +190,4 @@
 	},
 	"auto_update": false,
 	"proxy": "",
-	"agent_servers": {
-		"claude-acp": {
-			"type": "registry",
-		},
-		"opencode": {
-			"favorite_config_option_values": {
-				"model": ["opencode-go/glm-5.1"],
-			},
-			"type": "registry",
-		},
-		"gemini": {
-			"type": "registry",
-		},
-		"cursor": {
-			"type": "registry",
-		},
-		"codex-acp": {
-			"type": "registry",
-		},
-	},
-
-	// Use Copilot Chat AI as default
-	"agent": {
-		"default_profile": "write",
-		"favorite_models": [
-			{
-				"provider": "opencode",
-				"model": "go/minimax-m2.7",
-				"enable_thinking": false,
-			},
-			{
-				"provider": "opencode",
-				"model": "go/glm-5.1",
-				"enable_thinking": false,
-			},
-			{
-				"provider": "CrofAI",
-				"model": "kimi-k2.6",
-				"enable_thinking": false,
-			},
-			{
-				"provider": "CrofAI",
-				"model": "glm-5.1",
-				"enable_thinking": false,
-			},
-			{
-				"provider": "CrofAI",
-				"model": "deepseek-v4-pro",
-				"enable_thinking": false,
-			},
-			{
-				"provider": "opencode",
-				"model": "go/kimi-k2.6",
-				"enable_thinking": false,
-			},
-		],
-		"dock": "left",
-		"inline_assistant_model": {
-			"provider": "ollama",
-			"model": "gpt-oss:120b-cloud",
-		},
-		"default_model": {
-			"provider": "opencode",
-			"model": "free/minimax-m2.5-free",
-		},
-	},
-	// Uncomment below to use local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos
-	// "assistant": {
-	//   "default_model": {
-	//     "provider": "ollama",
-	//     "model": "llama3.1:latest"
-	//   },
-	//   "version": "2",
-	//   "provider": null
-	// },
 }
