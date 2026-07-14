@@ -8,8 +8,10 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 // https://github.com/jellydn/zed-101-setup
 {
-	"buffer_line_height": "standard",
-	"buffer_font_weight": 500.0,
+	"buffer_font_size": 14.0,
+ "restore_on_startup": "launchpad",
+ "buffer_line_height": "standard",
+	"buffer_font_weight": 450.0,
 	"vim_mode": false,
 	"vim": {},
 	"which_key": {
@@ -45,13 +47,13 @@
 
 	"show_signature_help_after_edits": true,
 	"auto_signature_help": true,
-	"redact_private_values": true,
+	"redact_private_values": false,
 	"cli_default_open_behavior": "existing_window",
 	"show_whitespaces": "none",
 	"show_edit_predictions": true,
 	"hard_tabs": true,
 	"git_panel": {
-		"tree_view": true,
+		"tree_view": false,
 		"dock": "left",
 	},
 	"relative_line_numbers": "enabled",
@@ -84,7 +86,7 @@
 		// Refer https://zed.dev/docs/languages/javascript and https://zed.dev/docs/languages/typescript for more info
 		"TypeScript": {
 			// Refer https://github.com/jellydn/ts-inlay-hints for how to setup for Neovim and VSCode
-			"show_whitespaces": "all",
+			"show_whitespaces": "selection",
 			"show_edit_predictions": true,
 			"hard_tabs": true,
 			"inlay_hints": {
@@ -99,11 +101,20 @@
 			"show_edit_predictions": true,
 			"hard_tabs": true,
 			"format_on_save": "on",
+			"tab_size": 4,
+			"hard_tabs": false,
+			"soft_wrap": "none",
 			"formatter": {
-				"language_server": {
-					"name": "ruff",
+				"external": {
+					"command": "black",
+					"arguments": ["--line-length", "88", "-"],
 				},
 			},
+			// "formatter": {
+			// 	"language_server": {
+			// 		"name": "ruff",
+			// 	},
+			// },
 			"language_servers": [
 				"ty",
 				"ruff",
