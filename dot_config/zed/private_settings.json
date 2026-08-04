@@ -8,9 +8,21 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 // https://github.com/jellydn/zed-101-setup
 {
-	"buffer_font_size": 14.0,
- "restore_on_startup": "launchpad",
- "buffer_line_height": "standard",
+	"format_on_save": "on",
+	"agent": {
+		"dock": "right",
+		"sidebar_side": "right",
+		"favorite_models": [],
+		"model_parameters": [],
+	},
+	"theme": {
+		"mode": "light",
+		"light": "One Light",
+		"dark": "One Dark",
+	},
+	"buffer_font_size": 16.0,
+	"restore_on_startup": "launchpad",
+	"buffer_line_height": "comfortable",
 	"buffer_font_weight": 450.0,
 	"vim_mode": false,
 	"vim": {},
@@ -22,12 +34,7 @@
 	"base_keymap": "JetBrains",
 	"buffer_font_family": ".ZedMono",
 
-	"ui_font_size": 18.0,
-	"theme": {
-		"mode": "light",
-		"light": "Maple Light",
-		"dark": "One Dark Pro (Maple)",
-	},
+	"ui_font_size": 15.0,
 	"autosave": "on_focus_change",
 	"colorize_brackets": true,
 	"code_lens": "on",
@@ -49,7 +56,7 @@
 	"auto_signature_help": true,
 	"redact_private_values": false,
 	"cli_default_open_behavior": "existing_window",
-	"show_whitespaces": "none",
+	"show_whitespaces": "all",
 	"show_edit_predictions": true,
 	"hard_tabs": true,
 	"git_panel": {
@@ -74,8 +81,14 @@
 	"inlay_hints": {
 		"enabled": true,
 	},
+
 	// LSP
 	"lsp": {
+		"kdl-lsp": {
+			"binary": {
+				"path": "kdl-lsp",
+			},
+		},
 		"tailwindcss-language-server": {
 			"settings": {
 				"classAttributes": ["class", "className", "ngClass", "styles"],
@@ -97,9 +110,7 @@
 			},
 		},
 		"Python": {
-			"show_whitespaces": "all",
 			"show_edit_predictions": true,
-			"hard_tabs": true,
 			"format_on_save": "on",
 			"tab_size": 4,
 			"hard_tabs": false,
@@ -123,6 +134,16 @@
 				"!pyright",
 				"!pylsp",
 			],
+		},
+		"Kdl": {
+			"language_servers": ["kdl-lsp"],
+			"format_on_save": "off",
+			"formatter": {
+				"external": {
+					"command": "kdlfmt",
+					"arguments": ["format"],
+				},
+			},
 		},
 	},
 
@@ -189,10 +210,10 @@
 		"line_numbers": true,
 	},
 	"icon_theme": {
-		"mode": "light",
-		"light": "Material Icon Theme",
-		"dark": "Material Icon Theme",
-	},
+  "mode": "light",
+  "light": "Material Icon Theme",
+  "dark": "Material Icon Theme"
+ },
 	// "buffer_font_size": 15.0,
 
 	"telemetry": {

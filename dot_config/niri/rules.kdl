@@ -1,0 +1,147 @@
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://niri-wm.github.io/niri/Configuration:-Window-Rules
+// Make inactive windows semitransparent.
+window-rule {
+    match is-active=false
+
+    opacity 0.75
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id="octopi"
+    match app-id="nwg-look"
+    match app-id="qt6ct"
+    match app-id="qt5ct"
+
+    match app-id="org.keepassxc.KeePassXC"
+
+    default-column-width { fixed 480; }
+    default-window-height { fixed 270; }
+
+    open-floating true
+}
+
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+
+// Always focus the KeePassXC-Browser unlock dialog.
+//
+// This dialog opens parented to the KeePassXC window rather than the browser,
+// so it doesn't get auto-focused by default.
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"# title="^Unlock Database - KeePassXC$"
+
+    open-focused true
+}
+
+
+
+// Don't give focus to the GIMP startup splash screen.
+window-rule {
+    match app-id="^gimp" title="^GIMP Startup$"
+
+    open-focused false
+}
+
+
+// if you use steam you will probably like these
+window-rule {
+    match app-id="steam"
+    exclude title="^[Ss]team$"
+    open-floating true
+}
+
+
+window-rule {
+    match app-id="steam" title="^notificationtoasts_\\d+_desktop$"
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
+}
+
+// Enable blur behind the Alacritty terminal.
+window-rule {
+    match app-id="^Alacritty$"
+
+    background-effect {
+        blur true
+    }
+}
+
+// Indicate screencasted windows with red colors.
+window-rule {
+    match is-window-cast-target=true
+
+    focus-ring {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+
+    border {
+        inactive-color "#7d0d2d"
+    }
+
+    shadow {
+        color "#7d0d2d70"
+    }
+
+    tab-indicator {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+}
+
+// Enable blur behind the fuzzel launcher.
+layer-rule {
+    match namespace="^launcher$"
+
+    background-effect {
+        blur true
+    }
+}
+// Enable on-demand VRR when mpv displays on the output.
+window-rule {
+	match app-id="^mpv$"
+
+    variable-refresh-rate true
+}
+
+window-rule {
+    match app-id="War Thunder.*"
+    match app-id="gamescope"
+
+    variable-refresh-rate true
+
+}
+
+// Example: a "dropdown" terminal.
+window-rule {
+    // Match by "dropdown" app ID.
+    // You need to set this app ID when running your terminal, e.g.:
+    // spawn "alacritty" "--class" "dropdown"
+    match app-id="^dropdown$"
+
+    // Open it as floating.
+    open-floating true
+    // Anchor to the top edge of the screen.
+    default-floating-position x=0 y=0 relative-to="top"
+    // Half of the screen high.
+    default-window-height { proportion 0.5; }
+    // 80% of the screen wide.
+    default-column-width { proportion 0.8; }
+}

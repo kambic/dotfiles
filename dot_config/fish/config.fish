@@ -16,8 +16,7 @@ end
 # end
 
 # Format man pages
-set -x MANROFFOPT -c
-set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+set -x MANPAGER "nvim +Man!"
 
 # Set settings for https://github.com/franciscolourenco/done
 set -U __done_min_cmd_duration 10000
@@ -130,9 +129,6 @@ alias update='sudo pacman -Syu'
 alias mirror="sudo cachyos-rate-mirrors"
 
 # Help people new to Arch
-alias apt='man pacman'
-alias apt-get='man pacman'
-alias please='sudo'
 alias tb='nc termbin.com 9999'
 
 # Cleanup orphaned packages
