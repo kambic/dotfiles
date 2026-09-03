@@ -1,0 +1,99 @@
+# --ignore-errors
+# --no-playlist
+
+# Save in ~/Videos
+-o ~/Videos/yt-dlp/%(title)s.%(ext)s
+
+# Prefer 1080p or lower resolutions
+# -f bestvideo[height<=?1080]+bestaudio/best
+
+# =========================
+# VIDEO + AUDIO QUALITY
+# =========================
+
+# Best video + best audio
+-f "bv*+ba/b"
+
+# Prefer MP4 when possible
+--merge-output-format mp4
+
+# Remux instead of re-encoding
+--remux-video mp4
+
+# =========================
+# OUTPUT TEMPLATE
+# =========================
+
+# -o "%(uploader)s/%(playlist_title|NA)s/%(upload_date>%Y-%m-%d)s - %(title)s [%(id)s].%(ext)s"
+
+# =========================
+# SUBTITLES
+# =========================
+
+# --write-subs
+# --write-auto-subs
+# --sub-langs "all,-live_chat"
+# --embed-subs
+
+# =========================
+# METADATA + THUMBNAILS
+# =========================
+
+--embed-metadata
+--embed-thumbnail
+--convert-thumbnails jpg
+--add-metadata
+
+# =========================
+# ARCHIVE
+# =========================
+
+--download-archive ~/.config/yt-dlp/archive.txt
+
+# =========================
+# SPEED / STABILITY
+# =========================
+
+--concurrent-fragments 8
+--retries infinite
+--fragment-retries infinite
+--file-access-retries infinite
+--extractor-retries infinite
+
+# Resume partial downloads
+-c
+
+# Avoid rate limiting
+--sleep-requests 1
+--sleep-interval 2
+--max-sleep-interval 5
+
+# =========================
+# FILE NAMES
+# =========================
+
+--restrict-filenames
+
+# =========================
+# PLAYLISTS
+# =========================
+
+--yes-playlist
+
+# =========================
+# MISC
+# =========================
+
+--ignore-errors
+--no-overwrites
+--continue
+
+# Save info JSON
+--write-info-json
+
+# Save description
+--write-description
+
+# Save chapters
+--embed-chapters
+
