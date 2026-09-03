@@ -1,6 +1,3 @@
-
-echo 'vv loading'
-
 function vv
     set -l cache_file ~/.cache/vv_last_nvim
 

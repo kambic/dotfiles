@@ -7,6 +7,7 @@ fi
 
 export NVIM_APPNAME="nvim"
 
+alias ffmpeg_hw="ffmpeg -hwaccel vaapi -hwaccel_device /dev/dri/renderD128 -hwaccel_output_format vaapi"
 alias c='clear'                                                                    # clear terminal
 alias l='eza -lh --icons=auto '                                         # long list
 alias ls='eza -1 --icons=auto '                                         # short list

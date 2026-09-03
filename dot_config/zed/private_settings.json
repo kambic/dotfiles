@@ -8,6 +8,14 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 // https://github.com/jellydn/zed-101-setup
 {
+	"code_lens": "on",
+	"lsp_document_colors": "background",
+	"minimap": {
+		"show": "auto",
+	},
+	"sticky_scroll": {
+		"enabled": true,
+	},
 	"format_on_save": "on",
 	"agent": {
 		"dock": "right",
@@ -18,11 +26,11 @@
 	"theme": {
 		"mode": "light",
 		"light": "One Light",
-		"dark": "One Dark",
+		"dark": "XY-Zed",
 	},
 	"buffer_font_size": 16.0,
-	"restore_on_startup": "launchpad",
-	"buffer_line_height": "comfortable",
+	"restore_on_startup": "last_session",
+	"buffer_line_height": "standard",
 	"buffer_font_weight": 450.0,
 	"vim_mode": false,
 	"vim": {},
@@ -32,12 +40,11 @@
 	},
 
 	"base_keymap": "JetBrains",
-	"buffer_font_family": ".ZedMono",
+	"buffer_font_family": "JetBrainsMono Nerd Font",
 
 	"ui_font_size": 15.0,
 	"autosave": "on_focus_change",
 	"colorize_brackets": true,
-	"code_lens": "on",
 	"toolbar": {
 		"code_actions": true,
 	},
@@ -79,16 +86,14 @@
 	// Inlay hints preconfigured by Zed: Go, Rust, Typescript and Svelte
 
 	"inlay_hints": {
+		"show_type_hints": false,
+		"show_parameter_hints": false,
+		"show_background": true,
 		"enabled": true,
 	},
 
 	// LSP
 	"lsp": {
-		"kdl-lsp": {
-			"binary": {
-				"path": "kdl-lsp",
-			},
-		},
 		"tailwindcss-language-server": {
 			"settings": {
 				"classAttributes": ["class", "className", "ngClass", "styles"],
@@ -128,7 +133,7 @@
 			// },
 			"language_servers": [
 				"ty",
-				"ruff",
+				"!ruff",
 				"!basedpyright",
 				"!pyrefly",
 				"!pyright",
@@ -173,8 +178,8 @@
 		"**/.classpath",
 		"**/.settings",
 		// above is default from Zed
-		"**/out",
-		"**/dist",
+		// "**/out",
+		// "**/dist",
 		"**/.husky",
 		"**/.turbo",
 		"**/.vscode-test",
@@ -210,10 +215,10 @@
 		"line_numbers": true,
 	},
 	"icon_theme": {
-  "mode": "light",
-  "light": "Material Icon Theme",
-  "dark": "Material Icon Theme"
- },
+		"mode": "light",
+		"light": "Material Icon Theme",
+		"dark": "Material Icon Theme",
+	},
 	// "buffer_font_size": 15.0,
 
 	"telemetry": {

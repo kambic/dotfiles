@@ -117,11 +117,13 @@
 	autoSetupRemote = true
 [http]
 	sslVerify = false
+	postBuffer = 524288000
 
 [credential]
 	helper = store
 [core]
 	autocrlf = input
+	longpaths = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
