@@ -4,144 +4,259 @@
 // Make inactive windows semitransparent.
 window-rule {
     match is-active=false
-
-    opacity 0.75
+    opacity 0.85
 }
 
-// Open the Firefox picture-in-picture player as floating by default.
+/*
+██╗    ██╗██╗███╗   ██╗██████╗  ██████╗ ██╗    ██╗    ██████╗ ██╗   ██╗██╗     ███████╗███████╗
+██║    ██║██║████╗  ██║██╔══██╗██║    ██║    ╚══╝╚══╝ ╚═╝ ╚═════╝ ╚══════╝╚══════╝
+*/
+
 window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+  match title="^(confirm)$"
+  match title="^(dupeGuru)$"
+  match title="^(notification )$"
+  match app-id="^(org.kde.dolphin)$"
+  match title="^(LACT)$"
+  match title="^(nwg-look)$"
+  match title="^(confirmreset)$"
+  match title="^(Delete profile)$"
+  match title="^File Operation Progress$"
+  match title="^Confirm to replace files$"
+  match title="^KDE Connect URL Handler$"
+  match title="^(Open File)(.*)$"
+  match title="^(Select a File)(.*)"
+  match title="^(Choose wallpaper)(.*)"
+  match title="^(Open Folder)(.*)"
+  match title="^(Save As)(.*)"
+  match title="^(Library)(.*)"
+  match title="^(File Upload)(.*)"
+  match title="^(.*-Google)$"
+  match title="(.*) - Google (.*)"
+  match app-id="^(nm-connection-editor)$"
+  match app-id="^xdm-app$"
+  match app-id="^org.qbittorrent.qBittorrent$"
+  match app-id="^org.pulseaudio.pavucontrol$"
+  match app-id="^net.davidotek.pupgui2$"
+  match app-id="org.kde.filelight"
     match app-id="octopi"
     match app-id="nwg-look"
     match app-id="qt6ct"
     match app-id="qt5ct"
 
-    match app-id="org.keepassxc.KeePassXC"
+  open-floating true
+}
 
-    default-column-width { fixed 480; }
-    default-window-height { fixed 270; }
+window-rule {
+  match app-id=r#"zen$"# title="^Picture-in-Picture$"
+  open-floating true
+}
 
-    open-floating true
+// Needed for steam, read wiki for more
+window-rule {
+  match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+  default-floating-position x=10 y=10 relative-to="bottom-right"
+}
+
+window-rule {
+  match app-id="steam" title="Sign in to Steam"
+  open-focused false
+}
+
+window-rule {
+  match app-id="dev.zed.Zed"
+  open-maximized true
+  open-maximized-to-edges true
+}
+
+window-rule {
+  match app-id=r#"^org\.keepassxc\.KeePassXC$"# title="^Unlock Database - KeePassXC$"
+  open-focused true
+}
+
+window-rule {
+  match app-id="^(org.telegram.desktop|zen|vesktop|thunar|obsidian|com.github.th.youtube-music|Postman|Spotify|Element)$"
+  open-maximized true
+}
+
+window-rule {
+  match app-id="mpv"
+  open-floating true
+  default-window-height { fixed 800; }
+}
+
+window-rule {
+  geometry-corner-radius 4
+  clip-to-geometry true
+}
+
+/*
+[[ App Rules ]]
+*/
+
+window-rule {
+  draw-border-with-background false
+  match app-id="kitty$"
+  match app-id="com.mitchellh.ghostty$"
+  opacity 0.97
+}
+
+binds {
+    // Core Noctalia binds
+    Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+S { spawn-sh "noctalia msg settings-toggle"; }
+
+    // Audio & Brightness
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
+    XF86AudioMute allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "noctalia msg brightness-up"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
+}
+
+window-rule {
+  // Rounded corners for a modern look.
+  geometry-corner-radius 20
+
+  // Clips window contents to the rounded corner boundaries.
+  clip-to-geometry true
+}
+
+// Floating Noctalia settings window.
+window-rule {
+  match app-id="dev.noctalia.Noctalia"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
+}
+
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
+
+// Option 1: Blurred Overview Wallpaper
+layer-rule {
+  match namespace="^noctalia-backdrop"
+  place-within-backdrop true
+}
+
+// Blur noctalia
+
+/* Apps: blur them all without xray so it looks more realistic. */
+window-rule {
+  background-effect {
+    blur true
+    xray false
+  }
+}
+
+/* Noctalia
+  Disable xray on all our surfaces so it looks more realistic.
+  Noctalia publishes blur regions automatically when ext-background-effects is available.
+*/
+layer-rule {
+  match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+  background-effect {
+    xray false
+    // blur false
+  }
+}
+
+/* You can also fine-tune the blur effect globally. */
+blur {
+  passes 2        // more passes = stronger blur (default: 3)
+  offset 3.0      // sample distance per pass (default: 3.0)
+  noise 0.03      // grain overlay (default: 0.02)
+  saturation 1.0  // color saturation boost (default: 1.5)
+}
+
+window-rule {
+  match app-id="^(octopi|nwg-look|qt6ct|qt5ct)$"
+  match app-id="^org.keepassxc.KeePassXC$"
+  match app-id="mediainfo-gui$"
+  default-column-width { fixed 480; }
+  open-floating true
 }
 
 // Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
 window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
-    block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
-}
-
-
-// Always focus the KeePassXC-Browser unlock dialog.
-//
-// This dialog opens parented to the KeePassXC window rather than the browser,
-// so it doesn't get auto-focused by default.
-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"# title="^Unlock Database - KeePassXC$"
-
-    open-focused true
-}
-
-
-
-// Don't give focus to the GIMP startup splash screen.
-window-rule {
-    match app-id="^gimp" title="^GIMP Startup$"
-
-    open-focused false
-}
-
-
-// if you use steam you will probably like these
-window-rule {
-    match app-id="steam"
-    exclude title="^[Ss]team$"
-    open-floating true
-}
-
-
-window-rule {
-    match app-id="steam" title="^notificationtoasts_\\d+_desktop$"
-    default-floating-position x=10 y=10 relative-to="bottom-right"
-    open-focused false
-}
-
-// Enable blur behind the Alacritty terminal.
-window-rule {
-    match app-id="^Alacritty$"
-
-    background-effect {
-        blur true
-    }
-}
-
-// Indicate screencasted windows with red colors.
-window-rule {
-    match is-window-cast-target=true
-
-    focus-ring {
-        active-color "#f38ba8"
-        inactive-color "#7d0d2d"
-    }
-
-    border {
-        inactive-color "#7d0d2d"
-    }
-
-    shadow {
-        color "#7d0d2d70"
-    }
-
-    tab-indicator {
-        active-color "#f38ba8"
-        inactive-color "#7d0d2d"
-    }
-}
-
-// Enable blur behind the fuzzel launcher.
-layer-rule {
-    match namespace="^launcher$"
-
-    background-effect {
-        blur true
-    }
-}
-// Enable on-demand VRR when mpv displays on the output.
-window-rule {
-	match app-id="^mpv$"
-
-    variable-refresh-rate true
-}
-
-window-rule {
-    match app-id="War Thunder.*"
-    match app-id="gamescope"
-
-    variable-refresh-rate true
-
+  match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+  match app-id=r#"^org\.gnome\.World\.Secrets$"#
+  block-out-from "screen-capture"
 }
 
 // Example: a "dropdown" terminal.
 window-rule {
-    // Match by "dropdown" app ID.
-    // You need to set this app ID when running your terminal, e.g.:
-    // spawn "alacritty" "--class" "dropdown"
-    match app-id="^dropdown$"
+  // Match by "dropdown" app ID.
+  // You need to set this app ID when running your terminal, e.g.:
+  // spawn "alacritty" "--class" "dropdown"
+  match app-id="^dropdown$"
 
-    // Open it as floating.
-    open-floating true
-    // Anchor to the top edge of the screen.
-    default-floating-position x=0 y=0 relative-to="top"
-    // Half of the screen high.
-    default-window-height { proportion 0.5; }
-    // 80% of the screen wide.
-    default-column-width { proportion 0.8; }
+  // Open it as floating.
+  open-floating true
+  // Anchor to the top edge of the screen.
+  default-floating-position x=0 y=0 relative-to="top"
+  // Half of the screen high.
+  default-window-height { proportion 0.5; }
+  // 80% of the screen wide.
+  default-column-width { proportion 0.8; }
+}
+
+// Enable on-demand VRR when mpv displays on the output.
+window-rule {
+  match app-id="^mpv$"
+  variable-refresh-rate true
+}
+
+// Example: a "dropdown" terminal.
+window-rule {
+  // Match by "dropdown" app ID.
+  // You need to set this app ID when running your terminal, e.g.:
+  // spawn "alacritty" "--class" "dropdown"
+  match app-id="^dropdown$"
+
+  // Open it as floating.
+  open-floating true
+  // Anchor to the top edge of the screen.
+  default-floating-position x=0 y=0 relative-to="top"
+  // Half of the screen high.
+  default-window-height { proportion 0.5; }
+  // 80% of the screen wide.
+  default-column-width { proportion 0.8; }
+}
+
+// Enable blur behind the Alacritty terminal.
+window-rule {
+  match app-id="^Alacritty$"
+  background-effect {
+    blur true
+  }
+}
+
+// Indicate screencasted windows with red colors.
+window-rule {
+  match is-window-cast-target=true
+  focus-ring {
+    active-color "#f38ba8"
+    inactive-color "#7d0d2d"
+  }
+  border {
+    inactive-color "#7d0d2d"
+  }
+  shadow {
+    color "#7d0d2d70"
+  }
+  tab-indicator {
+    active-color "#f38ba8"
+    inactive-color "#7d0d2d"
+  }
+}
+
+// Enable blur behind the fuzzel launcher.
+layer-rule {
+  match namespace="^launcher$"
+  background-effect {
+    blur true
+  }
 }

@@ -4,9 +4,22 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/usr/share/oh-my-zsh"
 export MANPAGER="nvim +Man!"
-
+export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 # Uncomment the following line if pasting URLs and other text is messed up.
 DISABLE_MAGIC_FUNCTIONS="true"
+
+### PATH
+if [ -d "$HOME/bin" ]; then
+	PATH="$HOME/bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ]; then
+	PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [ -d "/opt/rocm/bin" ]; then
+	PATH="/opt/rocm/bin:$PATH"
+fi
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="false"
@@ -90,7 +103,13 @@ export FZF_BASE=/usr/share/fzf
 if [[ -z "${SSH_CONNECTION}" ]]; then
     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
-
+colorscript random
+### FZF ###
+# Enables the following keybindings:
+# CTRL-t = fzf select
+# CTRL-r = fzf history
+# ALT-c  = fzf cd
+source <(fzf --zsh)
 # eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 
@@ -103,3 +122,5 @@ zstyle ':completion:*' menu select
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/kamba/.lmstudio/bin"
 # End of LM Studio CLI section
+
+
